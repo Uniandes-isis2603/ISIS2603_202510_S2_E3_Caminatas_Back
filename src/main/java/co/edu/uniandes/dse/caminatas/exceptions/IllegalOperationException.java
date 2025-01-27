@@ -21,7 +21,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-package co.edu.uniandes.dse.ZZZ.exceptions;
+package co.edu.uniandes.dse.caminatas.exceptions;
 
 /*
  * Excepción que se lanza cuando se realiza una operación ilegal
