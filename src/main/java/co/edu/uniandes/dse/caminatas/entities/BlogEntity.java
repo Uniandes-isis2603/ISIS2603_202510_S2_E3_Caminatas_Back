@@ -5,6 +5,7 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import lombok.Data;
 import java.io.File;
+import java.util.List;
 
 @Entity
 @Data
@@ -18,5 +19,5 @@ public class BlogEntity extends BaseEntity {
     private CaminanteEntity caminante;
 
     @ManyToMany
-    private CaminanteEntity caminantes;
+    private List<CaminanteEntity> caminantes;
 }
