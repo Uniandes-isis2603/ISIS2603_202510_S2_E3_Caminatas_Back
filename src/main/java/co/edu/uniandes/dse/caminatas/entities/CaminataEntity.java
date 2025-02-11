@@ -26,7 +26,4 @@ public class CaminataEntity extends BaseEntity{
     @OneToOne 
     private PagoEntity pago;
 
-    @ManyToOne
-    private PatrocinadorEntity patrocinador;
-
 }
