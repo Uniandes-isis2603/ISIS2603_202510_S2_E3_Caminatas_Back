@@ -11,7 +11,7 @@ import jakarta.persistence.OneToMany;
 @Entity
 @Data
 
-public class PagoEntity {
+public class PagoEntity extends BaseEntity{
     private float costoTotal;
     private Date fecha;
     private String medioPago;

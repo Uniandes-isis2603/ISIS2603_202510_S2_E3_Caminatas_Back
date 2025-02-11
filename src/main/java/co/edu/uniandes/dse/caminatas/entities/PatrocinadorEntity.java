@@ -8,7 +8,7 @@ import lombok.Data;
 
 @Entity
 @Data
-public class PatrocinadorEntity {
+public class PatrocinadorEntity extends BaseEntity {
 
     private Long id;
     private String nombre;
