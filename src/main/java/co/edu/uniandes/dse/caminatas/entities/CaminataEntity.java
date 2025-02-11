@@ -20,7 +20,10 @@ public class CaminataEntity extends BaseEntity{
     private String ciudad;
     private float duracionEstimadaMinutos;
     
-    @OneToOne
+    @ManyToOne
+    private PatrocinadorEntity patrocinador;
+
+    @OneToOne 
     private PagoEntity pago;
 
     @ManyToOne

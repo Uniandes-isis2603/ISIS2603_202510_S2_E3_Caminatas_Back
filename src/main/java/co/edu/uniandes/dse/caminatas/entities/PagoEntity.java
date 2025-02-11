@@ -5,8 +5,10 @@ import lombok.Data;
 import java.util.Date;
 import java.util.List;
 
+import co.edu.uniandes.dse.caminatas.repositories.CaminataRepository;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 
 @Entity
 @Data
@@ -30,4 +32,7 @@ public class PagoEntity extends BaseEntity{
 
     @OneToMany(mappedBy = "pago")
     private List<SeguroEntity> seguros;
+
+    @OneToOne
+    private CaminataRepository caminata;
 }

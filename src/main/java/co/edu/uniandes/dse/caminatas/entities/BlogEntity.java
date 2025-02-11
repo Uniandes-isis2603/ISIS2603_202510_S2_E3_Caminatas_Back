@@ -1,6 +1,7 @@
 package co.edu.uniandes.dse.caminatas.entities;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import lombok.Data;
 import java.io.File;
@@ -15,4 +16,7 @@ public class BlogEntity extends BaseEntity {
 
     @ManyToOne
     private CaminanteEntity caminante;
+
+    @ManyToMany
+    private CaminanteEntity caminantes;
 }
