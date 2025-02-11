@@ -8,6 +8,7 @@ import lombok.Data;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 
 @Data
 @Entity
@@ -31,5 +32,8 @@ public class CaminanteEntity extends BaseEntity
     
     @OneToMany(mappedBy = "caminante")
     private List<BlogEntity> blogsCreados;
+
+    @OneToOne
+    private CaminataCompetenciaEntity caminataCompetencia;
 }
 
