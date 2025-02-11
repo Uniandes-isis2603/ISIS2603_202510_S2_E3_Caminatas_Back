@@ -1,11 +1,13 @@
 package co.edu.uniandes.dse.caminatas.entities;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import lombok.Data;
+
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import co.edu.uniandes.dse.caminatas.repositories.CaminataRepository;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
@@ -30,9 +32,9 @@ public class PagoEntity extends BaseEntity{
     @ManyToOne
     private CaminanteEntity caminante;
 
-    @OneToMany(mappedBy = "pago")
-    private List<SeguroEntity> seguros;
+    @OneToMany(mappedBy = "pago", cascade = CascadeType.PERSIST, orphanRemoval = true)
+    private List<SeguroEntity> seguros = new ArrayList<>();
 
     @OneToOne
-    private CaminataRepository caminata;
+    private CaminataEntity caminata;
 }

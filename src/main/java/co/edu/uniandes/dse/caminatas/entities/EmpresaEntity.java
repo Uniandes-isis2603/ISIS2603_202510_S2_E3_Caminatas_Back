@@ -1,10 +1,10 @@
 package co.edu.uniandes.dse.caminatas.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.IdClass;
 import lombok.Data;
 
 @Entity
@@ -15,7 +15,7 @@ public class EmpresaEntity extends BaseEntity {
     private int documento;
     private String correo;
 
-    @OneToMany(mappedBy = "empresa")
-    private List<PagoEntity> pagos;
+    @OneToMany(mappedBy = "empresa", cascade = CascadeType.PERSIST, orphanRemoval = true)
+    private List<PagoEntity> pagos = new ArrayList<>();
 
 }

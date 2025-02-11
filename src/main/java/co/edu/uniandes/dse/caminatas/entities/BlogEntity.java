@@ -5,6 +5,7 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import lombok.Data;
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -18,6 +19,6 @@ public class BlogEntity extends BaseEntity {
     @ManyToOne
     private CaminanteEntity caminante;
 
-    @ManyToMany
-    private List<CaminanteEntity> caminantes;
+    @ManyToMany(mappedBy = "blogsInteractuados")
+    private List<CaminanteEntity> caminantesInteracciones = new ArrayList<>();
 }

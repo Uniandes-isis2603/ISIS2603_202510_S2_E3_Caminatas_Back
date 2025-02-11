@@ -1,12 +1,13 @@
 package co.edu.uniandes.dse.caminatas.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import lombok.Data;
 
 import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 
@@ -15,7 +16,7 @@ import jakarta.persistence.OneToOne;
 public class CaminanteEntity extends BaseEntity
 {
     private String nombre;
-    private int documento;
+    private String documento;
     private String correo;
     private String telefono;
     private String direccion; 
@@ -24,14 +25,14 @@ public class CaminanteEntity extends BaseEntity
     private boolean lesion;
     private boolean problemasRes;
     
-    @OneToMany(mappedBy = "caminante")
-    private List<PagoEntity> pagos;
+    @OneToMany(mappedBy = "caminante", cascade = CascadeType.PERSIST, orphanRemoval = true)
+    private List<PagoEntity> pagos = new ArrayList<>();
 
     @ManyToMany
-    private List<BlogEntity> blogsInteractuados;
+    private List<BlogEntity> blogsInteractuados = new ArrayList<>();
     
-    @OneToMany(mappedBy = "caminante")
-    private List<BlogEntity> blogsCreados;
+    @OneToMany(mappedBy = "caminante", cascade = CascadeType.PERSIST, orphanRemoval = true)
+    private List<BlogEntity> blogsCreados = new ArrayList<>();
 
     @OneToOne
     private CaminataCompetenciaEntity caminataCompetencia;

@@ -10,5 +10,5 @@ import co.edu.uniandes.dse.caminatas.entities.CaminataEntity;
 
 @Repository
 public interface CaminataRepository extends JpaRepository<CaminataEntity, Long> {
-    List<CaminataEntity> findByPatrocinador(PatrocinadorEntity patrocinador);
+    
 }
