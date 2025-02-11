@@ -4,6 +4,7 @@ import java.time.LocalTime;
 import java.util.Date;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import lombok.Data;
 
@@ -21,5 +22,8 @@ public class CaminataEntity extends BaseEntity{
     
     @OneToOne
     private PagoEntity pago;
+
+    @ManyToOne
+    private PatrocinadorEntity patrocinador;
 
 }
