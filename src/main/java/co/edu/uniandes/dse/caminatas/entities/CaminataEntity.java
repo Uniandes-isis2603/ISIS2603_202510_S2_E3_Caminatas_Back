@@ -4,6 +4,7 @@ import java.time.LocalTime;
 import java.util.Date;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.OneToOne;
 import lombok.Data;
 
 @Data
@@ -17,4 +18,8 @@ public class CaminataEntity extends BaseEntity{
     private String departamento;
     private String ciudad;
     private float duracionEstimadaMinutos;
+    
+    @OneToOne
+    private PagoEntity pago;
+
 }
