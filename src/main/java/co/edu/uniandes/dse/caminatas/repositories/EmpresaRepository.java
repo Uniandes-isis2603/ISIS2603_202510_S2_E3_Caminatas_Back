@@ -10,5 +10,5 @@ import co.edu.uniandes.dse.caminatas.entities.EmpresaEntity;
 @Repository
 public interface EmpresaRepository extends JpaRepository<EmpresaEntity, Long> 
 {
-	List<EmpresaEntity> findByNombre(String nombre);
+	List<EmpresaEntity> findByDocumento(int documento);;
 }

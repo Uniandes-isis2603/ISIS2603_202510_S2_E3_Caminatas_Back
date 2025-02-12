@@ -5,10 +5,9 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import co.edu.uniandes.dse.caminatas.entities.CaminanteEntity;
 import co.edu.uniandes.dse.caminatas.entities.PagoEntity;
 
 @Repository
 public interface PagoRepository extends JpaRepository<PagoEntity, Long> {
-    List<PagoEntity> findByCaminante(CaminanteEntity caminante);
+    List<PagoEntity> findByNumeroTransaccion(int numeroTransaccion);
 }

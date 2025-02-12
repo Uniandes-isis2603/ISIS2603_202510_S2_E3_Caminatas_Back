@@ -11,7 +11,7 @@ import lombok.Data;
 @Data
 @Entity
 public class CaminataEntity extends BaseEntity{
-    
+    private int numero;
     private String titulo;
     private String tipo;
     private Date fecha;

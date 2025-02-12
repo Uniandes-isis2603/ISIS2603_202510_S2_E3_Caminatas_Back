@@ -16,6 +16,7 @@ import jakarta.persistence.OneToOne;
 @Data
 
 public class PagoEntity extends BaseEntity{
+    private int numeroTransaccion;
     private float costoTotal;
     private Date fecha;
     private String medioPago;

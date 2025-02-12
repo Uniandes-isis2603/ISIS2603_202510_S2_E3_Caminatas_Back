@@ -9,5 +9,5 @@ import co.edu.uniandes.dse.caminatas.entities.CaminanteEntity;
 
 @Repository
 public interface CaminanteRepository extends JpaRepository<CaminanteEntity, Long> {
-    List<CaminanteEntity> findByNombre(String nombre);
+    List<CaminanteEntity> findByDocumento(String documento);
 }
