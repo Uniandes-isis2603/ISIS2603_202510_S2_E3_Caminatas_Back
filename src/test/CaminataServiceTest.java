@@ -9,8 +9,7 @@ public class CaminataServiceTest
     @DataJpaTest
     @Transactional
     @Import(CaminataService.class)
-    public class CaminataServiceTest 
-    {
+
         @Autowired
         private CaminataService caminataService;
 
@@ -298,4 +297,4 @@ public class CaminataServiceTest
 
     }
 
-}
+
