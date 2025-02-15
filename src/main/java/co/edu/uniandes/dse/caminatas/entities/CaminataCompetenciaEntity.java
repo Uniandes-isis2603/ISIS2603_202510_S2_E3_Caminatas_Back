@@ -6,7 +6,8 @@ import lombok.Data;
 
 @Data
 @Entity
-public class CaminataCompetenciaEntity extends CaminataEntity {
+public class CaminataCompetenciaEntity extends CaminataEntity 
+{
     private int numero;
     private String condicionesParticipacion;
     private String premios;
