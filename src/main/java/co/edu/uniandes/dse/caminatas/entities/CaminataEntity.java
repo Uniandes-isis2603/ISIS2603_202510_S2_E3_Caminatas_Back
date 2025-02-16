@@ -1,10 +1,15 @@
 package co.edu.uniandes.dse.caminatas.entities;
 
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import lombok.Data;
 
@@ -21,10 +26,17 @@ public class CaminataEntity extends BaseEntity
     private String ciudad;
     private float duracionEstimadaMinutos;
     
-    /*@ManyToOne
-    private PatrocinadorEntity patrocinador;*/
 
-    @OneToOne(mappedBy = "caminata", cascade = CascadeType.ALL, orphanRemoval = true)
-    private PagoEntity pago;
+    @OneToMany(mappedBy = "caminata", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<PagoEntity> pagos = new ArrayList<>();
+
+    @ManyToMany(mappedBy = "caminatas")
+    private List<CaminanteEntity> caminantes = new ArrayList<>();
+
+    @ManyToOne
+    private EmpresaEntity empresa;
+
+    @OneToOne
+    private SeguroEntity seguro;
 
 }

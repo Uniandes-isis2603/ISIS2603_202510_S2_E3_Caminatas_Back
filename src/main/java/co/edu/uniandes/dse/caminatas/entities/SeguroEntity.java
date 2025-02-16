@@ -1,7 +1,7 @@
 package co.edu.uniandes.dse.caminatas.entities;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import lombok.Data;
 
 @Entity
@@ -14,7 +14,7 @@ public class SeguroEntity extends BaseEntity {
     private String condiciones;
     private float costo;
     
-    @ManyToOne
-    private PagoEntity pago;
+    @OneToOne(mappedBy = "seguro")
+    private CaminataEntity caminata;
 
 }

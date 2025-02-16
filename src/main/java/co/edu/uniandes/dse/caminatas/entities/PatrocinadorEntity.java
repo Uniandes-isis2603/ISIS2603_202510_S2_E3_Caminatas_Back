@@ -18,6 +18,6 @@ public class PatrocinadorEntity extends BaseEntity {
     private String correo;
     private String telefono;
 
-    @OneToMany(mappedBy = "patrocinador", cascade = CascadeType.PERSIST, orphanRemoval = true)
+    @OneToMany(mappedBy = "patrocinador", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<CaminataCompetenciaEntity> caminatasCompetencia = new ArrayList<>();
 }
