@@ -15,7 +15,10 @@ public class EmpresaEntity extends BaseEntity {
     private int documento;
     private String correo;
 
-    @OneToMany(mappedBy = "empresa", cascade = CascadeType.PERSIST, orphanRemoval = true)
+    @OneToMany(mappedBy = "empresa", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<PagoEntity> pagos = new ArrayList<>();
+
+    @OneToMany(mappedBy = "empresa", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<CaminataEntity> caminatas = new ArrayList<>();
 
 }

@@ -9,7 +9,6 @@ import lombok.Data;
 
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
 
 @Data
 @Entity
@@ -25,16 +24,16 @@ public class CaminanteEntity extends BaseEntity
     private boolean lesion;
     private boolean problemasRes;
     
-    @OneToMany(mappedBy = "caminante", cascade = CascadeType.PERSIST, orphanRemoval = true)
+    @OneToMany(mappedBy = "caminante", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<PagoEntity> pagos = new ArrayList<>();
 
     @ManyToMany
     private List<BlogEntity> blogsInteractuados = new ArrayList<>();
     
-    @OneToMany(mappedBy = "caminante", cascade = CascadeType.PERSIST, orphanRemoval = true)
+    @OneToMany(mappedBy = "caminante", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<BlogEntity> blogsCreados = new ArrayList<>();
 
-    @OneToOne
-    private CaminataCompetenciaEntity caminataCompetencia;
+    @ManyToMany
+    private List<CaminataEntity> caminatas = new ArrayList<>();
 }
 

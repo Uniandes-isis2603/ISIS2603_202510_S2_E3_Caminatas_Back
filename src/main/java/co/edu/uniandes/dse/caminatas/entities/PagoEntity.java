@@ -1,6 +1,5 @@
 package co.edu.uniandes.dse.caminatas.entities;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import lombok.Data;
 import uk.co.jemos.podam.common.PodamExclude;
@@ -8,13 +7,8 @@ import uk.co.jemos.podam.common.PodamFloatValue;
 import uk.co.jemos.podam.common.PodamIntValue;
 import uk.co.jemos.podam.common.PodamStringValue;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
-
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
 
 @Entity
 @Data
