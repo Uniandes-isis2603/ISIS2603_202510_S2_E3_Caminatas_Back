@@ -9,5 +9,5 @@ import co.edu.uniandes.dse.caminatas.entities.PagoEntity;
 
 @Repository
 public interface PagoRepository extends JpaRepository<PagoEntity, Long> {
-    List<PagoEntity> findByNumeroTransaccion(int numeroTransaccion);
+    List<PagoEntity> findByNumeroTransaccion(String numeroTransaccion);
 }
