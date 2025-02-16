@@ -79,7 +79,7 @@ public class CaminataService {
     }
 
     /**
-     * Devuelve todos los libros que hay en la base de datos. 
+     * Devuelve todos las caminatas que hay en la base de datos. 
      */
     @Transactional
     public List<CaminataEntity> getCaminatas() {
