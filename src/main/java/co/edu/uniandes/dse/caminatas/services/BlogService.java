@@ -57,7 +57,6 @@ public class BlogService {
         if (blog.getText() == null || blog.getText().isEmpty()) {
             throw new IllegalOperationException("El texto del blog no puede ser vacío");
         }
-        // No se validan las fotos o videos pues pueden ser de tipo null
     }
 }
 
