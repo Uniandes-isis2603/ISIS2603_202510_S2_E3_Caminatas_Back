@@ -9,5 +9,5 @@ import co.edu.uniandes.dse.caminatas.entities.SeguroEntity;
 
 @Repository
 public interface SeguroRepository extends JpaRepository<SeguroEntity, Long> {
-    List<SeguroEntity> findByNumero(int numero);;
+    List<SeguroEntity> findByNumero(int numero);
 }
