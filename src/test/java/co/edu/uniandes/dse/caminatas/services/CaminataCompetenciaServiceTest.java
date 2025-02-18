@@ -20,6 +20,7 @@ import uk.co.jemos.podam.api.PodamFactory;
 import uk.co.jemos.podam.api.PodamFactoryImpl;
 
 import co.edu.uniandes.dse.caminatas.entities.CaminataCompetenciaEntity;
+import co.edu.uniandes.dse.caminatas.entities.PatrocinadorEntity;
 import co.edu.uniandes.dse.caminatas.exceptions.EntityNotFoundException;
 import co.edu.uniandes.dse.caminatas.exceptions.IllegalOperationException;
 import jakarta.transaction.Transactional;
@@ -64,7 +65,13 @@ public class CaminataCompetenciaServiceTest
         void testCreateCaminataCompetencia() throws EntityNotFoundException, IllegalOperationException
         {
 
+            PatrocinadorEntity patrocinador = new PatrocinadorEntity();
+            patrocinador.setNombre("Patrocinador Ejemplo");
+            patrocinador = entityManager.persist(patrocinador);
+
+
             CaminataCompetenciaEntity caminataCompetencia = factory.manufacturePojo(CaminataCompetenciaEntity.class);
+            caminataCompetencia.setPatrocinador(patrocinador); // Asigna el patrocinador
             caminataCompetencia.setDepartamento("Antioquia");
 
             Calendar calendario = Calendar.getInstance();
@@ -73,7 +80,6 @@ public class CaminataCompetenciaServiceTest
 
             LocalTime hora = LocalTime.now().plusHours(1); 
             caminataCompetencia.setHora(hora);
-
 
             CaminataCompetenciaEntity result = caminataCompetenciaService.CreateCompetencia(caminataCompetencia);
             assertNotNull(result);
