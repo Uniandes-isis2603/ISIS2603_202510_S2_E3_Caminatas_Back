@@ -34,11 +34,6 @@ public class CaminataCompetenciaService
             throw new IllegalOperationException("El título de la caminata no puede ser nulo o vacío.");
         }
 
-        if(caminataCompetencia.getId() == null || caminataCompetencia.getId() == 0 || caminataCompetenciaRepository.existsById(caminataCompetencia.getId()))
-        {
-            throw new IllegalOperationException("El id de la caminata no puede ser nulo o cero y debe ser único a cada caminata.");
-        }
-
         if(caminataCompetencia.getTipo() == "" || caminataCompetencia.getTipo() == null)
         {
             throw new IllegalOperationException("El tipo de la caminata no puede ser nulo o vacío.");

@@ -6,7 +6,7 @@ import java.util.List;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import lombok.Data;
-
+import uk.co.jemos.podam.common.PodamExclude;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 
@@ -24,15 +24,19 @@ public class CaminanteEntity extends BaseEntity
     private boolean lesion;
     private boolean problemasRes;
     
+    @PodamExclude
     @OneToMany(mappedBy = "caminante", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<PagoEntity> pagos = new ArrayList<>();
 
+    @PodamExclude
     @ManyToMany
     private List<BlogEntity> blogsInteractuados = new ArrayList<>();
     
+    @PodamExclude
     @OneToMany(mappedBy = "caminante", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<BlogEntity> blogsCreados = new ArrayList<>();
 
+    @PodamExclude
     @ManyToMany
     private List<CaminataEntity> caminatas = new ArrayList<>();
 }

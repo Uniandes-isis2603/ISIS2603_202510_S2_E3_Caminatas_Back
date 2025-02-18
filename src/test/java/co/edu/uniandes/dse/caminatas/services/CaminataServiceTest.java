@@ -1,14 +1,34 @@
 package co.edu.uniandes.dse.caminatas.services;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
+import org.springframework.context.annotation.Import;
 
+import co.edu.uniandes.dse.caminatas.entities.CaminataEntity;
+import co.edu.uniandes.dse.caminatas.exceptions.EntityNotFoundException;
+import co.edu.uniandes.dse.caminatas.exceptions.IllegalOperationException;
 import jakarta.transaction.Transactional;
+import uk.co.jemos.podam.api.PodamFactory;
+import uk.co.jemos.podam.api.PodamFactoryImpl;
 
+@DataJpaTest
+@Transactional
+@Import(CaminataService.class)
 public class CaminataServiceTest 
 {
-    @DataJpaTest
-    @Transactional
-    @Import(CaminataService.class)
 
         @Autowired
         private CaminataService caminataService;
@@ -17,6 +37,8 @@ public class CaminataServiceTest
         private TestEntityManager entityManager;
 
         private List<CaminataEntity> caminatasList = new ArrayList<>();
+
+         private PodamFactory factory = new PodamFactoryImpl();
 
         @BeforeEach
         void setUp()
@@ -33,16 +55,27 @@ public class CaminataServiceTest
         private void insertData()
         {
             CaminataEntity caminataEntity = factory.manufacturePojo(CaminataEntity.class);
-            entityManager.persist(camiantaEntity);
-            caminatasList.add(camiantaEntity);
+            entityManager.persist(caminataEntity);
+            caminatasList.add(caminataEntity);
         }
 
         @Test
         void testCreateCaminata() throws EntityNotFoundException, IllegalOperationException
         {
+            
             CaminataEntity caminata = factory.manufacturePojo(CaminataEntity.class);
+            caminata.setDepartamento("Antioquia");
+
+            Calendar calendario = Calendar.getInstance();
+            calendario.add(Calendar.DAY_OF_YEAR, 1);
+            caminata.setFecha(calendario.getTime());
+
+            LocalTime hora = LocalTime.now().plusHours(1); 
+            caminata.setHora(hora);
             CaminataEntity result = caminataService.createCaminata(caminata);
             assertNotNull(result);
+        
+
             CaminataEntity entity = entityManager.find(CaminataEntity.class, result.getId());
             assertNotNull(entity);
             assertEquals(caminata.getId(), entity.getId());
@@ -107,7 +140,7 @@ public class CaminataServiceTest
             assertThrows(IllegalOperationException.class, () ->
             {
                 CaminataEntity caminata = factory.manufacturePojo(CaminataEntity.class);
-                caminata.setId(0);
+                caminata.setId((long) 0);
                 caminataService.createCaminata(caminata);
             });
         }
