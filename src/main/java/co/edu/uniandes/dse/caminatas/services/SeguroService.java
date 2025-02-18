@@ -34,6 +34,10 @@ public class SeguroService {
             throw new IllegalOperationException("El tipo del seguro no puede ser nulo o vacío.");
         }
 
+        if(entity.getCosto() == 0) {
+            throw new IllegalOperationException("El costo del seguro no puede ser nulo o vacío.");
+        }
+
         SeguroEntity savedEntity = seguroRepository.save(entity);
         log.info("Finaliza el proceso de creación de un seguro");
         return savedEntity;
