@@ -28,6 +28,10 @@ public class SeguroService {
             throw new IllegalOperationException("El nombre del seguro no puede ser nulo o vacío.");
         }
 
+        if (entity.getNumero() == null) {
+            throw new IllegalOperationException("El número del seguro no puede ser nulo o vacío.");
+        }
+
         if(entity.getTipo() == null || entity.getTipo().isEmpty()) {
             throw new IllegalOperationException("El tipo del seguro no puede ser nulo o vacío.");
         }

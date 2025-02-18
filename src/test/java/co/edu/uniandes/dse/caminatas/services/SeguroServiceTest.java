@@ -65,6 +65,7 @@ class SeguroServiceTest {
         SeguroEntity entity = entityManager.find(SeguroEntity.class, result.getId());
         assertEquals(seguro.getNombre(), entity.getNombre());
         assertEquals(seguro.getTipo(), entity.getTipo());
+        assertEquals(seguro.getNumero(), entity.getNumero());
     }
 
     @Test
