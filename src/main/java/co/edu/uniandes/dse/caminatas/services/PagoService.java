@@ -1,6 +1,5 @@
 package co.edu.uniandes.dse.caminatas.services;
 
-import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,7 +9,6 @@ import org.springframework.stereotype.Service;
 import lombok.extern.slf4j.Slf4j;
 import java.util.Optional;
 
-import co.edu.uniandes.dse.caminatas.entities.CaminataEntity;
 import co.edu.uniandes.dse.caminatas.entities.PagoEntity;
 import co.edu.uniandes.dse.caminatas.exceptions.EntityNotFoundException;
 import co.edu.uniandes.dse.caminatas.exceptions.IllegalOperationException;
