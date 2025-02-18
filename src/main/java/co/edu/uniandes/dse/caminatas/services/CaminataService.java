@@ -34,10 +34,6 @@ public class CaminataService {
             throw new IllegalOperationException("El título de la caminata no puede ser nulo o vacío.");
         }
 
-        if(caminata.getId() == null || caminata.getId() == 0 || caminataRepository.existsById(caminata.getId()))
-        {
-            throw new IllegalOperationException("El id de la caminata no puede ser nulo o cero y debe ser único a cada caminata.");
-        }
 
         if(caminata.getTipo() == "" || caminata.getTipo() == null)
         {
