@@ -12,6 +12,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import lombok.Data;
+import uk.co.jemos.podam.common.PodamExclude;
 
 @Data
 @Entity
@@ -27,15 +28,19 @@ public class CaminataEntity extends BaseEntity
     private float duracionEstimadaMinutos;
     
 
+    @PodamExclude
     @OneToMany(mappedBy = "caminata", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<PagoEntity> pagos = new ArrayList<>();
 
+    @PodamExclude
     @ManyToMany(mappedBy = "caminatas")
     private List<CaminanteEntity> caminantes = new ArrayList<>();
 
+    @PodamExclude
     @ManyToOne
     private EmpresaEntity empresa;
 
+    @PodamExclude
     @OneToOne
     private SeguroEntity seguro;
 
