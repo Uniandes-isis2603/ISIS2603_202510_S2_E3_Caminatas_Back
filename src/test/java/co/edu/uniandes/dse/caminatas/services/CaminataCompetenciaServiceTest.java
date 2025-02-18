@@ -63,7 +63,7 @@ public class CaminataCompetenciaServiceTest
         void testCreateCaminataCompetencia() throws EntityNotFoundException, IllegalOperationException
         {
             CaminataCompetenciaEntity caminataCompetencia = factory.manufacturePojo(CaminataCompetenciaEntity.class);
-            CaminataCompetenciaEntity result = caminataCompetenciaService.createCaminataCompetencia(caminataCompetencia);
+            CaminataCompetenciaEntity result = caminataCompetenciaService.CreateCompetencia(caminataCompetencia);
             assertNotNull(result);
             CaminataCompetenciaEntity entity = entityManager.find(CaminataCompetenciaEntity.class, result.getId());
             assertNotNull(entity);
@@ -87,7 +87,7 @@ public class CaminataCompetenciaServiceTest
             {
                 CaminataCompetenciaEntity caminataCompetencia = factory.manufacturePojo(CaminataCompetenciaEntity.class);
                 caminataCompetencia.setTitulo("");
-                caminataCompetenciaService.createCaminataCompetencia(caminataCompetencia);
+                caminataCompetenciaService.CreateCompetencia(caminataCompetencia);
             });
         }
 
@@ -101,7 +101,7 @@ public class CaminataCompetenciaServiceTest
             {
                 CaminataCompetenciaEntity caminataCompetencia = factory.manufacturePojo(CaminataCompetenciaEntity.class);
                 caminataCompetencia.setId(null);
-                caminataCompetenciaService.createCaminataCompetencia(caminataCompetencia);
+                caminataCompetenciaService.CreateCompetencia(caminataCompetencia);
             });
         }
 
@@ -115,7 +115,7 @@ public class CaminataCompetenciaServiceTest
             {
                 CaminataCompetenciaEntity caminataCompetencia = factory.manufacturePojo(CaminataCompetenciaEntity.class);
                 caminataCompetencia.setId((long) 0);
-                caminataCompetenciaService.createCaminataCompetencia(caminataCompetencia);
+                caminataCompetenciaService.CreateCompetencia(caminataCompetencia);
             });
         }
 
@@ -129,7 +129,7 @@ public class CaminataCompetenciaServiceTest
             {
                 CaminataCompetenciaEntity caminataCompetencia = factory.manufacturePojo(CaminataCompetenciaEntity.class);
                 caminataCompetencia.setId(caminatasCompetenciaList.get(0).getId());
-                caminataCompetenciaService.createCaminataCompetencia(caminataCompetencia);
+                caminataCompetenciaService.CreateCompetencia(caminataCompetencia);
             });
         }
 
@@ -143,7 +143,7 @@ public class CaminataCompetenciaServiceTest
             {
                 CaminataCompetenciaEntity caminataCompetencia = factory.manufacturePojo(CaminataCompetenciaEntity.class);
                 caminataCompetencia.setTipo(null);
-                caminataCompetenciaService.createCaminataCompetencia(caminataCompetencia);
+                caminataCompetenciaService.CreateCompetencia(caminataCompetencia);
             });
         }
 
@@ -157,7 +157,7 @@ public class CaminataCompetenciaServiceTest
             {
                 CaminataCompetenciaEntity caminataCompetencia = factory.manufacturePojo(CaminataCompetenciaEntity.class);
                 caminataCompetencia.setTipo("");
-                caminataCompetenciaService.createCaminataCompetencia(caminataCompetencia);
+                caminataCompetenciaService.CreateCompetencia(caminataCompetencia);
             });
         }
 
@@ -171,7 +171,7 @@ public class CaminataCompetenciaServiceTest
             {
                 CaminataCompetenciaEntity caminataCompetencia = factory.manufacturePojo(CaminataCompetenciaEntity.class);
                 caminataCompetencia.setFecha(null);
-                caminataCompetenciaService.createCaminataCompetencia(caminataCompetencia);
+                caminataCompetenciaService.CreateCompetencia(caminataCompetencia);
             });
         }
 
@@ -185,7 +185,7 @@ public class CaminataCompetenciaServiceTest
             {
                 CaminataCompetenciaEntity caminataCompetencia = factory.manufacturePojo(CaminataCompetenciaEntity.class);
                 caminataCompetencia.setFecha(new Date(0));
-                caminataCompetenciaService.createCaminataCompetencia(caminataCompetencia);
+                caminataCompetenciaService.CreateCompetencia(caminataCompetencia);
             });
         }
 
@@ -199,7 +199,7 @@ public class CaminataCompetenciaServiceTest
             {
                 CaminataCompetenciaEntity caminataCompetencia = factory.manufacturePojo(CaminataCompetenciaEntity.class);
                 caminataCompetencia.setHora(null);
-                caminataCompetenciaService.createCaminataCompetencia(caminataCompetencia);
+                caminataCompetenciaService.CreateCompetencia(caminataCompetencia);
             });
         }
 
@@ -213,7 +213,7 @@ public class CaminataCompetenciaServiceTest
             {
                 CaminataCompetenciaEntity caminataCompetencia = factory.manufacturePojo(CaminataCompetenciaEntity.class);
                 caminataCompetencia.setHora(LocalTime.MIN);
-                caminataCompetenciaService.createCaminataCompetencia(caminataCompetencia);
+                caminataCompetenciaService.CreateCompetencia(caminataCompetencia);
             });
         }
 
@@ -227,7 +227,7 @@ public class CaminataCompetenciaServiceTest
             {
                 CaminataCompetenciaEntity caminataCompetencia = factory.manufacturePojo(CaminataCompetenciaEntity.class);
                 caminataCompetencia.setDepartamento(null);
-                caminataCompetenciaService.createCaminataCompetencia(caminataCompetencia);
+                caminataCompetenciaService.CreateCompetencia(caminataCompetencia);
             });
         }
 
@@ -241,7 +241,7 @@ public class CaminataCompetenciaServiceTest
             {
                 CaminataCompetenciaEntity caminataCompetencia = factory.manufacturePojo(CaminataCompetenciaEntity.class);
                 caminataCompetencia.setDepartamento("");
-                caminataCompetenciaService.createCaminataCompetencia(caminataCompetencia);
+                caminataCompetenciaService.CreateCompetencia(caminataCompetencia);
             });
         }
 
@@ -255,7 +255,7 @@ public class CaminataCompetenciaServiceTest
             {
                 CaminataCompetenciaEntity caminataCompetencia = factory.manufacturePojo(CaminataCompetenciaEntity.class);
                 caminataCompetencia.setDepartamento("Mérida");
-                caminataCompetenciaService.createCaminataCompetencia(caminataCompetencia);
+                caminataCompetenciaService.CreateCompetencia(caminataCompetencia);
             });
         }
 
@@ -269,7 +269,7 @@ public class CaminataCompetenciaServiceTest
             {
                 CaminataCompetenciaEntity caminataCompetencia = factory.manufacturePojo(CaminataCompetenciaEntity.class);
                 caminataCompetencia.setCiudad(null);
-                caminataCompetenciaService.createCaminataCompetencia(caminataCompetencia);
+                caminataCompetenciaService.CreateCompetencia(caminataCompetencia);
             });
         }
 
@@ -283,7 +283,7 @@ public class CaminataCompetenciaServiceTest
             {
                 CaminataCompetenciaEntity caminataCompetencia = factory.manufacturePojo(CaminataCompetenciaEntity.class);
                 caminataCompetencia.setCiudad("");
-                caminataCompetenciaService.createCaminataCompetencia(caminataCompetencia);
+                caminataCompetenciaService.CreateCompetencia(caminataCompetencia);
             });
         }
 
@@ -297,7 +297,7 @@ public class CaminataCompetenciaServiceTest
             {
                 CaminataCompetenciaEntity caminataCompetencia = factory.manufacturePojo(CaminataCompetenciaEntity.class);
                 caminataCompetencia.setDuracionEstimadaMinutos(0);
-                caminataCompetenciaService.createCaminataCompetencia(caminataCompetencia);
+                caminataCompetenciaService.CreateCompetencia(caminataCompetencia);
             });
 
         }
@@ -312,7 +312,7 @@ public class CaminataCompetenciaServiceTest
             {
                 CaminataCompetenciaEntity caminataCompetencia = factory.manufacturePojo(CaminataCompetenciaEntity.class);
                 caminataCompetencia.setNumero(0);
-                caminataCompetenciaService.createCaminataCompetencia(caminataCompetencia);
+                caminataCompetenciaService.CreateCompetencia(caminataCompetencia);
                 
             });
         }
@@ -327,7 +327,7 @@ public class CaminataCompetenciaServiceTest
             {
                 CaminataCompetenciaEntity caminataCompetencia = factory.manufacturePojo(CaminataCompetenciaEntity.class);
                 caminataCompetencia.setNumero(-1);
-                caminataCompetenciaService.createCaminataCompetencia(caminataCompetencia);
+                caminataCompetenciaService.CreateCompetencia(caminataCompetencia);
             });
         }
 
@@ -341,7 +341,7 @@ public class CaminataCompetenciaServiceTest
             {
                 CaminataCompetenciaEntity caminataCompetencia = factory.manufacturePojo(CaminataCompetenciaEntity.class);
                 caminataCompetencia.setCondicionesParticipacion(null);
-                caminataCompetenciaService.createCaminataCompetencia(caminataCompetencia);
+                caminataCompetenciaService.CreateCompetencia(caminataCompetencia);
             });
         }
 
@@ -355,7 +355,7 @@ public class CaminataCompetenciaServiceTest
             {
                 CaminataCompetenciaEntity caminataCompetencia = factory.manufacturePojo(CaminataCompetenciaEntity.class);
                 caminataCompetencia.setCondicionesParticipacion("");
-                caminataCompetenciaService.createCaminataCompetencia(caminataCompetencia);
+                caminataCompetenciaService.CreateCompetencia(caminataCompetencia);
             });
         }
 
@@ -369,7 +369,7 @@ public class CaminataCompetenciaServiceTest
             {
                 CaminataCompetenciaEntity caminataCompetencia = factory.manufacturePojo(CaminataCompetenciaEntity.class);
                 caminataCompetencia.setPremios(null);
-                caminataCompetenciaService.createCaminataCompetencia(caminataCompetencia);
+                caminataCompetenciaService.CreateCompetencia(caminataCompetencia);
             });
         }
 
@@ -383,7 +383,7 @@ public class CaminataCompetenciaServiceTest
             {
                 CaminataCompetenciaEntity caminataCompetencia = factory.manufacturePojo(CaminataCompetenciaEntity.class);
                 caminataCompetencia.setPremios("");
-                caminataCompetenciaService.createCaminataCompetencia(caminataCompetencia);
+                caminataCompetenciaService.CreateCompetencia(caminataCompetencia);
             });
         }
 
@@ -397,7 +397,7 @@ public class CaminataCompetenciaServiceTest
             {
                 CaminataCompetenciaEntity caminataCompetencia = factory.manufacturePojo(CaminataCompetenciaEntity.class);
                 caminataCompetencia.setRequisitos(null);
-                caminataCompetenciaService.createCaminataCompetencia(caminataCompetencia);
+                caminataCompetenciaService.CreateCompetencia(caminataCompetencia);
             });
         }
 
@@ -411,7 +411,7 @@ public class CaminataCompetenciaServiceTest
             {
                 CaminataCompetenciaEntity caminataCompetencia = factory.manufacturePojo(CaminataCompetenciaEntity.class);
                 caminataCompetencia.setRequisitos("");
-                caminataCompetenciaService.createCaminataCompetencia(caminataCompetencia);
+                caminataCompetenciaService.CreateCompetencia(caminataCompetencia);
             });
         }
     

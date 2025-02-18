@@ -8,6 +8,7 @@ import lombok.Data;
 @Data
 
 public class SeguroEntity extends BaseEntity {
+    private int numero;
     private String nombre;
     private String tipo;
     private String cobertura;
