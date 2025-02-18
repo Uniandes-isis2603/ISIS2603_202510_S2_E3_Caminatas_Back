@@ -1,7 +1,5 @@
 package co.edu.uniandes.dse.caminatas.services;
 
-import java.util.Calendar;
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
