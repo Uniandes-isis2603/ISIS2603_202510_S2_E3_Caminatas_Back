@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -61,9 +62,20 @@ public class CaminataServiceTest
         @Test
         void testCreateCaminata() throws EntityNotFoundException, IllegalOperationException
         {
+            
             CaminataEntity caminata = factory.manufacturePojo(CaminataEntity.class);
+            caminata.setDepartamento("Antioquia");
+
+            Calendar calendario = Calendar.getInstance();
+            calendario.add(Calendar.DAY_OF_YEAR, 1);
+            caminata.setFecha(calendario.getTime());
+
+            LocalTime hora = LocalTime.now().plusHours(1); 
+            caminata.setHora(hora);
             CaminataEntity result = caminataService.createCaminata(caminata);
             assertNotNull(result);
+        
+
             CaminataEntity entity = entityManager.find(CaminataEntity.class, result.getId());
             assertNotNull(entity);
             assertEquals(caminata.getId(), entity.getId());
