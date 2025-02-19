@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import co.edu.uniandes.dse.caminatas.entities.CaminataEntity;
+import co.edu.uniandes.dse.caminatas.entities.PagoEntity;
 import co.edu.uniandes.dse.caminatas.exceptions.EntityNotFoundException;
 import co.edu.uniandes.dse.caminatas.exceptions.IllegalOperationException;
 import co.edu.uniandes.dse.caminatas.repositories.CaminataRepository;
@@ -153,16 +154,24 @@ public class CaminataService {
         return caminataRepository.save(caminata);
     }
 
-    /**
-     * Elimina una caminata por ID
-     */
-    @Transactional
-    public void deleteCaminata(Long caminataId) throws EntityNotFoundException {
+        /**
+        * Elimina una caminata por ID
+          * @throws IllegalOperationException 
+          */
+         @Transactional
+         public void deleteCaminata(Long caminataId) throws EntityNotFoundException, IllegalOperationException {
         log.info("Inicia proceso de borrar la caminata con id = {0}", caminataId);
         Optional<CaminataEntity> caminata = caminataRepository.findById(caminataId);
         if (caminata.isEmpty()) {
             throw new EntityNotFoundException("No se encontró la caminata con el id = " + caminataId);
         }
+
+        List<PagoEntity> pagos = caminata.get().getPagos();
+        if(pagos != null && !pagos.isEmpty())
+        {
+            throw new IllegalOperationException("No se puede borrar la caminata con id = " + caminataId + " porque tiene pagos asociados.");
+        }
+
         caminataRepository.deleteById(caminataId);
         log.info("Termina proceso de borrar la caminata con id = {0}", caminataId);
     }

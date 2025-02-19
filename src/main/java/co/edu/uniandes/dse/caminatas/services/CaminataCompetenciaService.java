@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import co.edu.uniandes.dse.caminatas.entities.CaminataCompetenciaEntity;
+import co.edu.uniandes.dse.caminatas.entities.PatrocinadorEntity;
 import co.edu.uniandes.dse.caminatas.exceptions.EntityNotFoundException;
 import co.edu.uniandes.dse.caminatas.exceptions.IllegalOperationException;
 import co.edu.uniandes.dse.caminatas.repositories.CaminataCompetenciaRepository;
@@ -210,12 +211,18 @@ public class CaminataCompetenciaService
      * Elimina una caminata de competencia por ID
      */
     @Transactional
-    public void deleteCaminataCompetencia(Long caminataCompetenciaId) throws EntityNotFoundException
+    public void deleteCaminataCompetencia(Long caminataCompetenciaId) throws EntityNotFoundException, IllegalOperationException
     {
         log.info("Inicia proceso de eliminación de la caminata de competencia con id = {0}", caminataCompetenciaId);
         Optional<CaminataCompetenciaEntity> caminataCompetencia = caminataCompetenciaRepository.findById(caminataCompetenciaId);
         if (caminataCompetencia.isEmpty()) {
             throw new EntityNotFoundException("No se encontró la caminata de competencia con el id = " + caminataCompetenciaId);
+        }
+
+        PatrocinadorEntity patrocinador = caminataCompetencia.get().getPatrocinador();
+        if(patrocinador != null)
+        {
+            throw new IllegalOperationException("No se puede eliminar esta caminata ya que se encuentra asociada a un patrocinador.");
         }
         caminataCompetenciaRepository.deleteById(caminataCompetenciaId);
         log.info("Termina proceso de eliminación de la caminata de competencia con id = {0}", caminataCompetenciaId);
