@@ -6,21 +6,39 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import co.edu.uniandes.dse.caminatas.entities.CaminataEntity;
 import co.edu.uniandes.dse.caminatas.entities.SeguroEntity;
 import co.edu.uniandes.dse.caminatas.exceptions.EntityNotFoundException;
 import co.edu.uniandes.dse.caminatas.exceptions.IllegalOperationException;
+import co.edu.uniandes.dse.caminatas.repositories.CaminataRepository;
 import co.edu.uniandes.dse.caminatas.repositories.SeguroRepository;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Service
 public class SeguroService { 
+
     @Autowired
     SeguroRepository seguroRepository;
+
+    @Autowired
+    CaminataRepository caminataRepository;
 
     @Transactional
     public SeguroEntity createSeguro(SeguroEntity entity) throws EntityNotFoundException, IllegalOperationException {
         log.info("Inicia el proceso de creación de un seguro");
+        
+        if(entity.getCaminata() == null)
+            throw new IllegalOperationException("Caminata no puede ser nulo");
+
+        Optional<CaminataEntity> caminataEntity = caminataRepository.findById(entity.getCaminata().getId());
+        if (caminataEntity.isEmpty()) {
+            throw new EntityNotFoundException("No se encontró la caminata con el id = " + entity.getCaminata().getId());
+        }
+
+        if(caminataEntity.get().getSeguro() != null) {
+            throw new IllegalOperationException("La caminata ya tiene un seguro asociado");
+        }
 
         if(!seguroRepository.findByNumero(entity.getNumero()).isEmpty()) {
             throw new IllegalOperationException("Ya existe un seguro con el número = " + entity.getNumero());

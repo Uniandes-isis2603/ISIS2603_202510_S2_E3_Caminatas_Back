@@ -6,7 +6,10 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
+import java.sql.Date;
+import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import jakarta.transaction.Transactional;
@@ -19,6 +22,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.context.annotation.Import;
 
+import co.edu.uniandes.dse.caminatas.entities.CaminataEntity;
 import co.edu.uniandes.dse.caminatas.entities.SeguroEntity;
 import co.edu.uniandes.dse.caminatas.exceptions.EntityNotFoundException;
 import co.edu.uniandes.dse.caminatas.exceptions.IllegalOperationException;
@@ -27,17 +31,21 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
 
 @DataJpaTest
 @Transactional
-@Import(SeguroService.class)
+@Import({SeguroService.class, CaminataService.class})
 class SeguroServiceTest {
     @Autowired
     private SeguroService seguroService;
+
+    @Autowired
+    private CaminataService caminataService;
 
     @Autowired
     private TestEntityManager entityManager;
 
     private PodamFactory factory = new PodamFactoryImpl();
 
-    private List<SeguroEntity> seguroList = new ArrayList<>();
+    private List<SeguroEntity> seguroList = new ArrayList<SeguroEntity>();
+    private List<CaminataEntity> caminataList = new ArrayList<>();
 
     @BeforeEach
     void setUp() {
@@ -52,22 +60,41 @@ class SeguroServiceTest {
     private void insertData() {
         for (int i = 0; i < 3; i++) {
             SeguroEntity seguroEntity = factory.manufacturePojo(SeguroEntity.class);
+            CaminataEntity caminataEntity = factory.manufacturePojo(CaminataEntity.class);
+            entityManager.persist(caminataEntity);
+            seguroEntity.setCaminata(caminataEntity);
+            caminataEntity.setSeguro(seguroEntity);
             entityManager.persist(seguroEntity);
             seguroList.add(seguroEntity);
+            caminataList.add(caminataEntity);
         }
     }
 
     @Test
     void testCreateSeguro() throws EntityNotFoundException, IllegalOperationException {
-        SeguroEntity seguro = factory.manufacturePojo(SeguroEntity.class);
-        SeguroEntity result = seguroService.createSeguro(seguro);
-        assertNotNull(result);
+        SeguroEntity newEntity = factory.manufacturePojo(SeguroEntity.class);
+        CaminataEntity newCaminata = factory.manufacturePojo(CaminataEntity.class);
+        
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.DAY_OF_YEAR, 1 + (int)(Math.random() * 365)); // Genera una fecha aleatoria dentro del próximo año
+        newCaminata.setFecha(calendar.getTime());
 
+        LocalTime hora = LocalTime.now().plusHours(1+ (int)(Math.random() * 12)); 
+        newCaminata.setHora(hora);
+
+        newCaminata.setDepartamento("Cundinamarca");
+        newCaminata.setCiudad("Bogotá");
+        newCaminata.setDuracionEstimadaMinutos(120);
+
+        newCaminata = caminataService.createCaminata(newCaminata);
+        newEntity.setCaminata(newCaminata);
+        SeguroEntity result = seguroService.createSeguro(newEntity);
+        assertNotNull(result);
         SeguroEntity entity = entityManager.find(SeguroEntity.class, result.getId());
-        assertEquals(seguro.getNombre(), entity.getNombre());
-        assertEquals(seguro.getTipo(), entity.getTipo());
-        assertEquals(seguro.getNumero(), entity.getNumero());
-        assertEquals(seguro.getId(), entity.getId());
+        assertEquals(newEntity.getNombre(), entity.getNombre());
+        assertEquals(newEntity.getTipo(), entity.getTipo());
+        assertEquals(newEntity.getNumero(), entity.getNumero());
+        assertEquals(newEntity.getId(), entity.getId());
     }
 
     @Test

@@ -26,53 +26,43 @@ public class CaminataService {
     CaminataRepository caminataRepository;
 
     @Transactional
-    public CaminataEntity createCaminata(CaminataEntity caminata) throws EntityNotFoundException, IllegalOperationException
-    {
+    public CaminataEntity createCaminata(CaminataEntity caminata) throws EntityNotFoundException, IllegalOperationException {
         log.info("Inicia proceso de creación de la caminata");
 
-        if(caminata.getTitulo() == null || caminata.getTitulo().isEmpty())
-        {
+        if (caminata.getTitulo() == null || caminata.getTitulo().isEmpty()) {
             throw new IllegalOperationException("El título de la caminata no puede ser nulo o vacío.");
         }
 
-
-        if(caminata.getTipo() == "" || caminata.getTipo() == null)
-        {
+        if (caminata.getTipo() == null || caminata.getTipo().isEmpty()) {
             throw new IllegalOperationException("El tipo de la caminata no puede ser nulo o vacío.");
         }
 
-        Calendar calendario = Calendar.getInstance(); 
-
-        if(caminata.getFecha() == null || caminata.getFecha().before(calendario.getTime()))
-        {
+        Calendar calendario = Calendar.getInstance();
+        if (caminata.getFecha() == null || caminata.getFecha().before(calendario.getTime())) {
             throw new IllegalOperationException("La fecha de la caminata no puede ser nula o anterior a la fecha actual.");
         }
 
         LocalDateTime horaActual = LocalDateTime.now();
-
-        if(caminata.getHora() == null || caminata.getHora().isBefore(horaActual.toLocalTime()))
-        {
+        if (caminata.getHora() == null || caminata.getHora().isBefore(horaActual.toLocalTime())) {
             throw new IllegalOperationException("La hora de la caminata no puede ser nula o anterior a la actual.");
         }
 
-        List<String> departamentos = new ArrayList<String> (Arrays.asList("Amazonas", "Antioquia", "Arauca", "Atlántico", "Bolívar", "Boyacá", "Caldas", "Caquetá", "Casanare", "Cauca", "Cesar", "Chocó", "Córdoba", "Cundinamarca", "Guainía", "Guaviare", "Huila", "La Guajira", "Magdalena", "Meta", "Nariño", "Norte de Santander", "Putumayo", "Quindío", "Risaralda", "San Andrés y Providencia", "Santander", "Sucre", "Tolima", "Valle del Cauca", "Vaupés", "Vichada"));
-
-        if(caminata.getDepartamento() == null || caminata.getDepartamento().isEmpty() || !departamentos.contains(caminata.getDepartamento()))
-        {
+        List<String> departamentos = new ArrayList<>(Arrays.asList("Amazonas", "Antioquia", "Arauca", "Atlántico", "Bolívar", "Boyacá", "Caldas", "Caquetá", "Casanare", "Cauca", "Cesar", "Chocó", "Córdoba", "Cundinamarca", "Guainía", "Guaviare", "Huila", "La Guajira", "Magdalena", "Meta", "Nariño", "Norte de Santander", "Putumayo", "Quindío", "Risaralda", "San Andrés y Providencia", "Santander", "Sucre", "Tolima", "Valle del Cauca", "Vaupés", "Vichada"));
+        if (caminata.getDepartamento() == null || caminata.getDepartamento().isEmpty() || !departamentos.contains(caminata.getDepartamento())) {
             throw new IllegalOperationException("El departamento de la caminata no puede ser nulo o vacío y debe pertenecer a Colombia.");
         }
 
-        if(caminata.getCiudad() == null || caminata.getCiudad().isEmpty())
-        {
+        if (caminata.getCiudad() == null || caminata.getCiudad().isEmpty()) {
             throw new IllegalOperationException("La ciudad de la caminata no puede ser nula o vacía.");
         }
 
-        if(caminata.getDuracionEstimadaMinutos() <= 0)
-        {
+        if (caminata.getDuracionEstimadaMinutos() <= 0) {
             throw new IllegalOperationException("La duración estimada de la caminata no puede ser menor o igual a cero.");
         }
 
-        return caminataRepository.save(caminata);
+        CaminataEntity savedEntity = caminataRepository.save(caminata);
+        log.info("Termina proceso de creación de la caminata");
+        return savedEntity;
     }
 
     /**
