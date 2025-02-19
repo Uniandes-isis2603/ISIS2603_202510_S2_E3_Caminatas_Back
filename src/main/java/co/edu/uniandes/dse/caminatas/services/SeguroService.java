@@ -22,6 +22,10 @@ public class SeguroService {
     public SeguroEntity createSeguro(SeguroEntity entity) throws EntityNotFoundException, IllegalOperationException {
         log.info("Inicia el proceso de creación de un seguro");
 
+        if(!seguroRepository.findByNumero(entity.getNumero()).isEmpty()) {
+            throw new IllegalOperationException("Ya existe un seguro con el número = " + entity.getNumero());
+        }
+
         if(entity.getNombre() == null || entity.getNombre().isEmpty()) {
             throw new IllegalOperationException("El nombre del seguro no puede ser nulo o vacío.");
         }
