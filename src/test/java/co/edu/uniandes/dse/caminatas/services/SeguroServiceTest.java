@@ -67,6 +67,7 @@ class SeguroServiceTest {
         assertEquals(seguro.getNombre(), entity.getNombre());
         assertEquals(seguro.getTipo(), entity.getTipo());
         assertEquals(seguro.getNumero(), entity.getNumero());
+        assertEquals(seguro.getId(), entity.getId());
     }
 
     @Test
