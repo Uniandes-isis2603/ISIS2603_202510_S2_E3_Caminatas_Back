@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import co.edu.uniandes.dse.caminatas.entities.CaminataEntity;
 import co.edu.uniandes.dse.caminatas.entities.PagoEntity;
 import co.edu.uniandes.dse.caminatas.exceptions.EntityNotFoundException;
+import co.edu.uniandes.dse.caminatas.exceptions.IllegalOperationException;
 import co.edu.uniandes.dse.caminatas.repositories.CaminataRepository;
 import co.edu.uniandes.dse.caminatas.repositories.PagoRepository;
 import jakarta.transaction.Transactional;
@@ -66,7 +67,7 @@ public class CaminataPagoService
      * Retorna un pago asociado a una caminata
      */
     @Transactional
-    public PagoEntity getPago(Long caminataId, Long pagoId) throws EntityNotFoundException
+    public PagoEntity getPago(Long caminataId, Long pagoId) throws EntityNotFoundException, IllegalOperationException
     {
         log.info("Inicia proceso de obtener un pago de la caminata con id = {0}", caminataId);
         Optional<CaminataEntity> caminata = caminataRepository.findById(caminataId);
@@ -78,6 +79,9 @@ public class CaminataPagoService
         if (pago.isEmpty())
         {
             throw new EntityNotFoundException("El pago con id = " + pagoId + " no existe.");
+        }
+        if (!caminata.get().getPagos().contains(pago.get())) {
+            throw new IllegalOperationException("El pago con id = " + pagoId + " no está asociado a la caminata con id = " + caminataId);
         }
         log.info("Termina proceso de obtener un pago de la caminata con id = {0}", caminataId);
         return pago.get();
