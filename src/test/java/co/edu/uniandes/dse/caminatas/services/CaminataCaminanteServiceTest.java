@@ -110,6 +110,7 @@ public class CaminataCaminanteServiceTest {
             caminataCaminanteService.addCaminante(newCaminata.getId(), 0L);
         });
     }
+    
 
     /*
      * Prueba para asociar un caminante a una caminata que no existe 
