@@ -28,7 +28,7 @@ public class CaminataEmpresaService {
     @Transactional
     public CaminataEntity replaceEmpresa(Long caminataId, Long empresaId) throws EntityNotFoundException
     {
-        log.info("Inicia proceso de remplazar la empresa de la caminata con id = {0}", caminataId);
+        log.info("Inicia proceso de remplazar la empresa de la caminata con id = {}", caminataId);
         Optional<CaminataEntity> caminata = caminataRepository.findById(caminataId);
         Optional<EmpresaEntity> empresa = empresaRepository.findById(empresaId);
         if (caminata.isEmpty())
@@ -40,7 +40,7 @@ public class CaminataEmpresaService {
             throw new EntityNotFoundException("La empresa con id = " + empresaId + " no existe.");
         }
         caminata.get().setEmpresa(empresa.get());
-        log.info("Termina proceso de remplazar la empresa de la caminata con id = {0}", caminataId);
+        log.info("Termina proceso de remplazar la empresa de la caminata con id = {}", caminataId);
         return caminata.get();
     }
 
@@ -50,16 +50,23 @@ public class CaminataEmpresaService {
     @Transactional
     public void removeEmpresa(Long caminataId) throws EntityNotFoundException
     {
-        log.info("Inicia proceso de eliminar la empresa de la caminata con id = {0}", caminataId);
-        Optional<CaminataEntity> caminata = caminataRepository.findById(caminataId);
-        if (caminata.isEmpty())
-        {
+        log.info("Inicia proceso de eliminar la empresa de la caminata con id = {}", caminataId);
+        Optional<CaminataEntity> caminataOpt = caminataRepository.findById(caminataId);
+
+        if (caminataOpt.isEmpty()) {
             throw new EntityNotFoundException("La caminata con id = " + caminataId + " no existe.");
         }
-        Optional<EmpresaEntity> empresaEntity = empresaRepository.findById(caminata.get().getEmpresa().getId());
-        empresaEntity.ifPresent(empresa -> empresa.getCaminatas().remove(caminata.get()));
-        caminata.get().setEmpresa(null);
-        log.info("Termina proceso de eliminar la empresa de la caminata con id = {0}", caminataId);
+
+        CaminataEntity caminata = caminataOpt.get();
+        EmpresaEntity empresa = caminata.getEmpresa();
+
+        if (empresa != null) {
+            empresa.getCaminatas().remove(caminata);
+            caminata.setEmpresa(null);
+        }
+
+        log.info("Termina proceso de eliminar la empresa de la caminata con id = {}", caminataId);
     }
+
     
 }
