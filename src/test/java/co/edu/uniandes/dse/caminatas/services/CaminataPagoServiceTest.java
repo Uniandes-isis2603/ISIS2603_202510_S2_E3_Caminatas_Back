@@ -64,12 +64,11 @@ public class CaminataPagoServiceTest
             CaminataEntity caminata = factory.manufacturePojo(CaminataEntity.class);
             entityManager.persist(caminata);
             listaCaminatas.add(caminata);
-        }
-
-        for (int i = 0; i < 3; i++)
-        {
+        
             PagoEntity pago = factory.manufacturePojo(PagoEntity.class);
+            pago.setCaminata(caminata);
             entityManager.persist(pago);
+            caminata.getPagos().add(pago);
             listaPagos.add(pago);
         }
     }
