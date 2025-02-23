@@ -27,11 +27,11 @@ public class EmpresaPagoService {
     public PagoEntity addPago(Long empresaId, Long pagoId) throws EntityNotFoundException {
         Optional<EmpresaEntity> empresaEntity = empresaRepository.findById(empresaId);
         if (empresaEntity.isEmpty())
-            throw new EntityNotFoundException("No se encontró la empresa con id " + empresaId);
+            throw new EntityNotFoundException("No se encontró la empresa");
 
         Optional<PagoEntity> pagoEntity = pagoRepository.findById(pagoId);
         if (pagoEntity.isEmpty())
-            throw new EntityNotFoundException("No se encontró el pago con id " + pagoId);
+            throw new EntityNotFoundException("No se encontró el pago");
 
         pagoEntity.get().setEmpresa(empresaEntity.get());
         empresaEntity.get().getPagos().add(pagoEntity.get());
@@ -43,7 +43,7 @@ public class EmpresaPagoService {
     public List<PagoEntity> getPagos(Long empresaId) throws EntityNotFoundException {
         Optional<EmpresaEntity> empresaEntity = empresaRepository.findById(empresaId);
         if (empresaEntity.isEmpty())
-            throw new EntityNotFoundException("No se encontró la empresa con id " + empresaId);
+            throw new EntityNotFoundException("No se encontró la empresa");
         
         return empresaEntity.get().getPagos();
     }
@@ -52,11 +52,11 @@ public class EmpresaPagoService {
     public PagoEntity getPago(Long empresaId, Long pagoId) throws EntityNotFoundException, IllegalOperationException {
         Optional<EmpresaEntity> empresaEntity = empresaRepository.findById(empresaId);
         if (empresaEntity.isEmpty())
-            throw new EntityNotFoundException("No se encontró la empresa con id " + empresaId);
+            throw new EntityNotFoundException("No se encontró la empresa");
 
         Optional<PagoEntity> pagoEntity = pagoRepository.findById(pagoId);
         if (pagoEntity.isEmpty())
-            throw new EntityNotFoundException("No se encontró el pago con id " + pagoId);
+            throw new EntityNotFoundException("No se encontró el pago");
 
         if (!pagoEntity.get().getEmpresa().equals(empresaEntity.get()))
             throw new IllegalOperationException("El pago no está asociado con la empresa");
@@ -68,11 +68,11 @@ public class EmpresaPagoService {
     public void removePago(Long empresaId, Long pagoId) throws EntityNotFoundException, IllegalOperationException {
         Optional<EmpresaEntity> empresaEntity = empresaRepository.findById(empresaId);
         if (empresaEntity.isEmpty())
-            throw new EntityNotFoundException("No se encontró la empresa con id " + empresaId);
+            throw new EntityNotFoundException("No se encontró la empresa");
 
         Optional<PagoEntity> pagoEntity = pagoRepository.findById(pagoId);
         if (pagoEntity.isEmpty())
-            throw new EntityNotFoundException("No se encontró el pago con id " + pagoId);
+            throw new EntityNotFoundException("No se encontró el pago");
 
         if (!pagoEntity.get().getEmpresa().equals(empresaEntity.get()))
             throw new IllegalOperationException("El pago no está asociado con la empresa");
