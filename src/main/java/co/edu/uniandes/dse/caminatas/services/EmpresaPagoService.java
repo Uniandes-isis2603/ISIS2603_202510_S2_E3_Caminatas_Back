@@ -35,7 +35,7 @@ public class EmpresaPagoService {
 
         pagoEntity.get().setEmpresa(empresaEntity.get());
         empresaEntity.get().getPagos().add(pagoEntity.get());
-        
+
         return pagoRepository.save(pagoEntity.get());
     }
 
@@ -44,7 +44,7 @@ public class EmpresaPagoService {
         Optional<EmpresaEntity> empresaEntity = empresaRepository.findById(empresaId);
         if (empresaEntity.isEmpty())
             throw new EntityNotFoundException("No se encontró la empresa");
-        
+
         return empresaEntity.get().getPagos();
     }
 
@@ -82,4 +82,3 @@ public class EmpresaPagoService {
         pagoRepository.save(pagoEntity.get());
     }
 }
-

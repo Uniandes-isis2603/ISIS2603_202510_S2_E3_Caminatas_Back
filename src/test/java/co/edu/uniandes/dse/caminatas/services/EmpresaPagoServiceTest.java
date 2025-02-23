@@ -73,7 +73,7 @@ class EmpresaPagoServiceTest {
     void testAddPago() throws EntityNotFoundException {
         EmpresaEntity empresa = empresaList.get(0);
         PagoEntity pago = pagoList.get(0);
-        
+
         PagoEntity result = empresaPagoService.addPago(empresa.getId(), pago.getId());
         assertNotNull(result);
         assertEquals(empresa.getId(), result.getEmpresa().getId());
@@ -85,7 +85,7 @@ class EmpresaPagoServiceTest {
         EmpresaEntity empresa = empresaList.get(0);
         PagoEntity pago = pagoList.get(0);
         empresaPagoService.addPago(empresa.getId(), pago.getId());
-        
+
         List<PagoEntity> pagos = empresaPagoService.getPagos(empresa.getId());
         assertEquals(1, pagos.size());
         assertEquals(pago.getId(), pagos.get(0).getId());
@@ -96,7 +96,7 @@ class EmpresaPagoServiceTest {
         EmpresaEntity empresa = empresaList.get(0);
         PagoEntity pago = pagoList.get(0);
         empresaPagoService.addPago(empresa.getId(), pago.getId());
-        
+
         PagoEntity result = empresaPagoService.getPago(empresa.getId(), pago.getId());
         assertNotNull(result);
         assertEquals(pago.getId(), result.getId());
@@ -107,7 +107,7 @@ class EmpresaPagoServiceTest {
         EmpresaEntity empresa = empresaList.get(0);
         PagoEntity pago = pagoList.get(0);
         empresaPagoService.addPago(empresa.getId(), pago.getId());
-        
+
         empresaPagoService.removePago(empresa.getId(), pago.getId());
         List<PagoEntity> pagos = empresaPagoService.getPagos(empresa.getId());
         assertTrue(pagos.isEmpty());
@@ -127,4 +127,3 @@ class EmpresaPagoServiceTest {
         });
     }
 }
-
