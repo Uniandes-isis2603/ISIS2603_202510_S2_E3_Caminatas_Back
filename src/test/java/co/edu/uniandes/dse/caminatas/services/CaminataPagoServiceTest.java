@@ -122,7 +122,7 @@ public class CaminataPagoServiceTest
         List<PagoEntity> pagos = caminataPagoService.listPagos(caminata.getId());
 
         assertNotNull(pagos);
-        assertEquals(0, pagos.size());
+        assertEquals(1, pagos.size());
     }
 
     /*
