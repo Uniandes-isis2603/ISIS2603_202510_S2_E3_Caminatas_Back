@@ -74,7 +74,7 @@ public class CaminantePagoServiceTest
 
 
     /*
-     * Prueba para guardar un pago al caminante
+     * Prueba para guardar un pago al caminante.
      */
     @Test
     void testAñadirPagoCaminante() throws EntityNotFoundException, IllegalOperationException
@@ -89,7 +89,7 @@ public class CaminantePagoServiceTest
     }
 
     /*
-     * Prueba para guardar un pago no valido al caminante
+     * Prueba para guardar un pago no valido al caminante.
      */
     @Test
     void testAñadirPagoInvalido()
@@ -101,7 +101,7 @@ public class CaminantePagoServiceTest
     }
 
     /*
-     * Prueba para guardar un pago a un caminante no valido
+     * Prueba para guardar un pago a un caminante no valido.
      */
     @Test
     void testAñadirPagoACaminanteInvalido()
@@ -114,7 +114,7 @@ public class CaminantePagoServiceTest
     
 
     /*
-     * Prueba para obtener todos los pagos del caminante
+     * Prueba para obtener todos los pagos del caminante.
      */
     @Test
     void testObtenerPagos() throws EntityNotFoundException, IllegalOperationException
@@ -127,7 +127,7 @@ public class CaminantePagoServiceTest
     }
 
     /*
-     * Prueba para obtener un pago especifico asociado al caminante
+     * Prueba para obtener un pago especifico asociado al caminante.
      */
     @Test
     void testObtenerPago() throws EntityNotFoundException, IllegalOperationException
@@ -145,7 +145,7 @@ public class CaminantePagoServiceTest
     }
 
     /*
-     * Prueba para obtener un pago no valido
+     * Prueba para obtener un pago no valido.
      */
     @Test
     void testObtenerPagoDeCaminanteNoValido() throws EntityNotFoundException
@@ -158,7 +158,7 @@ public class CaminantePagoServiceTest
     }
 
     /*
-     * Prueba para obtener un pago no valido
+     * Prueba para obtener un pago no valido.
      */
     @Test
     void testObtenerPagoNoValido() throws EntityNotFoundException
@@ -171,7 +171,7 @@ public class CaminantePagoServiceTest
     }
 
     /*
-     * Prueba para obtener un pago no asociado al caminante
+     * Prueba para obtener un pago no asociado al caminante.
      */
     @Test
     void testPagoNoAsociado()
