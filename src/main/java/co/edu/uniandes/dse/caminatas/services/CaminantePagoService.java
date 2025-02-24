@@ -1,6 +1,5 @@
 package co.edu.uniandes.dse.caminatas.services;
 
-import static org.mockito.Mockito.spy;
 
 import java.util.List;
 import java.util.Optional;
@@ -28,7 +27,7 @@ public class CaminantePagoService
     private PagoRepository pagoRepository;
 
     /*
-     * Agrega un pago al caminante
+     * Agrega un pago al caminante.
      */
     @Transactional
     public CaminanteEntity addPago(Long caminanteID, Long pagoId) throws EntityNotFoundException, IllegalOperationException
@@ -56,7 +55,7 @@ public class CaminantePagoService
     }
 
     /*
-     * Obtiene todos los pagos del caminante
+     * Obtiene todos los pagos del caminante.
      */
     @Transactional
     public List<PagoEntity> listPagos(Long caminanteID) throws EntityNotFoundException, IllegalOperationException
@@ -78,7 +77,7 @@ public class CaminantePagoService
     }
 
     /*
-     * Obtiene un pago asociado al caminante
+     * Obtiene un pago asociado al caminante.
      */
     @Transactional
     public PagoEntity getPago(Long caminanteID, Long pagoId) throws EntityNotFoundException, IllegalOperationException
