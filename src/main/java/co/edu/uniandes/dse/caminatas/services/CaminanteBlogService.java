@@ -105,4 +105,5 @@ public class CaminanteBlogService {
         blog.get().getCaminantesInteracciones().remove(caminante.get());
         log.info("Termina proceso de eliminar un caminante del blog con id = {}", blogId);   
     }
+    
 }
