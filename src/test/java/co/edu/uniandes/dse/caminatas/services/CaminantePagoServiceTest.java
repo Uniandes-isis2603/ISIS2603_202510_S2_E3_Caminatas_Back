@@ -27,6 +27,7 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
 @Transactional
 @Import({CaminantePagoService.class})
 
+
 public class CaminantePagoServiceTest 
 {
     @Autowired
