@@ -2,6 +2,7 @@ package co.edu.uniandes.dse.caminatas.services;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.time.LocalTime;
@@ -326,6 +327,76 @@ public class CaminataServiceTest
                 caminataService.createCaminata(caminata);
             });
 
+        }
+
+        /*
+         * Prueba para actualizar una caminata
+         */
+        @Test
+        void testUpdateCaminata() throws EntityNotFoundException, IllegalOperationException {
+            CaminataEntity caminata = caminatasList.get(0);
+            CaminataEntity entity = factory.manufacturePojo(CaminataEntity.class);
+            
+            entity.setId(caminata.getId());
+
+            // 🔹 Asegurar que la fecha sea válida (posterior a la actual)
+            Calendar calendario = Calendar.getInstance();
+            calendario.add(Calendar.DAY_OF_YEAR, 1);
+            entity.setFecha(calendario.getTime());
+
+            // 🔹 Asegurar que la hora también sea válida
+            entity.setHora(LocalTime.now().plusHours(1));
+
+            // 🔹 Asignar un departamento válido (ejemplo: "Cundinamarca")
+            entity.setDepartamento("Cundinamarca");
+
+            caminataService.updateCaminata(caminata.getId(), entity);
+            CaminataEntity updated = entityManager.find(CaminataEntity.class, caminata.getId());
+
+            assertNotNull(updated);
+            assertEquals(entity.getId(), updated.getId());
+            assertEquals(entity.getTitulo(), updated.getTitulo());
+            assertEquals(entity.getTipo(), updated.getTipo());
+            assertEquals(entity.getFecha(), updated.getFecha());
+            assertEquals(entity.getHora(), updated.getHora());
+            assertEquals(entity.getDepartamento(), updated.getDepartamento());
+            assertEquals(entity.getCiudad(), updated.getCiudad());
+            assertEquals(entity.getDuracionEstimadaMinutos(), updated.getDuracionEstimadaMinutos());
+        }
+
+        /**
+         * Prueba para actualizar una caminata no existente
+         */
+        @Test
+        void testUpdateCaminataInvalida() throws EntityNotFoundException {
+            CaminataEntity caminata = caminatasList.get(0); 
+            assertThrows(IllegalOperationException.class, () -> {
+                CaminataEntity pojoEntity = factory.manufacturePojo(CaminataEntity.class);
+                pojoEntity.setId(caminata.getId()); 
+                pojoEntity.setDepartamento(""); 
+                caminataService.updateCaminata(caminata.getId(), pojoEntity);
+            });
+        }
+
+        /*
+         * Prueba para eliminar una caminata
+         */
+        @Test
+        void testDeleteCaminata() throws EntityNotFoundException, IllegalOperationException {
+            CaminataEntity caminata = caminatasList.get(0);
+            caminataService.deleteCaminata(caminata.getId());
+            CaminataEntity deleted = entityManager.find(CaminataEntity.class, caminata.getId());
+            assertNull(deleted);
+        }
+
+        /*
+         * Prueba para eliminar una caminata no existente
+         */
+        @Test
+        void testDeleteCaminataInvalida() throws EntityNotFoundException {
+            assertThrows(EntityNotFoundException.class, () -> {
+                caminataService.deleteCaminata(0L); 
+            });
         }
 
     }
