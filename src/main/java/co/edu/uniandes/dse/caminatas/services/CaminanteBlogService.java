@@ -13,12 +13,13 @@ import co.edu.uniandes.dse.caminatas.exceptions.IllegalOperationException;
 import co.edu.uniandes.dse.caminatas.repositories.BlogRepository;
 import co.edu.uniandes.dse.caminatas.repositories.CaminanteRepository;
 import jakarta.transaction.Transactional;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.slf4j.Slf4j; 
 
 @Slf4j
 @Service
 public class CaminanteBlogService {
 
+    
     @Autowired
     private BlogRepository blogRepository;
 
@@ -105,4 +106,5 @@ public class CaminanteBlogService {
         blog.get().getCaminantesInteracciones().remove(caminante.get());
         log.info("Termina proceso de eliminar un caminante del blog con id = {}", blogId);   
     }
+    
 }

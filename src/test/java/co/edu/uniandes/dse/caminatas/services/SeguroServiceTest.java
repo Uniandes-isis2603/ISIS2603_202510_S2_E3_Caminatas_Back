@@ -93,6 +93,7 @@ class SeguroServiceTest {
         assertEquals(newEntity.getTipo(), entity.getTipo());
         assertEquals(newEntity.getNumero(), entity.getNumero());
         assertEquals(newEntity.getId(), entity.getId());
+        
     }
 
     @Test
