@@ -8,4 +8,5 @@ public class BlogDTO {
     private String foto;
     private String video;
     private String text;
+    private CaminanteDTO caminanteDTO;
 }

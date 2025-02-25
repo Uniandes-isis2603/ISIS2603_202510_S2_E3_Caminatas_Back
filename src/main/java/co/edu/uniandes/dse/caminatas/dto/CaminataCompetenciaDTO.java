@@ -8,4 +8,5 @@ public class CaminataCompetenciaDTO {
     private String condicionesParticipacion;
     private String premios;
     private String requisitos;
+    private CaminataCompetenciaDTO camiataCompetenciaDTO;
 }

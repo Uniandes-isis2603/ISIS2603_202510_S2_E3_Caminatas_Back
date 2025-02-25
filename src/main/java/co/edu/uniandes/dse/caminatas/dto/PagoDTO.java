@@ -15,8 +15,8 @@ public class PagoDTO {
     private String propietario;
 
     
-    private EmpresaDTO empresa;
-    private CaminanteDTO caminante;
-    private CaminataDTO caminata;
+    private EmpresaDTO empresaDTO;
+    private CaminanteDTO caminanteDTO;
+    private CaminataDTO caminataDTO;
 }
 
