@@ -16,9 +16,7 @@ public class PagoDTO {
 
     
     private EmpresaDTO empresa;
-    /*
     private CaminanteDTO caminante;
     private CaminataDTO caminata;
-	*/
 }
 
