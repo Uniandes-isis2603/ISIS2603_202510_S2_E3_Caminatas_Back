@@ -14,8 +14,8 @@ import java.util.List;
 @Data
 public class BlogEntity extends BaseEntity {
     private String titulo;
-    private File foto;
-    private File video;
+    private String foto;
+    private String video;
     private String text;
 
     @PodamExclude
