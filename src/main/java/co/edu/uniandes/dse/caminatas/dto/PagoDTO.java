@@ -14,8 +14,9 @@ public class PagoDTO {
     private int cuotas;
     private String propietario;
 
-    /* 
+    
     private EmpresaDTO empresa;
+    /*
     private CaminanteDTO caminante;
     private CaminataDTO caminata;
 	*/
