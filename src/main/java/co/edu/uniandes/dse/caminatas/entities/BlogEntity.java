@@ -6,7 +6,6 @@ import jakarta.persistence.ManyToOne;
 import lombok.Data;
 import uk.co.jemos.podam.common.PodamExclude;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
