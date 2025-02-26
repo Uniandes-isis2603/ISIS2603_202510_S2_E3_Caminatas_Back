@@ -1,5 +1,6 @@
 package co.edu.uniandes.dse.caminatas.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -108,5 +109,11 @@ public class SeguroService {
         }
         log.info("Termina proceso de consultar el seguro con id = {0}", seguroId);
         return seguroEntity.get();
+    }
+
+    @Transactional
+    public List<SeguroEntity> getSeguros() {
+        log.info("Inicia el proceso de consultar los seguros");
+        return seguroRepository.findAll();
     }
 }
