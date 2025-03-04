@@ -77,7 +77,7 @@ class SeguroServiceTest {
         calendar.add(Calendar.DAY_OF_YEAR, 1 + (int)(Math.random() * 365)); // Genera una fecha aleatoria dentro del próximo año
         newCaminata.setFecha(calendar.getTime());
 
-        LocalTime hora = LocalTime.now().plusHours(1+ (int)(Math.random() * 12)); 
+        LocalTime hora = LocalTime.now().plusHours(1); 
         newCaminata.setHora(hora);
 
         newCaminata.setDepartamento("Cundinamarca");
