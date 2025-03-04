@@ -34,7 +34,7 @@ public class CaminataController
     private ModelMapper modelMapper;
 
     /*
-     * Busca y devuelve todos los autores que existen en la aplicacion.
+     * Busca y devuelve todas las caminatas que existen en la aplicacion.
      */
     @GetMapping
     @ResponseStatus(code = HttpStatus.OK)
