@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import co.edu.uniandes.dse.caminatas.dto.PagoDetailDTO;
-import co.edu.uniandes.dse.caminatas.dto.SeguroDetailDTO;
 import co.edu.uniandes.dse.caminatas.entities.PagoEntity;
 import co.edu.uniandes.dse.caminatas.services.PagoService;
 import org.modelmapper.TypeToken;
@@ -31,8 +30,8 @@ public class PagoController {
     @GetMapping
     @ResponseStatus(code = HttpStatus.OK)
     public List<PagoDetailDTO> findAll(){
-        List<PagoEntity> seguros = pagoService.getPagos();
-        return modelMapper.map(seguros, new TypeToken<List<SeguroDetailDTO>>() {
+        List<PagoEntity> pagos = pagoService.getPagos();
+        return modelMapper.map(pagos, new TypeToken<List<PagoDetailDTO>>() {
 
         }.getType());
     }
