@@ -85,14 +85,20 @@ class SeguroServiceTest {
         newCaminata.setDuracionEstimadaMinutos(120);
 
         newCaminata = caminataService.createCaminata(newCaminata);
+        assertNotNull(newCaminata.getId(), "La caminata no se guardó correctamente");
+
         newEntity.setCaminata(newCaminata);
+
         SeguroEntity result = seguroService.createSeguro(newEntity);
         assertNotNull(result);
+        assertNotNull(result.getId(), "El seguro no fue persistido correctamente");
+
         SeguroEntity entity = entityManager.find(SeguroEntity.class, result.getId());
+        assertNotNull(entity, "El seguro no se encontró en la base de datos");
+
         assertEquals(newEntity.getNombre(), entity.getNombre());
         assertEquals(newEntity.getTipo(), entity.getTipo());
         assertEquals(newEntity.getNumero(), entity.getNumero());
-        assertEquals(newEntity.getId(), entity.getId());
         
     }
 
