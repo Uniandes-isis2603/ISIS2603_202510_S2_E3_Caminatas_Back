@@ -29,22 +29,24 @@ public class CaminataPagoService
      * Agrega un pago a la caminata
      */
     @Transactional
-    public CaminataEntity addPago(Long caminataId, Long pagoId) throws EntityNotFoundException
+    public PagoEntity addPago(Long caminataId, Long pagoId) throws EntityNotFoundException
     {
-        log.info("Inicia proceso de agregar un pago a la caminata con id = {0}", caminataId);
+        log.info("Inicia proceso de agregar un pago a la caminata con id = {}", caminataId);
+        
         Optional<CaminataEntity> caminata = caminataRepository.findById(caminataId);
         Optional<PagoEntity> pago = pagoRepository.findById(pagoId);
-        if (caminata.isEmpty())
-        {
+        
+        if (caminata.isEmpty()) {
             throw new EntityNotFoundException("La caminata con id = " + caminataId + " no existe.");
         }
-        if(pago.isEmpty())
-        {
+        if (pago.isEmpty()) {
             throw new EntityNotFoundException("El pago con id = " + pagoId + " no existe.");
         }
+        
         caminata.get().getPagos().add(pago.get());
-        log.info("Termina proceso de agregar un pago a la caminata con id = {0}", caminataId);
-        return caminata.get();
+        log.info("Termina proceso de agregar un pago a la caminata con id = {}", caminataId);
+        
+        return pago.get();  
     }
 
     /*

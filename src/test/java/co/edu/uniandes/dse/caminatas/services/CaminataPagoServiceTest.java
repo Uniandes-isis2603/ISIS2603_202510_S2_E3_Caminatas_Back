@@ -81,8 +81,7 @@ public class CaminataPagoServiceTest
     {
         CaminataEntity caminata = listaCaminatas.get(0);
         PagoEntity pago = listaPagos.get(1);
-        CaminataEntity respuesta = caminataPagoService.addPago(pago.getId(), caminata.getId());
-
+        PagoEntity respuesta = caminataPagoService.addPago(caminata.getId(), pago.getId());
         assertNotNull(respuesta);
         assertEquals(pago.getId(), respuesta.getId());
 
