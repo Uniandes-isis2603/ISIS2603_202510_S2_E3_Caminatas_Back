@@ -27,11 +27,11 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
 @DataJpaTest
 @Slf4j
 @Transactional
-@Import({CaminanteBlogService.class})
+@Import({CaminanteBlogInteractuaService.class})
 public class CaminanteBlogServiceTest {
 
     @Autowired
-    private CaminanteBlogService caminanteBlogService;
+    private CaminanteBlogInteractuaService caminanteBlogService;
 
     @Autowired
     private TestEntityManager entityManager;
