@@ -82,11 +82,7 @@ public class PagoService
 		return pagoEntity.get();
     }
     
-    @Transactional
-    public PagoEntity updatePago (Long id, PagoEntity pago) throws EntityNotFoundException, IllegalOperationException
-    {
-        return pago;
-    }
+
     
     @Transactional
     public void deletePago (Long id) throws EntityNotFoundException, IllegalOperationException
