@@ -5,6 +5,8 @@ import lombok.Data;
 
 @Data
 public class PagoDTO {
+
+	private Long id;
 	private String numeroTransaccion;
 	private float valorCaminata;
 	private float valorTotal;
