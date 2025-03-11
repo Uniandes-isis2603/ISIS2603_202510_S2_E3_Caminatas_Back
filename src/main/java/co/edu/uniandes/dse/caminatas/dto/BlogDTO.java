@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class BlogDTO {
+    private Long id;
     private String titulo;
     private String foto;
     private String video;

@@ -48,6 +48,7 @@ public class PagoService
         {
             throw new IllegalOperationException("Tarjeta invalida");
         }
+        /*
         if(pago.getEmpresa() == null && pago.getCaminante() == null)
         {
             throw new EntityNotFoundException("Tarjeta no asociada a ningun usuario");
@@ -55,7 +56,7 @@ public class PagoService
         if(pago.getEmpresa() != null && pago.getCaminante() != null)
         {
             throw new IllegalOperationException("Tarjeta asociada a dos usuarios");
-        }
+        }*/
 
         //String IDpago = pago.getNumeroTransaccion();
         return pagoRepository.save(pago);
@@ -82,11 +83,7 @@ public class PagoService
 		return pagoEntity.get();
     }
     
-    @Transactional
-    public PagoEntity updatePago (Long id, PagoEntity pago) throws EntityNotFoundException, IllegalOperationException
-    {
-        return pago;
-    }
+
     
     @Transactional
     public void deletePago (Long id) throws EntityNotFoundException, IllegalOperationException
