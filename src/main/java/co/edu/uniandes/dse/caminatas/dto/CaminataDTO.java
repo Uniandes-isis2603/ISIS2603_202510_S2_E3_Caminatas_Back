@@ -6,6 +6,7 @@ import java.util.Date;
 import lombok.Data;
 @Data
 public class CaminataDTO {
+    private Long id;
     private int numero;
     private String titulo;
     private String tipo;
