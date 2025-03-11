@@ -7,5 +7,5 @@ import lombok.Data;
 
 @Data
 public class SeguroDetailDTO extends SeguroDTO{
-    private List<CaminataDTO> caminatas = new ArrayList<>();
+
 }
