@@ -91,6 +91,23 @@ public class CaminanteBlogCrearService {
     }
 
     @Transactional
+    public List<BlogEntity> replaceBlogs(Long caminanteId, List<BlogEntity> blogs) throws EntityNotFoundException {
+        log.info("Inicia proceso de actualizar el caminante con id = {}", caminanteId);
+        Optional<CaminanteEntity> caminanteEntity = caminanteRepository.findById(caminanteId);
+        if (caminanteEntity.isEmpty())
+            throw new EntityNotFoundException("El caminante con id = " + caminanteId + " no existe.");
+
+        for (BlogEntity blog : blogs) {
+            Optional<BlogEntity> b = blogRepository.findById(blog.getId());
+            if (b.isEmpty())
+                throw new EntityNotFoundException("El blog con id = " + blog.getId() + " no existe.");
+
+            b.get().setCaminante(caminanteEntity.get());
+        }
+        return blogs;
+    }
+
+    @Transactional
     public void removeBlog(Long caminanteId, Long blogId) throws EntityNotFoundException {
         log.info("Inicia proceso de borrar un blog del caminante con id = {}", caminanteId);
         Optional<CaminanteEntity> caminanteEntity = caminanteRepository.findById(caminanteId);
