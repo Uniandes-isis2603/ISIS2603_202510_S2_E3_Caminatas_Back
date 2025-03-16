@@ -32,6 +32,9 @@ public class PagoController {
     @Autowired
     private ModelMapper modelMapper;
 
+    /*
+     * Obtiene todas las instancias de pago.
+     */
     @GetMapping
     @ResponseStatus(code = HttpStatus.OK)
     public List<PagoDetailDTO> findAll(){
@@ -41,6 +44,9 @@ public class PagoController {
         }.getType());
     }
     
+    /*
+     * Obtiene una instancia de pago con su id.
+     */
     @GetMapping(value = "/{id}")
     @ResponseStatus(code = HttpStatus.OK)
     public PagoDetailDTO findOne(@PathVariable Long id) throws EntityNotFoundException {
@@ -48,6 +54,9 @@ public class PagoController {
         return modelMapper.map(pago, PagoDetailDTO.class);
     }
 
+    /*
+     * Crea una instancia de pago.
+     */
     @PostMapping
     @ResponseStatus(code = HttpStatus.CREATED)
     public PagoDTO create(@RequestBody PagoDTO pagoDTO) throws IllegalOperationException, EntityNotFoundException {
