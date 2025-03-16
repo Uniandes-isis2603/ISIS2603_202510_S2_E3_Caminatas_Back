@@ -278,37 +278,4 @@ class PagoServiceTest
 		});
 	}
 
-	/**
-	 * Prueba para eliminar un pago
-	 */
-	@Test
-	void testBorrarPago() throws EntityNotFoundException, IllegalOperationException 
-	{
-		PagoEntity pago = listaPagos.get(2);
-		pagoService.deletePago(pago.getId());
-		PagoEntity pagoEliminado = entityManager.find(PagoEntity.class, pago.getId());
-		assertNull(pagoEliminado);
-	}
-	
-	/**
-	 * Prueba para eliminar un pago que no existe
-	 */
-	@Test
-	void testBorrarPagoNoValido() {
-		assertThrows(EntityNotFoundException.class, ()->
-		{
-			pagoService.deletePago(0L);
-		});
-	}
-
-	/**
-	 * Prueba para eliminar un pago ya realizado a una caminata
-	 */
-	@Test
-	void testBorrarPagoConCaminata() {
-		assertThrows(IllegalOperationException.class, () -> {
-			PagoEntity pago = listaPagos.get(0);
-			pagoService.deletePago(pago.getId());
-		});
-	}
 }

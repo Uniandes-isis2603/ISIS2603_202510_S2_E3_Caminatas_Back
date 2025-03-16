@@ -31,11 +31,7 @@ public class PagoService
 
     
         log.info("Creando pago");
-
-        if(pago == null)
-        {
-            throw new EntityNotFoundException("El pago no existe");
-        }
+        
         if(!pagoRepository.findByNumeroTransaccion(pago.getNumeroTransaccion()).isEmpty())
         {
             throw new IllegalOperationException("Ya existe registro de este pago");
@@ -48,7 +44,10 @@ public class PagoService
         {
             throw new IllegalOperationException("Tarjeta invalida");
         }
-    
+        if(pago.getCaminata() == null)
+        {
+            throw new EntityNotFoundException("Pago no asociado a ninguna caminata");
+        }
         if(pago.getEmpresa() == null && pago.getCaminante() == null)
         {
             throw new EntityNotFoundException("Tarjeta no asociada a ningun usuario");
@@ -57,8 +56,7 @@ public class PagoService
         {
             throw new IllegalOperationException("Tarjeta asociada a dos usuarios");
         }
-
-        //String IDpago = pago.getNumeroTransaccion();
+        log.info("Pago creado con id = {0}");
         return pagoRepository.save(pago);
     }
 
@@ -83,23 +81,4 @@ public class PagoService
 		return pagoEntity.get();
     }
     
-
-    
-    @Transactional
-    public void deletePago (Long id) throws EntityNotFoundException, IllegalOperationException
-    {
-        log.info("Buscando y eliminando pago con id = {0}", id);
-        Optional<PagoEntity> pagoEliminar = pagoRepository.findById(id);
-        if(pagoEliminar.isEmpty())
-        {
-            throw new EntityNotFoundException("El pago no existe");
-        }
-        
-        if(pagoEliminar.get().getCaminata()!=null)
-        {
-            throw new IllegalOperationException("El pago está asociado a una caminata"); 
-        }
-        pagoRepository.deleteById(id);
-        log.info("El pago con id = {0} ha sido eliminado", id);
-    }
 }
