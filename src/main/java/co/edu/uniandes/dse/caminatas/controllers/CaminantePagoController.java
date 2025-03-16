@@ -8,7 +8,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import co.edu.uniandes.dse.caminatas.dto.CaminanteDTO;
 import co.edu.uniandes.dse.caminatas.dto.CaminanteDetailDTO;
 import co.edu.uniandes.dse.caminatas.dto.PagoDetailDTO;
 import co.edu.uniandes.dse.caminatas.entities.CaminanteEntity;
@@ -17,11 +16,9 @@ import co.edu.uniandes.dse.caminatas.exceptions.EntityNotFoundException;
 import co.edu.uniandes.dse.caminatas.exceptions.IllegalOperationException;
 import co.edu.uniandes.dse.caminatas.services.CaminantePagoService;
 import org.modelmapper.TypeToken;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 
