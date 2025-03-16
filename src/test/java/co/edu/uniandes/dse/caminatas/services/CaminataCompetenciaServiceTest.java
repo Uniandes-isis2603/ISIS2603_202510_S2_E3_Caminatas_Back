@@ -75,8 +75,14 @@ public class CaminataCompetenciaServiceTest
             CaminataCompetenciaEntity caminataCompetencia = factory.manufacturePojo(CaminataCompetenciaEntity.class);
             caminataCompetencia.setPatrocinador(patrocinador);
             caminataCompetencia.setDepartamento("Antioquia");
+            caminataCompetencia.setTitulo("Caminata Montaña");
+            caminataCompetencia.setTipo("Competencia");
             caminataCompetencia.setCiudad("Medellin");
             caminataCompetencia.setDuracionEstimadaMinutos(120);
+            caminataCompetencia.setNumero(1);
+            caminataCompetencia.setCondicionesParticipacion("Debe ser mayor de edad y estar en buena condición física.");
+            caminataCompetencia.setPremios("Trofeo y medalla para los primeros 3 lugares.");
+            caminataCompetencia.setRequisitos("Inscripción previa y firma de exoneración de responsabilidad.");
 
             Calendar calendario = Calendar.getInstance();
             calendario.add(Calendar.DAY_OF_YEAR, 1);
@@ -84,14 +90,6 @@ public class CaminataCompetenciaServiceTest
 
             LocalTime hora = LocalTime.now().plusHours(1);
             caminataCompetencia.setHora(hora);
-
-            assertNotNull(caminataCompetencia.getTitulo(), "El título no debe ser nulo");
-            assertFalse(caminataCompetencia.getTitulo().isEmpty(), "El título no debe estar vacío");
-            assertNotNull(caminataCompetencia.getTipo(), "El tipo no debe ser nulo");
-            assertFalse(caminataCompetencia.getTipo().isEmpty(), "El tipo no debe estar vacío");
-            assertNotNull(caminataCompetencia.getCiudad(), "La ciudad no debe ser nula");
-            assertFalse(caminataCompetencia.getCiudad().isEmpty(), "La ciudad no debe estar vacía");
-            assertTrue(caminataCompetencia.getDuracionEstimadaMinutos() > 0, "La duración estimada debe ser mayor a cero");
 
             CaminataCompetenciaEntity result = caminataCompetenciaService.CreateCompetencia(caminataCompetencia);
             assertNotNull(result);
