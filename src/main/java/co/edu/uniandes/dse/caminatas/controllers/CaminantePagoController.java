@@ -32,6 +32,10 @@ public class CaminantePagoController {
     @Autowired
     private ModelMapper modelMapper;
 
+
+	/*
+     * Guarda un pago a un caminante con su ID
+     */
     @PostMapping(value = "/{caminanteID}/pagos/{pagoID}")
 	@ResponseStatus(code = HttpStatus.OK)
 	public CaminanteDetailDTO addPago(@PathVariable Long caminanteID, @PathVariable Long pagoID) throws EntityNotFoundException, IllegalOperationException 
@@ -40,6 +44,9 @@ public class CaminantePagoController {
 		return modelMapper.map(caminante, CaminanteDetailDTO.class);
 	}
 
+	/*
+     * Muestra una lista de pagos perteneciente a un caminante con un ID especifico
+     */
     @GetMapping(value = "/{caminanteID}/pagos")
 	@ResponseStatus(code = HttpStatus.OK)
 	public List<PagoDetailDTO> getPagos(@PathVariable Long caminanteID) throws EntityNotFoundException,  IllegalOperationException  {
@@ -48,6 +55,9 @@ public class CaminantePagoController {
 		}.getType());
 	}
 
+	/*
+     * Muestra un pago con un ID especifico perteneciente a un caminante con un ID especifico
+     */
     @GetMapping(value = "/{caminanteID}/pagos/{pagoID}")
 	@ResponseStatus(code = HttpStatus.OK)
 	public PagoDetailDTO getPago(@PathVariable Long caminanteID, @PathVariable Long pagoID) throws EntityNotFoundException,  IllegalOperationException  {
