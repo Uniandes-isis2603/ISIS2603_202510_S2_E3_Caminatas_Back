@@ -26,40 +26,40 @@ public class CaminataCompetenciaPatrocinadorService
     /*
      * Reemplaza el patrocinador de una caminata de competencia
      */
-    public PatrocinadorEntity replacePatrocinador(Long caminataId, Long patrocinadorId) throws EntityNotFoundException
+    public CaminataCompetenciaEntity replacePatrocinador(Long caminataCompetenciaId, Long patrocinadorId) throws EntityNotFoundException
     {
-        log.info("Inicia proceso de reemplazar el patrocinador de la caminata con id = {0}", caminataId);
-        Optional<CaminataCompetenciaEntity> caminataCompetencia = caminataCompetenciaRepository.findById(caminataId);
+        log.info("Inicia proceso de reemplazar el patrocinador de la caminata con id = {}", caminataCompetenciaId);
+        Optional<CaminataCompetenciaEntity> caminataCompetencia = caminataCompetenciaRepository.findById(caminataCompetenciaId);
         Optional<PatrocinadorEntity> patrocinador = patrocinadorRepository.findById(patrocinadorId);
         if(caminataCompetencia.isEmpty())
         {
-            throw new EntityNotFoundException("No se encontró la caminata con id = " + caminataId);
+            throw new EntityNotFoundException("No se encontró la caminata de competencia con id = " + caminataCompetenciaId);
         }
         if(patrocinador.isEmpty())
         {
             throw new EntityNotFoundException("No se encontró el patrocinador con id = " + patrocinadorId);
         }
         caminataCompetencia.get().setPatrocinador(patrocinador.get());
-        log.info("Termina proceso de reemplazar el patrocinador de la caminata con id = {0}", caminataId);
-        return patrocinador.get();
+        log.info("Termina proceso de reemplazar el patrocinador de la caminata con id = {0}", caminataCompetenciaId);
+        return caminataCompetencia.get();
     }
 
     /*
      * Borra el patrocinador de una caminata de competencia
      */
     @Transactional
-    public void removePatrocinador(Long caminataId) throws EntityNotFoundException
+    public void removePatrocinador(Long caminataCompetenciaId) throws EntityNotFoundException
     {
-        log.info("Inicia proceso de borrar el patrocinador de la caminata con id = {0}", caminataId);
-        Optional<CaminataCompetenciaEntity> caminataCompetencia = caminataCompetenciaRepository.findById(caminataId);
+        log.info("Inicia proceso de borrar el patrocinador de la caminata con id = {}", caminataCompetenciaId);
+        Optional<CaminataCompetenciaEntity> caminataCompetencia = caminataCompetenciaRepository.findById(caminataCompetenciaId);
         if(caminataCompetencia.isEmpty())
         {
-            throw new EntityNotFoundException("No se encontró la caminata con id = " + caminataId);
+            throw new EntityNotFoundException("No se encontró la caminata de competencia con id = " + caminataCompetenciaId);
         }
         Optional<PatrocinadorEntity> patrocinadorEntity = patrocinadorRepository.findById(caminataCompetencia.get().getPatrocinador().getId());
         patrocinadorEntity.ifPresent(patrocinador -> patrocinador.getCaminatasCompetencia().remove(caminataCompetencia.get()));
         caminataCompetencia.get().setPatrocinador(null);
-        log.info("Termina proceso de borrar el patrocinador de la caminata con id = {0}", caminataId);
+        log.info("Termina proceso de borrar el patrocinador de la caminata con id = {}", caminataCompetenciaId);
     } 
     
 }
