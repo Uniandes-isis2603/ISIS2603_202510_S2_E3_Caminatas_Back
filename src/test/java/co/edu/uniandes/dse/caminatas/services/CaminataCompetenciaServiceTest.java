@@ -68,11 +68,13 @@ public class CaminataCompetenciaServiceTest
             PatrocinadorEntity patrocinador = new PatrocinadorEntity();
             patrocinador.setNombre("Patrocinador Ejemplo");
             patrocinador = entityManager.persist(patrocinador);
-
+            assertNotNull(patrocinador.getId());
 
             CaminataCompetenciaEntity caminataCompetencia = factory.manufacturePojo(CaminataCompetenciaEntity.class);
             caminataCompetencia.setPatrocinador(patrocinador);
             caminataCompetencia.setDepartamento("Antioquia");
+            caminataCompetencia.setCiudad("Medellin");
+            caminataCompetencia.setDuracionEstimadaMinutos(120);
 
             Calendar calendario = Calendar.getInstance();
             calendario.add(Calendar.DAY_OF_YEAR, 1);
