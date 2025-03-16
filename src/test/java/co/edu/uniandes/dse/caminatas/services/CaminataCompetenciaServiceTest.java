@@ -1,8 +1,10 @@
 package co.edu.uniandes.dse.caminatas.services;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -80,8 +82,16 @@ public class CaminataCompetenciaServiceTest
             calendario.add(Calendar.DAY_OF_YEAR, 1);
             caminataCompetencia.setFecha(calendario.getTime());
 
-            LocalTime hora = LocalTime.now().plusHours(1); 
+            LocalTime hora = LocalTime.now().plusHours(1);
             caminataCompetencia.setHora(hora);
+
+            assertNotNull(caminataCompetencia.getTitulo(), "El título no debe ser nulo");
+            assertFalse(caminataCompetencia.getTitulo().isEmpty(), "El título no debe estar vacío");
+            assertNotNull(caminataCompetencia.getTipo(), "El tipo no debe ser nulo");
+            assertFalse(caminataCompetencia.getTipo().isEmpty(), "El tipo no debe estar vacío");
+            assertNotNull(caminataCompetencia.getCiudad(), "La ciudad no debe ser nula");
+            assertFalse(caminataCompetencia.getCiudad().isEmpty(), "La ciudad no debe estar vacía");
+            assertTrue(caminataCompetencia.getDuracionEstimadaMinutos() > 0, "La duración estimada debe ser mayor a cero");
 
             CaminataCompetenciaEntity result = caminataCompetenciaService.CreateCompetencia(caminataCompetencia);
             assertNotNull(result);
