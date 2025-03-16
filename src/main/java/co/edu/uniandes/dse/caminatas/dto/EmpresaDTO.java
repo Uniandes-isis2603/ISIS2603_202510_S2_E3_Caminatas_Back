@@ -5,6 +5,6 @@ import lombok.Data;
 public class EmpresaDTO {
     private Long id;
     private String nombre;
-    private int documento;
+    private String documento;
     private String correo;
 }
