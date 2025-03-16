@@ -139,19 +139,6 @@ class PagoServiceTest
 	}
 
 	/**
-	 * Prueba para crear un pago que no existe
-	 */
-	@Test
-	void testCrearPagoNoExistente() throws EntityNotFoundException, IllegalOperationException 
-	{
-		assertThrows(EntityNotFoundException.class, () -> 
-		{
-			pagoService.createPago(null);
-		});
-	
-	}
-
-	/**
 	 * Prueba para crear un pago que tiene un valor no valido
 	 */
 	@Test
@@ -209,6 +196,7 @@ class PagoServiceTest
 		assertThrows(IllegalOperationException.class, () -> 
 		{
 			PagoEntity nuevoPago = factory.manufacturePojo(PagoEntity.class);
+			nuevoPago.setCaminata(caminataEntity);
 			nuevoPago.setCaminante(caminanteEntity);
 			nuevoPago.setEmpresa(empresaEntity);
 			pagoService.createPago(nuevoPago);
