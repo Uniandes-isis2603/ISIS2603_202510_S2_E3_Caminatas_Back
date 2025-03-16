@@ -71,7 +71,7 @@ public class CaminataCompetenciaServiceTest
 
 
             CaminataCompetenciaEntity caminataCompetencia = factory.manufacturePojo(CaminataCompetenciaEntity.class);
-            caminataCompetencia.setPatrocinador(patrocinador); // Asigna el patrocinador
+            caminataCompetencia.setPatrocinador(patrocinador);
             caminataCompetencia.setDepartamento("Antioquia");
 
             Calendar calendario = Calendar.getInstance();
