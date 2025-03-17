@@ -1,6 +1,7 @@
 package co.edu.uniandes.dse.caminatas.services;
 
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
@@ -47,9 +48,9 @@ public class CaminataCompetenciaService
             throw new IllegalOperationException("La fecha de la caminata no puede ser nula o anterior a la fecha actual.");
         }
 
-        LocalDateTime horaActual = LocalDateTime.now();
+        LocalTime horaActual = LocalTime.now();
 
-        if(caminataCompetencia.getHora() == null || caminataCompetencia.getHora().isBefore(horaActual.toLocalTime()))
+        if(caminataCompetencia.getHora() == null || caminataCompetencia.getHora().isBefore(horaActual))
         {
             throw new IllegalOperationException("La hora de la caminata no puede ser nula o anterior a la actual.");
         }
