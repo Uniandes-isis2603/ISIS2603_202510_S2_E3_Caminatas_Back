@@ -1,7 +1,7 @@
 package co.edu.uniandes.dse.caminatas.services;
 
 import java.time.LocalDateTime;
-import java.time.LocalTime;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
@@ -48,11 +48,20 @@ public class CaminataCompetenciaService
             throw new IllegalOperationException("La fecha de la caminata no puede ser nula o anterior a la fecha actual.");
         }
 
-        LocalTime horaActual = LocalTime.now();
-
-        if(caminataCompetencia.getHora() == null || caminataCompetencia.getHora().isBefore(horaActual))
+        if(caminataCompetencia.getHora() == null)
         {
-            throw new IllegalOperationException("La hora de la caminata no puede ser nula o anterior a la actual.");
+            throw new IllegalOperationException("La hora de la caminata no puede ser nula.");
+        }
+
+        LocalDateTime fechaHoraEvento = LocalDateTime.of(
+        caminataCompetencia.getFecha().toInstant()
+            .atZone(ZoneId.systemDefault())
+            .toLocalDate(),
+        caminataCompetencia.getHora()
+        );
+        LocalDateTime ahora = LocalDateTime.now();
+        if (fechaHoraEvento.isBefore(ahora)) {
+            throw new IllegalOperationException("La fecha y hora de la caminata debe ser posterior a la actual.");
         }
 
         List<String> departamentos = new ArrayList<String> (Arrays.asList("Amazonas", "Antioquia", "Arauca", "Atlántico", "Bolívar", "Boyacá", "Caldas", "Caquetá", "Casanare", "Cauca", "Cesar", "Chocó", "Córdoba", "Cundinamarca", "Guainía", "Guaviare", "Huila", "La Guajira", "Magdalena", "Meta", "Nariño", "Norte de Santander", "Putumayo", "Quindío", "Risaralda", "San Andrés y Providencia", "Santander", "Sucre", "Tolima", "Valle del Cauca", "Vaupés", "Vichada"));

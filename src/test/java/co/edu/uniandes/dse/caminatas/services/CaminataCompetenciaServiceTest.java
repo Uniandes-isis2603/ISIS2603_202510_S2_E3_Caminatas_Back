@@ -1,6 +1,7 @@
 package co.edu.uniandes.dse.caminatas.services;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import java.time.LocalTime;
@@ -19,6 +20,8 @@ import uk.co.jemos.podam.api.PodamFactory;
 import uk.co.jemos.podam.api.PodamFactoryImpl;
 
 import co.edu.uniandes.dse.caminatas.entities.CaminataCompetenciaEntity;
+import co.edu.uniandes.dse.caminatas.entities.PatrocinadorEntity;
+import co.edu.uniandes.dse.caminatas.exceptions.EntityNotFoundException;
 import co.edu.uniandes.dse.caminatas.exceptions.IllegalOperationException;
 import jakarta.transaction.Transactional;
 
@@ -67,8 +70,9 @@ public class CaminataCompetenciaServiceTest
             calendario.add(Calendar.DAY_OF_YEAR, 1);
             caminataCompetencia.setFecha(calendario.getTime());
 
-            LocalTime hora = LocalTime.now().plusHours(3);
+            LocalTime hora = LocalTime.now().plusHours(1);
             caminataCompetencia.setHora(hora);
+
             caminataCompetencia.setCondicionesParticipacion("Condiciones de participación");
             caminataCompetencia.setPremios("Premios");
             caminataCompetencia.setRequisitos("Requisitos");
@@ -429,6 +433,98 @@ public class CaminataCompetenciaServiceTest
                 caminataCompetenciaService.CreateCompetencia(caminataCompetencia);
             });
         }
+
+        @Test
+        void testGetCaminatasCompetencia() 
+        {
+            List<CaminataCompetenciaEntity> caminatasCompetencia = caminataCompetenciaService.getCaminatasCompetencia();
+            assertNotNull(caminatasCompetencia);
+            assertFalse(caminatasCompetencia.isEmpty());
+        }
+
+
+        @Test
+        void testGetCaminataCompetenciaById() throws EntityNotFoundException
+        {
+            CaminataCompetenciaEntity caminataCompetencia = caminatasCompetenciaList.get(0);
+            CaminataCompetenciaEntity result = caminataCompetenciaService.getCaminataCompetencia(caminataCompetencia.getId());
+            assertNotNull(result);
+            assertEquals(caminataCompetencia.getId(), result.getId());
+        }
+
+
+        @Test
+        void testGetCaminataCompetenciaByIdNotFound() 
+        {
+            assertThrows(EntityNotFoundException.class, () -> {
+                caminataCompetenciaService.getCaminataCompetencia(999L);  // ID that does not exist
+            });
+        }
+
+
+        @Test
+        void testUpdateCaminataCompetencia() throws EntityNotFoundException, IllegalOperationException
+        {
+            CaminataCompetenciaEntity caminataCompetencia = caminatasCompetenciaList.get(0);
+            caminataCompetencia.setTitulo("Nuevo Título");
+
+            // Establecer la fecha y hora de la caminata
+            Calendar calendario = Calendar.getInstance();
+            calendario.add(Calendar.DAY_OF_YEAR, 1);  // Asegúrate de que la fecha sea al menos un día en el futuro
+            caminataCompetencia.setFecha(calendario.getTime());
+
+            LocalTime horaActual = LocalTime.now();
+            LocalTime horaFutura = horaActual.plusMinutes(10);  // Asegura que la hora de la caminata sea después de la actual
+            caminataCompetencia.setHora(horaFutura);
+
+            // Asegúrate de que el departamento sea válido
+            caminataCompetencia.setDepartamento("Antioquia"); // Asegúrate de que el departamento esté en la lista de departamentos permitidos
+
+            CaminataCompetenciaEntity updatedCaminata = caminataCompetenciaService.updateCaminataCompetencia(caminataCompetencia.getId(), caminataCompetencia);
+
+            assertNotNull(updatedCaminata);
+            assertEquals("Nuevo Título", updatedCaminata.getTitulo());
+        }
+
+
+        @Test
+        void testUpdateCaminataCompetenciaWithInvalidId() 
+        {
+            CaminataCompetenciaEntity caminataCompetencia = caminatasCompetenciaList.get(0);
+            caminataCompetencia.setTitulo("Nuevo Título");
+
+            assertThrows(EntityNotFoundException.class, () -> {
+                caminataCompetenciaService.updateCaminataCompetencia(999L, caminataCompetencia); // ID that does not exist
+            });
+        }
+
+
+        @Test
+        void testDeleteCaminataCompetencia() throws EntityNotFoundException, IllegalOperationException
+        {
+            CaminataCompetenciaEntity caminataCompetencia = caminatasCompetenciaList.get(0);
+            caminataCompetenciaService.deleteCaminataCompetencia(caminataCompetencia.getId());
+
+            assertThrows(EntityNotFoundException.class, () -> {
+                caminataCompetenciaService.getCaminataCompetencia(caminataCompetencia.getId()); // Should throw exception
+            });
+        }
+
+        
+        @Test
+        void testDeleteCaminataCompetenciaWithPatrocinador() throws EntityNotFoundException
+        {
+            CaminataCompetenciaEntity caminataCompetencia = caminatasCompetenciaList.get(0);
+            // Simulate associated patrocinador
+            PatrocinadorEntity patrocinador = new PatrocinadorEntity();
+            caminataCompetencia.setPatrocinador(patrocinador);
+            entityManager.persist(patrocinador);
+
+            assertThrows(IllegalOperationException.class, () -> {
+                caminataCompetenciaService.deleteCaminataCompetencia(caminataCompetencia.getId());
+            });
+        }
+
     
 }
 
