@@ -11,5 +11,5 @@ public class SeguroDTO {
     private String cobertura;
     private String condiciones;
     private float costo;
-    private CaminataDTO caminataDTO;
+    private CaminataDTO caminata;
 }

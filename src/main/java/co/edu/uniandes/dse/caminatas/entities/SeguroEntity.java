@@ -17,7 +17,7 @@ public class SeguroEntity extends BaseEntity {
     private float costo;
     
     @PodamExclude
-    @OneToOne(mappedBy = "seguro")
+    @OneToOne
     private CaminataEntity caminata;
 
 }

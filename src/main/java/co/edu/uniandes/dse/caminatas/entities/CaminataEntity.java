@@ -8,6 +8,7 @@ import java.util.List;
 import co.edu.uniandes.dse.caminatas.podam.DateStrategy;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
@@ -49,7 +50,7 @@ public class CaminataEntity extends BaseEntity
     private EmpresaEntity empresa;
 
     @PodamExclude
-    @OneToOne
+    @OneToOne(mappedBy = "caminata", fetch = FetchType.LAZY)
     private SeguroEntity seguro;
 
 }

@@ -62,9 +62,9 @@ public class CaminataController
      */
     @PostMapping
     @ResponseStatus(code = HttpStatus.CREATED)
-    public CaminataDetailDTO create(@RequestBody CaminataDetailDTO caminata) throws EntityNotFoundException, IllegalOperationException
+    public CaminataDTO create(@RequestBody CaminataDTO caminataDTO) throws EntityNotFoundException, IllegalOperationException
     {
-        CaminataEntity caminataEntity = caminataService.createCaminata(modelMapper.map(caminata, CaminataEntity.class));
+        CaminataEntity caminataEntity = caminataService.createCaminata(modelMapper.map(caminataDTO, CaminataEntity.class));
         return modelMapper.map(caminataEntity, CaminataDetailDTO.class);
     }
 

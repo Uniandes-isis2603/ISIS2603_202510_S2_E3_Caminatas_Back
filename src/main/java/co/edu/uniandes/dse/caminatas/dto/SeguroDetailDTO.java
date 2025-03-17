@@ -4,5 +4,5 @@ import lombok.Data;
 
 @Data
 public class SeguroDetailDTO extends SeguroDTO{
-
+    private CaminataDTO caminata;
 }

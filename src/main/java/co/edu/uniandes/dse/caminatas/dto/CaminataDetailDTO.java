@@ -12,4 +12,5 @@ public class CaminataDetailDTO extends CaminataDTO {
     private SeguroDTO seguro;
     private List<CaminanteDTO> caminantes = new ArrayList<>();
     private List<PagoDTO> pagos = new ArrayList<>();
+    private SeguroDTO seguro;
 }
