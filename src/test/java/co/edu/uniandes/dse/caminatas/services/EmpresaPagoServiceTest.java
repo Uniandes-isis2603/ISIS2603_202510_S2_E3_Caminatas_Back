@@ -262,22 +262,38 @@ public class EmpresaPagoServiceTest {
         nuevaListaPagos.add(pagos.get(2));
         nuevaListaPagos.add(pagos.get(3));
         
+        // Asegurarnos de que los pagos nuevos no están asociados con otra empresa
+        PagoEntity pago2 = pagos.get(2);
+        PagoEntity pago3 = pagos.get(3);
+        pago2.setEmpresa(null);
+        pago3.setEmpresa(null);
+        entityManager.merge(pago2);
+        entityManager.merge(pago3);
+        entityManager.flush();
+        
         List<PagoEntity> result = empresaPagoService.replacePagosEmpresa(empresa.getId(), nuevaListaPagos);
         
         assertNotNull(result);
         assertEquals(2, result.size());
         
+        // Forzar a que las transacciones se completen y limpiar el contexto de persistencia
+        entityManager.flush();
+        entityManager.clear();
+        
+        // Refrescar la empresa para asegurarnos de que tiene los datos actualizados
+        empresa = entityManager.find(EmpresaEntity.class, empresa.getId());
+        
         // Verificar que los pagos anteriores ya no estén asociados
-        entityManager.refresh(pagos.get(0));
-        entityManager.refresh(pagos.get(1));
-        assertNull(pagos.get(0).getEmpresa());
-        assertNull(pagos.get(1).getEmpresa());
+        PagoEntity pagoActualizado1 = entityManager.find(PagoEntity.class, pagos.get(0).getId());
+        PagoEntity pagoActualizado2 = entityManager.find(PagoEntity.class, pagos.get(1).getId());
+        assertNull(pagoActualizado1.getEmpresa());
+        assertNull(pagoActualizado2.getEmpresa());
         
         // Verificar que los nuevos pagos estén asociados
-        entityManager.refresh(pagos.get(2));
-        entityManager.refresh(pagos.get(3));
-        assertEquals(empresa.getId(), pagos.get(2).getEmpresa().getId());
-        assertEquals(empresa.getId(), pagos.get(3).getEmpresa().getId());
+        PagoEntity pagoActualizado3 = entityManager.find(PagoEntity.class, pagos.get(2).getId());
+        PagoEntity pagoActualizado4 = entityManager.find(PagoEntity.class, pagos.get(3).getId());
+        assertEquals(empresa.getId(), pagoActualizado3.getEmpresa().getId());
+        assertEquals(empresa.getId(), pagoActualizado4.getEmpresa().getId());
     }
     
     /**
@@ -341,18 +357,27 @@ public class EmpresaPagoServiceTest {
         PagoEntity pago = pagos.get(0);
         
         // Asociar el pago a la empresa
-        empresaPagoService.addPagoToEmpresa(empresa.getId(), pago.getId());
+        PagoEntity pagoAsociado = empresaPagoService.addPagoToEmpresa(empresa.getId(), pago.getId());
         
         // Verificar que el pago está asociado
-        entityManager.refresh(pago);
-        assertNotNull(pago.getEmpresa());
+        assertNotNull(pagoAsociado.getEmpresa());
+        assertEquals(empresa.getId(), pagoAsociado.getEmpresa().getId());
+        
+        // Forzar a que la transacción se complete
+        entityManager.flush();
         
         // Remover la asociación
         empresaPagoService.removePagoFromEmpresa(empresa.getId(), pago.getId());
         
+        // Forzar a que la transacción se complete y limpiar el contexto de persistencia
+        entityManager.flush();
+        entityManager.clear();
+        
+        // Obtener el pago actualizado de la base de datos
+        PagoEntity pagoActualizado = entityManager.find(PagoEntity.class, pago.getId());
+        
         // Verificar que el pago ya no está asociado
-        entityManager.refresh(pago);
-        assertNull(pago.getEmpresa());
+        assertNull(pagoActualizado.getEmpresa());
     }
 
     /**
