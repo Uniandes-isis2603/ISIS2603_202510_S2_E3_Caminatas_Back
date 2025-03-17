@@ -1,11 +1,8 @@
 package co.edu.uniandes.dse.caminatas.services;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -22,8 +19,6 @@ import uk.co.jemos.podam.api.PodamFactory;
 import uk.co.jemos.podam.api.PodamFactoryImpl;
 
 import co.edu.uniandes.dse.caminatas.entities.CaminataCompetenciaEntity;
-import co.edu.uniandes.dse.caminatas.entities.PatrocinadorEntity;
-import co.edu.uniandes.dse.caminatas.exceptions.EntityNotFoundException;
 import co.edu.uniandes.dse.caminatas.exceptions.IllegalOperationException;
 import jakarta.transaction.Transactional;
 
@@ -64,25 +59,9 @@ public class CaminataCompetenciaServiceTest
         }
 
         @Test
-        void testCreateCaminataCompetencia() throws EntityNotFoundException, IllegalOperationException
-        {
-
-            PatrocinadorEntity patrocinador = new PatrocinadorEntity();
-            patrocinador.setNombre("Patrocinador Ejemplo");
-            patrocinador = entityManager.persist(patrocinador);
-            assertNotNull(patrocinador.getId());
-
+        void testCreateCompetencia() throws IllegalOperationException {
             CaminataCompetenciaEntity caminataCompetencia = factory.manufacturePojo(CaminataCompetenciaEntity.class);
-            caminataCompetencia.setPatrocinador(patrocinador);
             caminataCompetencia.setDepartamento("Antioquia");
-            caminataCompetencia.setTitulo("Caminata Montaña");
-            caminataCompetencia.setTipo("Competencia");
-            caminataCompetencia.setCiudad("Medellin");
-            caminataCompetencia.setDuracionEstimadaMinutos(120);
-            caminataCompetencia.setNumero(1);
-            caminataCompetencia.setCondicionesParticipacion("Debe ser mayor de edad y estar en buena condición física.");
-            caminataCompetencia.setPremios("Trofeo y medalla para los primeros 3 lugares.");
-            caminataCompetencia.setRequisitos("Inscripción previa y firma de exoneración de responsabilidad.");
 
             Calendar calendario = Calendar.getInstance();
             calendario.add(Calendar.DAY_OF_YEAR, 1);
@@ -90,6 +69,9 @@ public class CaminataCompetenciaServiceTest
 
             LocalTime hora = LocalTime.now().plusHours(1);
             caminataCompetencia.setHora(hora);
+            caminataCompetencia.setCondicionesParticipacion("Condiciones de participación");
+            caminataCompetencia.setPremios("Premios");
+            caminataCompetencia.setRequisitos("Requisitos");
 
             CaminataCompetenciaEntity result = caminataCompetenciaService.CreateCompetencia(caminataCompetencia);
             assertNotNull(result);
@@ -104,7 +86,11 @@ public class CaminataCompetenciaServiceTest
             assertEquals(caminataCompetencia.getDepartamento(), entity.getDepartamento());
             assertEquals(caminataCompetencia.getCiudad(), entity.getCiudad());
             assertEquals(caminataCompetencia.getDuracionEstimadaMinutos(), entity.getDuracionEstimadaMinutos());
+            assertEquals(caminataCompetencia.getCondicionesParticipacion(), entity.getCondicionesParticipacion());
+            assertEquals(caminataCompetencia.getPremios(), entity.getPremios());
+            assertEquals(caminataCompetencia.getRequisitos(), entity.getRequisitos());
         }
+
 
         /**
          * Prueba para crear una caminata con un título vacío.
