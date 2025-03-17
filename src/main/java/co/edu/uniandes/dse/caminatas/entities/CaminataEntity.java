@@ -41,7 +41,7 @@ public class CaminataEntity extends BaseEntity
     private List<PagoEntity> pagos = new ArrayList<>();
 
     @PodamExclude
-    @ManyToMany(mappedBy = "caminatas")
+    @ManyToMany
     private List<CaminanteEntity> caminantes = new ArrayList<>();
 
     @PodamExclude

@@ -35,20 +35,21 @@ public class CaminataPagoController
      * Guarda un pago dentro de una caminata con la informacion que recibe el la
 	 * URL. Se devuelve el libro que se guarda en la editorial.
      */
-
-    @PostMapping(value =  "/{caminataId}/pago/{pagoId}")
-    @ResponseStatus(code = HttpStatus.OK)
-    public PagoDTO addPago(@PathVariable Long caminataId, @PathVariable("pagoId") Long pagoId) throws EntityNotFoundException
-    {
-        PagoEntity pagoEntity = caminataPagoService.addPago(caminataId, pagoId);
-        return modelMapper.map(pagoEntity, PagoDTO.class);
-    }
-
+    
+     @PostMapping(value = "/{caminataId}/pagos/{pagoId}")
+     @ResponseStatus(code = HttpStatus.OK)
+     public PagoDTO addPago(@PathVariable Long caminataId, @PathVariable("pagoId") Long pagoId) 
+             throws EntityNotFoundException
+     {
+         PagoEntity pagoEntity = caminataPagoService.addPago(caminataId, pagoId);
+         return modelMapper.map(pagoEntity, PagoDTO.class);
+     }
+     
 
     /*
      * Busca y devuelve todos los pagos que existen en la caminata.
      */
-    @GetMapping(value = "/{caminataId}/pagos") // <-- Cambia "pago" a "pagos"
+    @GetMapping(value = "/{caminataId}/pagos") 
     @ResponseStatus(code = HttpStatus.OK)
     public List<PagoDetailDTO> getPagos(@PathVariable("caminataId") Long caminataId) throws EntityNotFoundException
     {
@@ -59,7 +60,7 @@ public class CaminataPagoController
     /*
      * Busca el pago con el id asociado dentro de la caminata con id asociado.
      */
-    @GetMapping(value =  "/{caminataId}/pago/{pagoId}")
+    @GetMapping(value =  "/{caminataId}/pagos/{pagoId}")
     @ResponseStatus(code = HttpStatus.OK)
     public PagoDetailDTO getPago(@PathVariable Long caminataId, @PathVariable Long pagoId) throws EntityNotFoundException, IllegalOperationException
     {

@@ -74,60 +74,53 @@ public class CaminataEmpresaServiceTest {
         }
     }
 
-    /*
-     * Prueba para reemplazar las instancias de Caminatas asociadas a una instancia de Empresa
-     */
     @Test
-    void testReplaceEmpresa() throws EntityNotFoundException {
+    public void addEmpresaTest() throws EntityNotFoundException
+    {
         CaminataEntity caminata = caminatas.get(0);
-        caminataEmpresaService.replaceEmpresa(caminata.getId(), empresas.get(1).getId());
-        caminata = caminataService.getCaminata(caminata.getId());
-        assertEquals(caminata.getEmpresa(), empresas.get(1));
+        EmpresaEntity empresa = empresas.get(0);
+        caminataEmpresaService.addEmpresa(caminata.getId(), empresa.getId());
+        CaminataEntity caminataBuscada = caminataService.getCaminata(caminata.getId());
+        assertEquals(empresa, caminataBuscada.getEmpresa());
     }
 
-    /*
-     * Prueba para reemplazar las instancias de Caminatas asociadas a una instancia de Empresa con una caminata que no existe.
-     */
     @Test
-    void testReplaceEmpresaInvalidCaminata()
+    public void addEmpresaNoCaminataTest() throws EntityNotFoundException
     {
-        assertThrows(EntityNotFoundException.class, ()->{
-            caminataEmpresaService.replaceEmpresa(0L, empresas.get(1).getId());
-        });
+        EmpresaEntity empresa = empresas.get(0);
+        assertThrows(EntityNotFoundException.class, () -> caminataEmpresaService.addEmpresa(0L, empresa.getId()));
     }
 
-    /*
-     * Prueba para reemplazar las instancias de Caminatas a una instancia de Empresa que no existe. 
-     */
     @Test
-    void testReplaceInvalidEmpresa()
+    public void addEmpresaNoEmpresaTest() throws EntityNotFoundException
     {
-        assertThrows(EntityNotFoundException.class, ()->{
-            EmpresaEntity empresa = empresas.get(0);
-            caminataEmpresaService.replaceEmpresa(empresa.getId(), 0L);
-        });
+        CaminataEntity caminata = caminatas.get(0);
+        assertThrows(EntityNotFoundException.class, () -> caminataEmpresaService.addEmpresa(caminata.getId(), 0L));
     }
 
-    /*
-     * Prueba para desasociar una caminata de una empresa existente
-     */
     @Test
-    void testRemoveEmpresa() throws EntityNotFoundException 
+    public void getEmpresaTest() throws EntityNotFoundException
     {
-        caminataEmpresaService.removeEmpresa(caminatas.get(0).getId());
-        CaminataEntity caminata = caminataService.getCaminata(caminatas.get(0).getId());
-        assertNull(caminata.getEmpresa());
+        CaminataEntity caminata = caminatas.get(0);
+        EmpresaEntity empresa = empresas.get(0);
+        caminata.setEmpresa(empresa);
+        entityManager.persist(caminata);
+        EmpresaEntity empresaBuscada = caminataEmpresaService.getEmpresa(caminata.getId(), empresa.getId());
+        assertEquals(empresa, empresaBuscada);
     }
 
-    /*
-     * Prueba para desasociar una caminata que no existe de una empresa existente
-     */
     @Test
-    void testRemoveEmpresaInvalidCaminata()
+    public void getEmpresaNoCaminataTest() throws EntityNotFoundException
     {
-        assertThrows(EntityNotFoundException.class, ()->{
-            caminataEmpresaService.removeEmpresa(0L);
-        });
-    }  
+        EmpresaEntity empresa = empresas.get(0);
+        assertThrows(EntityNotFoundException.class, () -> caminataEmpresaService.getEmpresa(0L, empresa.getId()));
+    }
+
+    @Test
+    public void getNoEmpresaCaminataTest() throws EntityNotFoundException
+    {
+        CaminataEntity caminata = caminatas.get(0);
+        assertNull(caminataEmpresaService.getEmpresa(caminata.getId(), 0L));
+    }
     
 }

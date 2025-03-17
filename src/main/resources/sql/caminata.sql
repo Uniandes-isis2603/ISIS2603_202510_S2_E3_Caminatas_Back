@@ -8,3 +8,5 @@ insert into CAMINATA_ENTITY (id, numero, titulo, tipo, fecha, departamento, ciud
 insert into CAMINATA_ENTITY (id, numero, titulo, tipo, fecha, departamento, ciudad, DURACION_ESTIMADA_MINUTOS, hora, DTYPE) values (8, 8, 'Leafy Desertdandelion', 'Malacothrix foliosa A. Gray', '2025-01-28', 'Santander', 'Montería', 2, '22:05:30', 'Camimbo');
 insert into CAMINATA_ENTITY (id, numero, titulo, tipo, fecha, departamento, ciudad, DURACION_ESTIMADA_MINUTOS, hora, DTYPE) values (9, 9, 'Bog Birch', 'Betula pumila L. var. glandulifera Regel', '2025-02-20', 'Boyacá', 'Sincelejo', 4, '18:10:55', 'Yata');
 insert into CAMINATA_ENTITY (id, numero, titulo, tipo, fecha, departamento, ciudad, DURACION_ESTIMADA_MINUTOS, hora, DTYPE) values (10, 10, 'Forest Sandalwood', 'Santalum freycinetianum Gaudich. var. freycinetianum', '2024-11-09', 'Santander', 'Santa Marta', 6, '08:30:45', 'Thoughtsphere');
+
+TRUNCATE TABLE caminata RESTART IDENTITY;

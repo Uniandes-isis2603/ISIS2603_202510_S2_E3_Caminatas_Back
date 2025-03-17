@@ -22,50 +22,38 @@ public class CaminataEmpresaService {
 
     @Autowired EmpresaRepository empresaRepository;
 
-    /*
-     * Remplazar la empresa de una caminata
-     */
     @Transactional
-    public CaminataEntity replaceEmpresa(Long caminataId, Long empresaId) throws EntityNotFoundException
+    public CaminataEntity addEmpresa(Long caminataId, Long empresaId) throws EntityNotFoundException
     {
-        log.info("Inicia proceso de remplazar la empresa de la caminata con id = {}", caminataId);
+        log.info("Inicia proceso de agregar una empresa a la caminata con id = {}", caminataId);
+        
         Optional<CaminataEntity> caminata = caminataRepository.findById(caminataId);
         Optional<EmpresaEntity> empresa = empresaRepository.findById(empresaId);
+        
+        if (caminata.isEmpty()) {
+            throw new EntityNotFoundException("La caminata con id = " + caminataId + " no existe.");
+        }
+        if (empresa.isEmpty()) {
+            throw new EntityNotFoundException("La empresa con id = " + empresaId + " no existe.");
+        }
+        
+        caminata.get().setEmpresa(empresa.get());
+        log.info("Termina proceso de agregar una empresa a la caminata con id = {}", caminataId);
+        
+        return caminata.get();  
+    }
+
+    @Transactional
+    public EmpresaEntity getEmpresa(Long caminataId, Long empresaId) throws EntityNotFoundException
+    {
+        log.info("Inicia proceso de obtener la empresa de la caminata con id = {0}", caminataId);
+        Optional<CaminataEntity> caminata = caminataRepository.findById(caminataId);
         if (caminata.isEmpty())
         {
             throw new EntityNotFoundException("La caminata con id = " + caminataId + " no existe.");
         }
-        if(empresa.isEmpty())
-        {
-            throw new EntityNotFoundException("La empresa con id = " + empresaId + " no existe.");
-        }
-        caminata.get().setEmpresa(empresa.get());
-        log.info("Termina proceso de remplazar la empresa de la caminata con id = {}", caminataId);
-        return caminata.get();
-    }
-
-    /*
-     * Eliminar la empresa de una caminata
-     */
-    @Transactional
-    public void removeEmpresa(Long caminataId) throws EntityNotFoundException
-    {
-        log.info("Inicia proceso de eliminar la empresa de la caminata con id = {}", caminataId);
-        Optional<CaminataEntity> caminataOpt = caminataRepository.findById(caminataId);
-
-        if (caminataOpt.isEmpty()) {
-            throw new EntityNotFoundException("La caminata con id = " + caminataId + " no existe.");
-        }
-
-        CaminataEntity caminata = caminataOpt.get();
-        EmpresaEntity empresa = caminata.getEmpresa();
-
-        if (empresa != null) {
-            empresa.getCaminatas().remove(caminata);
-            caminata.setEmpresa(null);
-        }
-
-        log.info("Termina proceso de eliminar la empresa de la caminata con id = {}", caminataId);
+        log.info("Termina proceso de obtener la empresa de la caminata con id = {0}", caminataId);
+        return caminata.get().getEmpresa();
     }
 
     
