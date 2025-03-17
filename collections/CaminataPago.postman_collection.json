@@ -1,0 +1,115 @@
+{
+	"info": {
+		"_postman_id": "6528c9be-e4bf-4aca-99b4-c34a5d43d454",
+		"name": "CaminataPago",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41343426"
+	},
+	"item": [
+		{
+			"name": "Crear pago",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"numeroTransaccion\": \"1231232133\",\n    \"valorCaminata\": 120000.0,\n    \"valorTotal\": 180000.0,\n    \"fechaVencimiento\": \"2025-02-28T18:42:36\",\n    \"numeroTarjeta\": \"1234567890123456\",\n    \"ccv\": \"194\",\n    \"cuotas\": 8,\n    \"propietario\": \"Juan Carlos\",\n    \"caminanteDTO\": \n    {\n        \"id\": {{caminante_id_1}},\n        \"numero\": 101,\n        \"titulo\": \"Exploración del Parque Nacional Natural Tayrona\",\n        \"tipo\": \"Ecológica\",\n        \"fecha\": \"2025-04-15T00:00:00.000+00:00\",\n        \"hora\": \"08:03:33.394792500\",\n        \"departamento\": \"Magdalena\",\n        \"ciudad\": \"Santa Marta\",\n        \"duracionEstimadaMinutos\": 240\n    },\n    \"caminataDTO\":\n    {\n        \"id\":{{caminata_id_1}},\n        \"nombre\": \"Pepe\",\n        \"documento\": \"123456789\",\n        \"correo\": \"pepe@gmail.com\",\n        \"telefono\": \"3103456789\",\n        \"direccion\": \"Calle 123\",\n        \"experienciaPrevia\": \"False\",\n        \"tratamientosMed\": \"False\",\n        \"lesion\": \"False\",\n        \"problemasRes\" : \"False\"\n    }\n}\n\n\n\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/pagos",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"pagos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Agregar un pago a una caminata",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/caminatas/{{caminata_id}}/pagos/{{pago_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"caminatas",
+						"{{caminata_id}}",
+						"pagos",
+						"{{pago_id_1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Agregar un pago que no existe a una caminata",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/caminatas/{{caminata_id}}/pagos/0",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"caminatas",
+						"{{caminata_id}}",
+						"pagos",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener un pago de una caminata",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/caminatas/{{caminata_id}}/pagos/{{pago_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"caminatas",
+						"{{caminata_id}}",
+						"pagos",
+						"{{pago_id_1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener los pagos de una caminata",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/caminatas/{{caminata_id}}/pagos",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"caminatas",
+						"{{caminata_id}}",
+						"pagos"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

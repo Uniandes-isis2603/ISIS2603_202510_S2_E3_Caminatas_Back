@@ -1,0 +1,174 @@
+{
+	"info": {
+		"_postman_id": "52ae890c-30a9-4146-8da4-03bb9bcc069a",
+		"name": "CaminataSeguro",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41343426"
+	},
+	"item": [
+		{
+			"name": "Crear seguro",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"numero\": 1,\n    \"nombre\": \"Proteccion Total\",\n    \"tipo\": \"Accidentes Personales\",\n    \"cobertura\": \"Cobertura medica en caso de accidentes durante la caminata\",\n    \"condiciones\": \"Aplica solo para caminatas dentro del territorio nacional\",\n    \"costo\": 203000,\n    \"caminata\": \n    {\n        \"id\": {{caminante_id_1}},\n        \"numero\": 1,\n        \"titulo\": \"Explorando el Nevado del Ruiz\",\n        \"tipo\": \"Alta montaña\",\n        \"fecha\": \"2025-07-14T00:00:00.000+00:00\",\n        \"hora\": \"06:30:00\",\n        \"departamento\": \"Caldas\",\n        \"ciudad\": \"Manizales\",\n        \"duracionEstimadaMinutos\": 360.0\n    }\n}\n\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/seguros",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"seguros"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Agregar un seguro a una caminata",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/caminatas/{{caminata_id}}/seguros/{{seguro_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"caminatas",
+						"{{caminata_id}}",
+						"seguros",
+						"{{seguro_id_1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Agregar un seguro que no existe a una caminata",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/caminatas/{{caminata_id}}/seguros/0",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"caminatas",
+						"{{caminata_id}}",
+						"seguros",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener un seguro de una caminata",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/caminatas/{{caminata_id}}/seguros/{{seguro_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"caminatas",
+						"{{caminata_id}}",
+						"seguros",
+						"{{seguro_id_1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener un seguro que no existe de una caminata",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/seguros/0",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"seguros",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar un seguro de una caminata",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/caminatas/{{caminata_id}}/seguros/{{seguro_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"caminatas",
+						"{{caminata_id}}",
+						"seguros",
+						"{{seguro_id_1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar un seguro de una caminata que no existe",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/caminatas/0/artworks/{{artwork_id_2}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"caminatas",
+						"0",
+						"artworks",
+						"{{artwork_id_2}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar un seguro que no existe de una caminata",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/caminatas/{{caminata_id}}/seguros/0",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"caminatas",
+						"{{caminata_id}}",
+						"seguros",
+						"0"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

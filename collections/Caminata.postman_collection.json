@@ -1,0 +1,593 @@
+{
+	"info": {
+		"_postman_id": "25c30193-1a8c-4f2e-9cf3-2871fb1d7eda",
+		"name": "Caminata",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41343426"
+	},
+	"item": [
+		{
+			"name": "Crear caminata",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"numero\": 1,\n    \"titulo\": \"Explorando el Nevado del Ruiz\",\n    \"tipo\": \"Alta montaña\",\n    \"fecha\": \"2025-07-14\",\n    \"hora\": \"06:30:00\",\n    \"departamento\": \"Caldas\",\n    \"ciudad\": \"Manizales\",\n    \"duracionEstimadaMinutos\": 360.0\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/caminatas",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"caminatas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener todas las caminatas",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"numero\": 1,\n        \"titulo\": \"Explorando el Nevado del Ruiz\",\n        \"tipo\": \"Alta montaña\",\n        \"fecha\": \"2025-07-14\",\n        \"hora\": \"06:30:00\",\n        \"departamento\": \"Caldas\",\n        \"ciudad\": \"Manizales\",\n        \"duracionEstimadaMinutos\": 360.0\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/caminatas",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"caminatas"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener todas las caminatas",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"numero\": 1,\n        \"titulo\": \"Explorando el Nevado del Ruiz\",\n        \"tipo\": \"Alta montaña\",\n        \"fecha\": \"2025-07-14\",\n        \"hora\": \"06:30:00\",\n        \"departamento\": \"Caldas\",\n        \"ciudad\": \"Manizales\",\n        \"duracionEstimadaMinutos\": 360.0\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/caminatas",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"caminatas"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 16 Mar 2025 20:03:39 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"numero\": 1,\n        \"titulo\": \"Explorando el Nevado del Ruiz\",\n        \"tipo\": \"Alta montaña\",\n        \"fecha\": \"2025-07-13\",\n        \"hora\": \"06:30:00\",\n        \"departamento\": \"Caldas\",\n        \"ciudad\": \"Manizales\",\n        \"duracionEstimadaMinutos\": 360,\n        \"empresa\": null,\n        \"seguro\": null,\n        \"caminantes\": [],\n        \"pagos\": []\n    },\n    {\n        \"id\": 2,\n        \"numero\": 1,\n        \"titulo\": \"Explorando el Nevado del Ruiz\",\n        \"tipo\": \"Alta montaña\",\n        \"fecha\": \"2025-07-13\",\n        \"hora\": \"06:30:00\",\n        \"departamento\": \"Caldas\",\n        \"ciudad\": \"Manizales\",\n        \"duracionEstimadaMinutos\": 360,\n        \"empresa\": null,\n        \"seguro\": null,\n        \"caminantes\": [],\n        \"pagos\": []\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Obtener una caminata",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"numero\": 1,\n    \"titulo\": \"Explorando el Nevado del Ruiz\",\n    \"tipo\": \"Alta montaña\",\n    \"fecha\": \"2025-07-14\",\n    \"hora\": \"06:30:00\",\n    \"departamento\": \"Caldas\",\n    \"ciudad\": \"Manizales\",\n    \"duracionEstimadaMinutos\": 360.0\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/caminatas/{{caminata_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"caminatas",
+						"{{caminata_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener una caminata",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"numero\": 1,\n    \"titulo\": \"Explorando el Nevado del Ruiz\",\n    \"tipo\": \"Alta montaña\",\n    \"fecha\": \"2025-07-14\",\n    \"hora\": \"06:30:00\",\n    \"departamento\": \"Caldas\",\n    \"ciudad\": \"Manizales\",\n    \"duracionEstimadaMinutos\": 360.0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/caminatas/{{caminata_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"caminatas",
+								"{{caminata_id_1}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 16 Mar 2025 20:06:04 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"numero\": 1,\n    \"titulo\": \"Explorando el Nevado del Ruiz\",\n    \"tipo\": \"Alta montaña\",\n    \"fecha\": \"2025-07-13\",\n    \"hora\": \"06:30:00\",\n    \"departamento\": \"Caldas\",\n    \"ciudad\": \"Manizales\",\n    \"duracionEstimadaMinutos\": 360,\n    \"empresa\": null,\n    \"seguro\": null,\n    \"caminantes\": [],\n    \"pagos\": []\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener una caminata que no existe",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"apierror\": {\n        \"status\": \"NOT_FOUND\",\n        \"timestamp\": \"21-02-2023 10:01:09\",\n        \"message\": \"La caminata con ese id no fue encontrada\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/caminatas/0",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"caminatas",
+						"0"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener una caminata que no existe",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"apierror\": {\n        \"status\": \"NOT_FOUND\",\n        \"timestamp\": \"21-02-2023 10:01:09\",\n        \"message\": \"La caminata con ese id no fue encontrada\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/caminatas/0",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"caminatas",
+								"0"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 16 Mar 2025 20:09:12 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"apierror\": {\n        \"status\": \"NOT_FOUND\",\n        \"timestamp\": \"16-03-2025 03:09:12\",\n        \"message\": \"No se encontró la caminata con el id = 0\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Editar una caminata",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"numero\": 1,\n    \"titulo\": \"Explorando el Nevado del Ruiz\",\n    \"tipo\": \"Alta montaña\",\n    \"fecha\": \"2025-07-14\",\n    \"hora\": \"06:30:00\",\n    \"departamento\": \"Caldas\",\n    \"ciudad\": \"Manizales\",\n    \"duracionEstimadaMinutos\": 260.0\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/caminatas/{{caminata_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"caminatas",
+						"{{caminata_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Editar una caminata",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"numero\": 1,\n    \"titulo\": \"Explorando el Nevado del Ruiz\",\n    \"tipo\": \"Alta montaña\",\n    \"fecha\": \"2025-07-14\",\n    \"hora\": \"06:30:00\",\n    \"departamento\": \"Caldas\",\n    \"ciudad\": \"Manizales\",\n    \"duracionEstimadaMinutos\": 260.0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/caminatas/{{caminata_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"caminatas",
+								"{{caminata_id_1}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 16 Mar 2025 20:11:10 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"numero\": 1,\n    \"titulo\": \"Explorando el Nevado del Ruiz\",\n    \"tipo\": \"Alta montaña\",\n    \"fecha\": \"2025-07-14T00:00:00.000+00:00\",\n    \"hora\": \"06:30:00\",\n    \"departamento\": \"Caldas\",\n    \"ciudad\": \"Manizales\",\n    \"duracionEstimadaMinutos\": 260,\n    \"empresa\": null,\n    \"seguro\": null,\n    \"caminantes\": [],\n    \"pagos\": []\n}"
+				}
+			]
+		},
+		{
+			"name": "Editar una caminata que no existe",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"numero\": 1,\n    \"titulo\": \"Explorando el Nevado del Ruiz\",\n    \"tipo\": \"Alta montaña\",\n    \"fecha\": \"2025-07-14\",\n    \"hora\": \"06:30:00\",\n    \"departamento\": \"Caldas\",\n    \"ciudad\": \"Manizales\",\n    \"duracionEstimadaMinutos\": 260.0\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/caminatas/0",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"caminatas",
+						"0"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Editar una caminata que no existe",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"numero\": 1,\n    \"titulo\": \"Explorando el Nevado del Ruiz\",\n    \"tipo\": \"Alta montaña\",\n    \"fecha\": \"2025-07-14\",\n    \"hora\": \"06:30:00\",\n    \"departamento\": \"Caldas\",\n    \"ciudad\": \"Manizales\",\n    \"duracionEstimadaMinutos\": 260.0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/caminatas/0",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"caminatas",
+								"0"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 16 Mar 2025 20:13:05 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"apierror\": {\n        \"status\": \"NOT_FOUND\",\n        \"timestamp\": \"16-03-2025 03:13:05\",\n        \"message\": \"No se encontró la caminata con el id = 0\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Borrar una caminata",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/caminatas/{{caminata_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"caminatas",
+						"{{caminata_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Borrar una caminata",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/caminatas/{{caminata_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"caminatas",
+								"{{caminata_id_1}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 16 Mar 2025 20:14:04 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Borrar una caminata que no existe",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/caminatas/0",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"caminatas",
+						"0"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

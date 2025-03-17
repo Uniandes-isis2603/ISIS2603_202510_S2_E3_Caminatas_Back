@@ -1,0 +1,235 @@
+{
+	"info": {
+		"_postman_id": "525a3cf9-8414-469f-bd7d-87551ae7a6c8",
+		"name": "CaminataCompetencia",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41343426"
+	},
+	"item": [
+		{
+			"name": "Crear caminata de competencia",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"numero\": 1,\n    \"condicionesParticipacion\": \"Llevar equipo de seguridad\",\n    \"premios\": \"Trofeo y medallas\",\n    \"requisitos\": \"Mayor de 18 años\",\n    \"titulo\": \"Caminata de Alta Montaña\",\n    \"tipo\": \"Competencia\",\n    \"fecha\": \"2025-04-10\",\n    \"hora\": \"09:00:00\",\n    \"departamento\": \"Antioquia\",\n    \"ciudad\": \"Medellín\",\n    \"duracionEstimadaMinutos\": 180.0\n}\n\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/caminataCompetencias",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"caminataCompetencias"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear caminata de competencia",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"numero\": 1,\n    \"condicionesParticipacion\": \"Llevar equipo de seguridad\",\n    \"premios\": \"Trofeo y medallas\",\n    \"requisitos\": \"Mayor de 18 años\",\n    \"titulo\": \"Caminata de Alta Montaña\",\n    \"tipo\": \"Competencia\",\n    \"fecha\": \"2025-04-10\",\n    \"hora\": \"09:00:00\",\n    \"departamento\": \"Antioquia\",\n    \"ciudad\": \"Medellín\",\n    \"duracionEstimadaMinutos\": 180.0\n}\n\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/caminataCompetencias",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"caminataCompetencias"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 17 Mar 2025 03:14:34 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"numero\": 1,\n    \"condicionesParticipacion\": \"Llevar equipo de seguridad\",\n    \"premios\": \"Trofeo y medallas\",\n    \"requisitos\": \"Mayor de 18 años\",\n    \"titulo\": \"Caminata de Alta Montaña\",\n    \"tipo\": \"Competencia\",\n    \"fecha\": \"2025-04-10T00:00:00.000+00:00\",\n    \"hora\": \"09:00:00\",\n    \"departamento\": \"Antioquia\",\n    \"ciudad\": \"Medellín\",\n    \"duracionEstimadaMinutos\": 180\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener todas las caminatas de competencia",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/caminataCompetencias",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"caminataCompetencias"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener una caminata de competencia",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/caminataCompetencias/{{caminataCompetencia_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"caminataCompetencias",
+						"{{caminataCompetencia_id_1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener una caminata de competencia de no existe",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/caminataCompetencias/0",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"caminataCompetencias",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editar una caminata de competencia",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"numero\": 1,\n    \"condicionesParticipacion\": \"Llevar equipo de seguridad\",\n    \"premios\": \"Trofeo y medallas\",\n    \"requisitos\": \"Mayor de 18 años\",\n    \"titulo\": \"Caminata de Alta Montaña\",\n    \"tipo\": \"Competencia\",\n    \"fecha\": \"2025-04-10\",\n    \"hora\": \"09:00:00\",\n    \"departamento\": \"Antioquia\",\n    \"ciudad\": \"Medellín\",\n    \"duracionEstimadaMinutos\": 280.0\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/caminataCompetencias/{{caminataCompetencia_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"caminataCompetencias",
+						"{{caminataCompetencia_id_1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editar una caminata que no existe",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/caminatasCompetencia/0",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"caminatasCompetencia",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar una caminata de competencia",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/caminataCompetencias/{{caminataCompetencia_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"caminataCompetencias",
+						"{{caminataCompetencia_id_1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar una caminata de competencia que no existe",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/caminataCompetencias/0",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"caminataCompetencias",
+						"0"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

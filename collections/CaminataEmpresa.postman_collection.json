@@ -1,0 +1,114 @@
+{
+	"info": {
+		"_postman_id": "c512892b-6f70-4a65-8c38-23c340269f16",
+		"name": "CaminataEmpresa",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41343426"
+	},
+	"item": [
+		{
+			"name": "Crear empresa",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Pru\",\n    \"documento\": \"123456789-1\",\n    \"correo\": \"pnunns0@tmall.com\",\n    \"pagos\": [],\n    \"caminatas\": []\n}\n\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/empresas",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"empresas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Agregar una empresa a una caminata",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/caminatas/{{caminata_id}}/empresas/{{empresa_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"caminatas",
+						"{{caminata_id}}",
+						"empresas",
+						"{{empresa_id_1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Agregar una empresa que no existe a una caminata",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/caminatas/{{caminata_id}}/empresas/0",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"caminatas",
+						"{{caminata_id}}",
+						"empresas",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener una empresa de una caminata",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/caminatas/{{caminata_id}}/empresas/{{empresa_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"caminatas",
+						"{{caminata_id}}",
+						"empresas",
+						"{{empresa_id_1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener una empresa que no existe de una caminata",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/empresas/0",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"empresas",
+						"0"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
