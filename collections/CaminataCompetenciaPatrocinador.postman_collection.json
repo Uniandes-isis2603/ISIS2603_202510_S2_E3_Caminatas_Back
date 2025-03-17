@@ -1,0 +1,806 @@
+{
+	"info": {
+		"_postman_id": "a033d264-c42f-44a4-b90f-3acc3ea99fee",
+		"name": "CaminataCompetenciaPatrocinador",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42820446"
+	},
+	"item": [
+		{
+			"name": "Agregar un patrocinador a una caminataCompetencia",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/caminataCompetencias/{{caminataCompetencia_id}}/protrocinadores/{{patrocinador_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"caminataCompetencias",
+						"{{caminataCompetencia_id}}",
+						"protrocinadores",
+						"{{patrocinador_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Agregar un patrocinador a una caminataCompetencia",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {\n    \"id\":1,\n    \"nombre\": \"Joaquin\",\n    \"documento\": \"12345678\",\n    \"correo\": \"joaquin@gmail.com\",\n    \"telefono\": \"3103456789\",\n    \"caminatasCompetencia\":[\n        {\n            \"id\":2,\n            \"numero\": 5,\n            \"condicionesParticipacion\": \"condiciones\",\n            \"premios\": \"premios\",\n            \"requisitos\": \"requisitos\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/caminataCompetencias/{{caminataCompetencia_id}}/protrocinadores/{{patrocinador_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"caminataCompetencias",
+								"{{caminataCompetencia_id}}",
+								"protrocinadores",
+								"{{patrocinador_id_1}}"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Agregar un patrocinador que no existe a una caminataCompetencia",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.apierror.message).to.eql(\"Patrocinador no encontrado\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/caminataCompetencias/{{caminataCompetencia_id}}/protrocinadores/0",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"caminataCompetencias",
+						"{{caminataCompetencia_id}}",
+						"protrocinadores",
+						"0"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Agregar un patrocinador que no existe a una caminataCompetencia",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"apierror\": {\n        \"status\": \"NOT_FOUND\",\n        \"timestamp\": \"21-02-2023 10:01:09\",\n        \"message\": \"El patrocinador con el id dado no fue encontrado\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Obtener un patrocinador de una caminataCompetencia",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/caminataCompetencias/{{caminataCompetencia_id}}/protrocinadores/{{patrocinador_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"caminataCompetencias",
+						"{{caminataCompetencia_id}}",
+						"protrocinadores",
+						"{{patrocinador_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener un patrocinador de una caminataCompetencia",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {\n    \"id\":1,\n    \"nombre\": \"Joaquin\",\n    \"documento\": \"12345678\",\n    \"correo\": \"joaquin@gmail.com\",\n    \"telefono\": \"3103456789\",\n    \"caminatasCompetencia\":[\n        {\n            \"id\":2,\n            \"numero\": 5,\n            \"condicionesParticipacion\": \"condiciones\",\n            \"premios\": \"premios\",\n            \"requisitos\": \"requisitos\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/caminataCompetencias/{{caminataCompetencia_id}}/protrocinadores/{{patrocinador_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"caminataCompetencias",
+								"{{caminataCompetencia_id}}",
+								"protrocinadores",
+								"{{patrocinador_id_1}}"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Obtener un patrocinador que no existe de una caminataCompetencia",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.apierror.message).to.eql(\"Patrocinador no encontrado\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/caminataCompetencias/{{caminataCompetencia_id}}/protrocinadores/0",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"caminataCompetencias",
+						"{{caminataCompetencia_id}}",
+						"protrocinadores",
+						"0"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener un patrocinador que no existe de una caminataCompetencia",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"apierror\": {\n        \"status\": \"NOT_FOUND\",\n        \"timestamp\": \"21-02-2023 10:01:09\",\n        \"message\": \"El patrocinador con el id dado no fue encontrado\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Obtener un patrocinador que no esta asociado a una caminataCompetencia",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 412\", function () {",
+							"   pm.response.to.have.status(412);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.apierror.message).to.eql(\"El patrocinador no está asociado con la caminata competencia\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/caminataCompetencias/{{caminataCompetencia_id}}/protrocinadores/{{patrocinador_id_2}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"caminataCompetencias",
+						"{{caminataCompetencia_id}}",
+						"protrocinadores",
+						"{{patrocinador_id_2}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener un patrocinador que no esta asociado a una caminataCompetencia",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "    \"apierror\": {\n        \"status\": \"PRECONDITION_FAILED\",\n        \"timestamp\": \"21-02-2023 10:19:03\",\n        \"message\": \"El patrocinador no está asociado con la caminata competencia\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/caminataCompetencias/{{caminataCompetencia_id}}/protrocinadores/{{patrocinador_id_2}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"caminataCompetencias",
+								"{{caminataCompetencia_id}}",
+								"protrocinadores",
+								"{{patrocinador_id_2}}"
+							]
+						}
+					},
+					"status": "Precondition Failed",
+					"code": 412,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Obtener los patrocinadores de una caminataCompetencia",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Number of patrocinadores > ' + 0, function () {",
+							"   var data = pm.response.json()",
+							"   pm.expect(data.length).to.greaterThan(0)",
+							"});",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/caminataCompetencias/{{caminataCompetencia_id}}/caminataCompetencias",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"caminataCompetencias",
+						"{{caminataCompetencia_id}}",
+						"caminataCompetencias"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener los patrocinadores de una caminataCompetencia",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n     {\n        \"id\":1,\n        \"nombre\": \"Joaquin\",\n        \"documento\": \"12345678\",\n        \"correo\": \"joaquin@gmail.com\",\n        \"telefono\": \"3103456789\",\n        \"caminatasCompetencia\":[\n            {\n                \"id\":2,\n                \"numero\": 5,\n                \"condicionesParticipacion\": \"condiciones\",\n                \"premios\": \"premios\",\n                \"requisitos\": \"requisitos\"\n            }\n        ]\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Asociar patrocinadores a una caminataCompetencia",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"id\":{{new_id_p}},\n        \"nombre\": \"Juan\",\n        \"documento\": \"12345676\",\n        \"correo\": \"juan@gmail.com\",\n        \"telefono\": \"3103456786\"\n    },\n    {\n        \"id\":{{new_id_p2}},\n        \"nombre\": \"Raul\",\n        \"documento\": \"12345674\",\n        \"correo\": \"raul@gmail.com\",\n        \"telefono\": \"3103456784\"\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/caminataCompetencias/{{caminataCompetencia_id}}/patrocinadores",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"caminataCompetencias",
+						"{{caminataCompetencia_id}}",
+						"patrocinadores"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Asociar patrocinadores a una caminataCompetencia",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"id\":1,\n        \"nombre\": \"Juan\",\n        \"documento\": \"12345676\",\n        \"correo\": \"juan@gmail.com\",\n        \"telefono\": \"3103456786\",\n        \"caminatasCompetencia\": []\n    },\n    {\n        \"id\":2,\n        \"nombre\": \"Raul\",\n        \"documento\": \"12345674\",\n        \"correo\": \"raul@gmail.com\",\n        \"telefono\": \"3103456784\",\n        \"caminatasCompetencia\": []\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/caminataCompetencias/{{caminataCompetencia_id}}/patrocinadores",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"caminataCompetencias",
+								"{{caminataCompetencia_id}}",
+								"patrocinadores"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Asociar patrocinadores que no existen a una caminataCompetencia",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.apierror.message).to.eql(\"Patrocinador no encontrado\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"id\":0,\n        \"nombre\": \"Joaquin\",\n        \"documento\": \"12345678\",\n        \"correo\": \"joaquin@gmail.com\",\n        \"telefono\": \"3103456789\"\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/caminataCompetencias/{{caminataCompetencia_id}}/patrocinadores",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"caminataCompetencias",
+						"{{caminataCompetencia_id}}",
+						"patrocinadores"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Asociar patrocinadores que no existen a una caminataCompetencia",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"apierror\": {\n        \"status\": \"NOT_FOUND\",\n        \"timestamp\": \"21-02-2023 10:01:09\",\n        \"message\": \"El patrocinador con el id dado no fue encontrado\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/caminataCompetencias/{{caminataCompetencia_id}}/patrocinadores",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"caminataCompetencias",
+								"{{caminataCompetencia_id}}",
+								"patrocinadores"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Borrar un patrocinador de una caminataCompetencia",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {",
+							"   pm.response.to.have.status(204);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/caminataCompetencias/{{caminataCompetencia_id}}/protrocinadores/{{patrocinador_id_2}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"caminataCompetencias",
+						"{{caminataCompetencia_id}}",
+						"protrocinadores",
+						"{{patrocinador_id_2}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Borrar un patrocinador de una caminataCompetencia",
+					"originalRequest": {
+						"method": "GET",
+						"header": []
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Borrar un patrocinador a una caminataCompetencia que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.apierror.message).to.eql(\"Caminata competencia no encontrada\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/caminataCompetencias/0/artworks/{{artwork_id_2}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"caminataCompetencias",
+						"0",
+						"artworks",
+						"{{artwork_id_2}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Borrar un patrocinador a una caminataCompetencia que no existe",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"apierror\": {\n        \"status\": \"NOT_FOUND\",\n        \"timestamp\": \"21-02-2023 10:01:09\",\n        \"message\": \"La caminata compentecia con el id dado no fue encontrada\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/caminataCompetencias/0/artworks/{{artwork_id_2}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"caminataCompetencias",
+								"0",
+								"artworks",
+								"{{artwork_id_2}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Borrar un patrocinador que no existe de una caminataCompetencia",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.apierror.message).to.eql(\"Patrocinador no encontrado\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/caminataCompetencias/{{caminataCompetencia_id}}/protrocinadores/0",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"caminataCompetencias",
+						"{{caminataCompetencia_id}}",
+						"protrocinadores",
+						"0"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Borrar un patrocinador que no existe de una caminataCompetencia",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"apierror\": {\n        \"status\": \"NOT_FOUND\",\n        \"timestamp\": \"21-02-2023 10:01:09\",\n        \"message\": \"El patrocinador con el id dado no fue encontrado\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/caminataCompetencias/{{caminataCompetencia_id}}/protrocinadores/0",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"caminataCompetencias",
+								"{{caminataCompetencia_id}}",
+								"protrocinadores",
+								"0"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		}
+	]
+}
