@@ -70,8 +70,9 @@ public class CaminataCompetenciaServiceTest
             calendario.add(Calendar.DAY_OF_YEAR, 1);
             caminataCompetencia.setFecha(calendario.getTime());
 
-            LocalTime hora = LocalTime.now().plusHours(3);
+            LocalTime hora = LocalTime.now().plusHours(1);
             caminataCompetencia.setHora(hora);
+
             caminataCompetencia.setCondicionesParticipacion("Condiciones de participación");
             caminataCompetencia.setPremios("Premios");
             caminataCompetencia.setRequisitos("Requisitos");
