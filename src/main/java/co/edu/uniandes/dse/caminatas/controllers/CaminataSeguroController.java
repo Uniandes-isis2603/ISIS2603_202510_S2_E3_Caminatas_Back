@@ -3,6 +3,7 @@ package co.edu.uniandes.dse.caminatas.controllers;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -51,7 +52,7 @@ public class CaminataSeguroController
     /*
      * Desasocia un seguro de una caminata
      */
-    @PostMapping(value = "/{caminataId}/seguros/{seguroId}/remove")
+    @DeleteMapping(value = "/{caminataId}/seguros/{seguroId}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
     public void removeSeguro(@PathVariable Long caminataId, @PathVariable Long seguroId) throws EntityNotFoundException
     {
