@@ -163,12 +163,6 @@ public class CaminataCompetenciaService
             throw new IllegalOperationException("La fecha de la caminata no puede ser nula o anterior a la fecha actual.");
         }
 
-        LocalDateTime horaActual = LocalDateTime.now();
-
-        if(caminataCompetencia.getHora() == null || caminataCompetencia.getHora().isBefore(horaActual.toLocalTime()))
-        {
-            throw new IllegalOperationException("La hora de la caminata no puede ser nula o anterior a la actual.");
-        }
 
         List<String> departamentos = new ArrayList<String> (Arrays.asList("Amazonas", "Antioquia", "Arauca", "Atlántico", "Bolívar", "Boyacá", "Caldas", "Caquetá", "Casanare", "Cauca", "Cesar", "Chocó", "Córdoba", "Cundinamarca", "Guainía", "Guaviare", "Huila", "La Guajira", "Magdalena", "Meta", "Nariño", "Norte de Santander", "Putumayo", "Quindío", "Risaralda", "San Andrés y Providencia", "Santander", "Sucre", "Tolima", "Valle del Cauca", "Vaupés", "Vichada"));
 

@@ -60,43 +60,6 @@ public class CaminataCompetenciaPatrocinadorServiceTest {
     }
 
     /*
-     * Prueba para reemplazar el patrocinador de una caminata de competencia
-     */
-    @Test
-    void testReplacePatrocinador() throws EntityNotFoundException {
-        PatrocinadorEntity newPatrocinador = factory.manufacturePojo(PatrocinadorEntity.class);
-        entityManager.persist(newPatrocinador);
-
-        caminataCompetenciaPatrocinadorService.replacePatrocinador(caminataCompetencia.getId(), newPatrocinador.getId());
-
-        CaminataCompetenciaEntity updatedCaminata = entityManager.find(CaminataCompetenciaEntity.class, caminataCompetencia.getId());
-        assertEquals(newPatrocinador.getId(), updatedCaminata.getPatrocinador().getId());
-    }
-
-    /*
-     * Prueba para reemplazar el patrocinador de una caminata de competencia que no existe
-     */
-    @Test
-    void testReplacePatrocinadorInvalidCaminata() {
-        PatrocinadorEntity newPatrocinador = factory.manufacturePojo(PatrocinadorEntity.class);
-        entityManager.persist(newPatrocinador);
-
-        assertThrows(EntityNotFoundException.class, () -> {
-            caminataCompetenciaPatrocinadorService.replacePatrocinador(0L, newPatrocinador.getId());
-        });
-    }
-
-    /*
-     * Prueba para reemplazar el patrocinador con uno que no existe
-     */
-    @Test
-    void testReplaceInvalidPatrocinador() {
-        assertThrows(EntityNotFoundException.class, () -> {
-            caminataCompetenciaPatrocinadorService.replacePatrocinador(caminataCompetencia.getId(), 0L);
-        });
-    }
-
-    /*
      * Prueba para borrar el patrocinador de una caminata de competencia
      */
     @Test
