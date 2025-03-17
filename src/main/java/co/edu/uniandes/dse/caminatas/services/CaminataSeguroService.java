@@ -30,7 +30,7 @@ public class CaminataSeguroService
     @Transactional
     public SeguroEntity addSeguro(Long caminataId, Long seguroId) throws EntityNotFoundException
     {
-        log.info("Inicia proceso de agregar un seguro a la caminata con id = {0}", caminataId);
+        log.info("Inicia proceso de agregar un seguro a la caminata con id = {}", caminataId);
         Optional<CaminataEntity> caminata = caminataRepository.findById(caminataId);
         Optional<SeguroEntity> seguro = seguroRepository.findById(seguroId);
         if (caminata.isEmpty())
@@ -42,14 +42,14 @@ public class CaminataSeguroService
             throw new EntityNotFoundException("El seguro con id = " + seguroId + " no existe.");
         }
         caminata.get().getSeguro();
-        log.info("Termina proceso de agregar un seguro a la caminata con id = {0}", caminataId);
+        log.info("Termina proceso de agregar un seguro a la caminata con id = {}", caminataId);
         return seguro.get();
     }
 
     @Transactional
     public SeguroEntity getSeguro(Long caminataId, Long seguroId) throws EntityNotFoundException, IllegalOperationException
     {
-        log.info("Inicia proceso de obtener un seguro de la caminata con id = {0}", caminataId);
+        log.info("Inicia proceso de obtener un seguro de la caminata con id = {}", caminataId);
         Optional<CaminataEntity> caminata = caminataRepository.findById(caminataId);
         if (caminata.isEmpty())
         {
@@ -60,7 +60,7 @@ public class CaminataSeguroService
         {
             throw new EntityNotFoundException("El seguro con id = " + seguroId + " no existe.");
         }
-        log.info("Termina proceso de obtener un seguro de la caminata con id = {0}", caminataId);
+        log.info("Termina proceso de obtener un seguro de la caminata con id = {}", caminataId);
         return seguro.get();
     }
 
@@ -70,7 +70,7 @@ public class CaminataSeguroService
     @Transactional
     public void removeSeguro(Long caminataId, Long seguroId) throws EntityNotFoundException
     {
-        log.info("Inicia proceso de eliminar un seguro de la caminata con id = {0}", caminataId);
+        log.info("Inicia proceso de eliminar un seguro de la caminata con id = {}", caminataId);
         Optional<CaminataEntity> caminata = caminataRepository.findById(caminataId);
         if (caminata.isEmpty())
         {
@@ -81,7 +81,7 @@ public class CaminataSeguroService
         {
             throw new EntityNotFoundException("El seguro con id = " + seguroId + " no existe.");
         }
-        log.info("Termina proceso de eliminar un seguro de la caminata con id = {0}", caminataId);   
+        log.info("Termina proceso de eliminar un seguro de la caminata con id = {}", caminataId);   
     }
     
 }
