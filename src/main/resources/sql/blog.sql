@@ -1,0 +1,10 @@
+insert into BLOG_ENTITY (CAMINANTE_ID, ID, FOTO, TEXT, TITULO, VIDEO) values (1, 1, 'engage 24/7 systems', 'Flowdesk', 'Osmosis Jones', 'Montego');
+insert into BLOG_ENTITY (CAMINANTE_ID, ID, FOTO, TEXT, TITULO, VIDEO) values (2, 2, 'morph strategic users', 'Domainer', 'Gypsy', 'G');
+insert into BLOG_ENTITY (CAMINANTE_ID, ID, FOTO, TEXT, TITULO, VIDEO) values (3, 3, 'strategize intuitive paradigms', 'Trippledex', 'Candles on Bay Street ', 'M-Class');
+insert into BLOG_ENTITY (CAMINANTE_ID, ID, FOTO, TEXT, TITULO, VIDEO) values (4, 4, 'transform sticky systems', 'Bytecard', 'Casa de mi Padre', 'LX');
+insert into BLOG_ENTITY (CAMINANTE_ID, ID, FOTO, TEXT, TITULO, VIDEO) values (5, 5, 'cultivate sticky deliverables', 'Biodex', 'Return of the Pink Panther, The', 'Coachbuilder');
+insert into BLOG_ENTITY (CAMINANTE_ID, ID, FOTO, TEXT, TITULO, VIDEO) values (6, 6, 'unleash innovative e-services', 'Asoka', 'Cose da pazzi', 'M3');
+insert into BLOG_ENTITY (CAMINANTE_ID, ID, FOTO, TEXT, TITULO, VIDEO) values (7, 7, 'harness turn-key systems', 'Zathin', 'Short Film About Killing, A (Krótki film o zabijaniu)', 'H1');
+insert into BLOG_ENTITY (CAMINANTE_ID, ID, FOTO, TEXT, TITULO, VIDEO) values (8, 8, 'streamline strategic functionalities', 'Flowdesk', 'Hackers', 'Exige');
+insert into BLOG_ENTITY (CAMINANTE_ID, ID, FOTO, TEXT, TITULO, VIDEO) values (9, 9, 'leverage plug-and-play initiatives', 'Fintone', 'Art of Getting By, The', 'Montana');
+insert into BLOG_ENTITY (CAMINANTE_ID, ID, FOTO, TEXT, TITULO, VIDEO) values (10, 10, 'generate best-of-breed infrastructures', 'Konklab', 'Werner - Beinhart!', 'Truck');
