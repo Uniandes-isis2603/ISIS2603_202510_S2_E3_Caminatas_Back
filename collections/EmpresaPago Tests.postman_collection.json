@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "f4bb1e0b-847a-4684-95dd-7931d474140c",
+		"_postman_id": "6c2ddf47-93f4-4b3d-90d6-7b975cfdd7b5",
 		"name": "EmpresaPago Tests",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "42820446"
+		"_exporter_id": "41343426"
 	},
 	"item": [
 		{
@@ -206,7 +206,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"numeroTransaccion\": \"1231232133\",\r\n    \"valorCaminata\": 120000.0,\r\n    \"valorTotal\": 180000.0,\r\n    \"fechaVencimiento\": \"2025-02-28T18:42:36\",\r\n    \"numeroTarjeta\": \"1234567890123456\",\r\n    \"ccv\": \"194\",\r\n    \"cuotas\": 8,\r\n    \"propietario\": \"Juan Carlos\",\r\n    \"caminanteDTO\": {\"id\": 1},\r\n    \"caminataDTO\":{\"id\":1}\r\n}",
+					"raw": "{\r\n    \"numeroTransaccion\": \"1231232133\",\r\n    \"valorCaminata\": 120000.0,\r\n    \"valorTotal\": 180000.0,\r\n    \"fechaVencimiento\": \"2025-02-28T18:42:36\",\r\n    \"numeroTarjeta\": \"6543210987654321\",\r\n    \"ccv\": \"194\",\r\n    \"cuotas\": 8,\r\n    \"propietario\": \"Juan Carlos\",\r\n    \"empresaDTO\": {\r\n        \"id\": 1\r\n    },\r\n    \"caminataDTO\": {\r\n        \"id\": 1\r\n    }\r\n}\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -231,7 +231,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"numeroTransaccion\": \"1231232133\",\r\n    \"valorCaminata\": 120000.0,\r\n    \"valorTotal\": 180000.0,\r\n    \"fechaVencimiento\": \"2025-02-28T18:42:36\",\r\n    \"numeroTarjeta\": \"1234567890123456\",\r\n    \"ccv\": \"194\",\r\n    \"cuotas\": 8,\r\n    \"propietario\": \"Juan Carlos\",\r\n    \"caminanteDTO\": {\"id\": 1},\r\n    \"caminataDTO\":{\"id\":1}\r\n}",
+							"raw": "{\r\n    \"numeroTransaccion\": \"1231232133\",\r\n    \"valorCaminata\": 120000.0,\r\n    \"valorTotal\": 180000.0,\r\n    \"fechaVencimiento\": \"2025-02-28T18:42:36\",\r\n    \"numeroTarjeta\": \"6543210987654321\",\r\n    \"ccv\": \"194\",\r\n    \"cuotas\": 8,\r\n    \"propietario\": \"Juan Carlos\",\r\n    \"empresaDTO\": {\r\n        \"id\": 1\r\n    },\r\n    \"caminataDTO\": {\r\n        \"id\": 1\r\n    }\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -239,9 +239,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseURL}}/pagos",
+							"raw": "{{baseUrl}}/pagos",
 							"host": [
-								"{{baseURL}}"
+								"{{baseUrl}}"
 							],
 							"path": [
 								"pagos"
@@ -253,14 +253,40 @@
 					"_postman_previewlanguage": "json",
 					"header": [
 						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
 							"key": "Content-Type",
-							"value": "application/json",
-							"description": "",
-							"type": "text"
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 02 Apr 2025 19:41:29 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"numeroTransaccion\": \"1231232133\",\n    \"valorCaminata\": 120000.0,\n    \"valorTotal\": 180000.0,\n    \"fechaVencimiento\": \"2025-02-28T18:42:36\",\n    \"numeroTarjeta\": \"1234567890123456\",\n    \"ccv\": \"194\",\n    \"cuotas\": 8,\n    \"propietario\": \"Juan Carlos\",\n    \"caminanteDTO\": {\"id\": 1},\n    \"caminataDTO\":{\"id\":1}\n}"
+					"body": "{\n    \"id\": 1,\n    \"numeroTransaccion\": \"1231232133\",\n    \"valorCaminata\": 120000,\n    \"valorTotal\": 180000,\n    \"numeroTarjeta\": \"6543210987654321\",\n    \"fechaVencimiento\": \"2025-02-28T18:42:36.000+00:00\",\n    \"ccv\": \"194\",\n    \"cuotas\": 8,\n    \"propietario\": \"Juan Carlos\",\n    \"empresaDTO\": null,\n    \"caminanteDTO\": null,\n    \"caminataDTO\": null\n}"
 				}
 			]
 		},
