@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "acd806fe-98d3-46d1-9f38-8557bb6271e3",
+		"_postman_id": "fdbb03e8-f72a-4e88-8ed1-cfd15ca63be2",
 		"name": "PagoTest",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "37534152"
@@ -385,7 +385,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"numeroTransaccion\": \"1231232133\",\r\n    \"valorCaminata\": 120000.0,\r\n    \"valorTotal\": 180000.0,\r\n    \"fechaVencimiento\": \"2025-02-28T18:42:36\",\r\n    \"numeroTarjeta\": \"1234567890123456\",\r\n    \"ccv\": \"194\",\r\n    \"cuotas\": 8,\r\n    \"propietario\": \"Juan Carlos\",\r\n    \"caminanteDTO\": {\"id\": 1},\r\n    \"caminataDTO\":{\"id\":1}\r\n}",
+					"raw": "{\r\n    \"numeroTransaccion\": \"1231252133\",\r\n    \"valorCaminata\": 120000.0,\r\n    \"valorTotal\": 180000.0,\r\n    \"fechaVencimiento\": \"2025-02-28T18:42:36\",\r\n    \"numeroTarjeta\": \"1234567890123456\",\r\n    \"ccv\": \"194\",\r\n    \"cuotas\": 8,\r\n    \"propietario\": \"Juan Carlos\",\r\n    \"caminanteDTO\": \r\n    {\r\n        \"id\": {{caminante_id_1}},\r\n        \"numero\": 101,\r\n        \"titulo\": \"Exploración del Parque Nacional Natural Tayrona\",\r\n        \"tipo\": \"Ecológica\",\r\n        \"fecha\": \"2025-04-15T00:00:00.000+00:00\",\r\n        \"hora\": \"08:03:33.394792500\",\r\n        \"departamento\": \"Magdalena\",\r\n        \"ciudad\": \"Santa Marta\",\r\n        \"duracionEstimadaMinutos\": 240\r\n    },\r\n    \"caminataDTO\":\r\n    {\r\n        \"id\":{{caminata_id_1}},\r\n        \"nombre\": \"Pepe\",\r\n        \"documento\": \"123456789\",\r\n        \"correo\": \"pepe@gmail.com\",\r\n        \"telefono\": \"3103456789\",\r\n        \"direccion\": \"Calle 123\",\r\n        \"experienciaPrevia\": \"False\",\r\n        \"tratamientosMed\": \"False\",\r\n        \"lesion\": \"False\",\r\n        \"problemasRes\" : \"False\"\r\n    }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -410,7 +410,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"numeroTransaccion\": \"1231232133\",\r\n    \"valorCaminata\": 120000.0,\r\n    \"valorTotal\": 180000.0,\r\n    \"fechaVencimiento\": \"2025-02-28T18:42:36\",\r\n    \"numeroTarjeta\": \"1234567890123456\",\r\n    \"ccv\": \"194\",\r\n    \"cuotas\": 8,\r\n    \"propietario\": \"Juan Carlos\",\r\n    \"caminanteDTO\": {\"id\": 1},\r\n    \"caminataDTO\":{\"id\":1}\r\n}",
+							"raw": "{\r\n    \"numeroTransaccion\": \"1231252133\",\r\n    \"valorCaminata\": 120000.0,\r\n    \"valorTotal\": 180000.0,\r\n    \"fechaVencimiento\": \"2025-02-28T18:42:36\",\r\n    \"numeroTarjeta\": \"1234567890123456\",\r\n    \"ccv\": \"194\",\r\n    \"cuotas\": 8,\r\n    \"propietario\": \"Juan Carlos\",\r\n    \"caminanteDTO\": \r\n    {\r\n        \"id\": {{caminante_id_1}},\r\n        \"numero\": 101,\r\n        \"titulo\": \"Exploración del Parque Nacional Natural Tayrona\",\r\n        \"tipo\": \"Ecológica\",\r\n        \"fecha\": \"2025-04-15T00:00:00.000+00:00\",\r\n        \"hora\": \"08:03:33.394792500\",\r\n        \"departamento\": \"Magdalena\",\r\n        \"ciudad\": \"Santa Marta\",\r\n        \"duracionEstimadaMinutos\": 240\r\n    },\r\n    \"caminataDTO\":\r\n    {\r\n        \"id\":{{caminata_id_1}},\r\n        \"nombre\": \"Pepe\",\r\n        \"documento\": \"123456789\",\r\n        \"correo\": \"pepe@gmail.com\",\r\n        \"telefono\": \"3103456789\",\r\n        \"direccion\": \"Calle 123\",\r\n        \"experienciaPrevia\": \"False\",\r\n        \"tratamientosMed\": \"False\",\r\n        \"lesion\": \"False\",\r\n        \"problemasRes\" : \"False\"\r\n    }\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -439,7 +439,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"numeroTransaccion\": \"1231232133\",\n    \"valorCaminata\": 120000.0,\n    \"valorTotal\": 180000.0,\n    \"fechaVencimiento\": \"2025-02-28T18:42:36\",\n    \"numeroTarjeta\": \"1234567890123456\",\n    \"ccv\": \"194\",\n    \"cuotas\": 8,\n    \"propietario\": \"Juan Carlos\",\n    \"caminanteDTO\": {\"id\": 1},\n    \"caminataDTO\":{\"id\":1}\n}"
+					"body": "{\n    \"numeroTransaccion\": \"1231252133\",\n    \"valorCaminata\": 120000.0,\n    \"valorTotal\": 180000.0,\n    \"fechaVencimiento\": \"2025-02-28T18:42:36\",\n    \"numeroTarjeta\": \"1234567890123456\",\n    \"ccv\": \"194\",\n    \"cuotas\": 8,\n    \"propietario\": \"Juan Carlos\",\n    \"caminanteDTO\": \n    {\n        \"id\": 1,\n        \"numero\": 101,\n        \"titulo\": \"Exploración del Parque Nacional Natural Tayrona\",\n        \"tipo\": \"Ecológica\",\n        \"fecha\": \"2025-04-15T00:00:00.000+00:00\",\n        \"hora\": \"08:03:33.394792500\",\n        \"departamento\": \"Magdalena\",\n        \"ciudad\": \"Santa Marta\",\n        \"duracionEstimadaMinutos\": 240\n    },\n    \"caminataDTO\":\n    {\n        \"id\":1,\n        \"nombre\": \"Pepe\",\n        \"documento\": \"123456789\",\n        \"correo\": \"pepe@gmail.com\",\n        \"telefono\": \"3103456789\",\n        \"direccion\": \"Calle 123\",\n        \"experienciaPrevia\": \"False\",\n        \"tratamientosMed\": \"False\",\n        \"lesion\": \"False\",\n        \"problemasRes\" : \"False\"\n    }\n}"
 				}
 			]
 		},
@@ -479,7 +479,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"numeroTransaccion\": \"1231232133\",\r\n    \"valorCaminata\": 120000.0,\r\n    \"valorTotal\": 180000.0,\r\n    \"fechaVencimiento\": \"2025-02-28T18:42:36\",\r\n    \"numeroTarjeta\": \"1234567890123456\",\r\n    \"ccv\": \"194\",\r\n    \"cuotas\": 8,\r\n    \"propietario\": \"Juan Carlos\",\r\n    \"caminanteDTO\": {\"id\": 1},\r\n    \"caminataDTO\":{\"id\":1}\r\n}",
+					"raw": "{\r\n    \"numeroTransaccion\": \"1231252133\",\r\n    \"valorCaminata\": 120000.0,\r\n    \"valorTotal\": 180000.0,\r\n    \"fechaVencimiento\": \"2025-02-28T18:42:36\",\r\n    \"numeroTarjeta\": \"1234567890123456\",\r\n    \"ccv\": \"194\",\r\n    \"cuotas\": 8,\r\n    \"propietario\": \"Juan Carlos\",\r\n    \"caminanteDTO\": {\"id\": 1},\r\n    \"caminataDTO\":{\"id\":1}\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -533,7 +533,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"id\": 1,\n    \"numeroTransaccion\": \"1231232133\",\n    \"valorCaminata\": 120000.0,\n    \"valorTotal\": 180000.0,\n    \"fechaVencimiento\": \"2025-02-28T18:42:36\",\n    \"numeroTarjeta\": \"1234567890123456\",\n    \"ccv\": \"194\",\n    \"cuotas\": 8,\n    \"propietario\": \"Juan Carlos\",\n    \"caminanteDTO\": {\"id\": 1},\n    \"caminataDTO\":{\"id\":1}\n}"
+					"body": "{\n    \"id\": 1,\n    \"numeroTransaccion\": \"1231252133\",\n    \"valorCaminata\": 120000.0,\n    \"valorTotal\": 180000.0,\n    \"fechaVencimiento\": \"2025-02-28T18:42:36\",\n    \"numeroTarjeta\": \"1234567890123456\",\n    \"ccv\": \"194\",\n    \"cuotas\": 8,\n    \"propietario\": \"Juan Carlos\",\n    \"caminanteDTO\": {\"id\": 1},\n    \"caminataDTO\":{\"id\":1}\n}"
 				}
 			]
 		},
@@ -952,15 +952,6 @@
 								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
 						"url": {
 							"raw": "{{baseUrl}}/pagos",
 							"host": [

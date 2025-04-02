@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "881885d7-6a73-46f1-8cae-906d664f9ffa",
+		"_postman_id": "16bb1f3d-cae2-4359-a9ba-c80cdfa1aca2",
 		"name": "CaminantePago",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "37534152"
@@ -235,7 +235,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"numeroTransaccion\": \"123123213311\",\r\n    \"valorCaminata\": 120000.0,\r\n    \"valorTotal\": 180000.0,\r\n    \"fechaVencimiento\": \"2025-02-28T18:42:36\",\r\n    \"numeroTarjeta\": \"1234567890123456\",\r\n    \"ccv\": \"194\",\r\n    \"cuotas\": 8,\r\n    \"propietario\": \"Juan Carlos\",\r\n    \"caminanteDTO\": {\"id\": 2},\r\n    \"caminataDTO\":{\"id\":2}\r\n}",
+					"raw": "{\r\n    \"numeroTransaccion\": \"123123213311\",\r\n    \"valorCaminata\": 120000.0,\r\n    \"valorTotal\": 180000.0,\r\n    \"fechaVencimiento\": \"2025-02-28T18:42:36\",\r\n    \"numeroTarjeta\": \"1234567890123456\",\r\n    \"ccv\": \"194\",\r\n    \"cuotas\": 8,\r\n    \"propietario\": \"Juan Carlos\",\r\n    \"caminanteDTO\": {\"id\": {{caminante_id_2}}},\r\n    \"caminataDTO\":{\"id\":{{caminata_id_2}}}\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -260,7 +260,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"numeroTransaccion\": \"123123213311\",\r\n    \"valorCaminata\": 120000.0,\r\n    \"valorTotal\": 180000.0,\r\n    \"fechaVencimiento\": \"2025-02-28T18:42:36\",\r\n    \"numeroTarjeta\": \"1234567890123456\",\r\n    \"ccv\": \"194\",\r\n    \"cuotas\": 8,\r\n    \"propietario\": \"Juan Carlos\",\r\n    \"caminanteDTO\": {\"id\": 2},\r\n    \"caminataDTO\":{\"id\":2}\r\n}",
+							"raw": "{\r\n    \"numeroTransaccion\": \"123123213311\",\r\n    \"valorCaminata\": 120000.0,\r\n    \"valorTotal\": 180000.0,\r\n    \"fechaVencimiento\": \"2025-02-28T18:42:36\",\r\n    \"numeroTarjeta\": \"1234567890123456\",\r\n    \"ccv\": \"194\",\r\n    \"cuotas\": 8,\r\n    \"propietario\": \"Juan Carlos\",\r\n    \"caminanteDTO\": {\"id\": {{caminante_id_2}}},\r\n    \"caminataDTO\":{\"id\": {{caminata_id_2}}}\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -289,7 +289,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"id\": 1,   \n    \"numeroTransaccion\": \"123123213311\",\n    \"valorCaminata\": 120000.0,\n    \"valorTotal\": 180000.0,\n    \"fechaVencimiento\": \"2025-02-28T18:42:36\",\n    \"numeroTarjeta\": \"1234567890123456\",\n    \"ccv\": \"194\",\n    \"cuotas\": 8,\n    \"propietario\": \"Juan Carlos\",\n    \"caminanteDTO\": {\"id\": 2},\n    \"caminataDTO\":{\"id\":2}\n}"
+					"body": "{\n    \"id\": 1,   \n    \"numeroTransaccion\": \"123123213311\",\n    \"valorCaminata\": 120000.0,\n    \"valorTotal\": 180000.0,\n    \"fechaVencimiento\": \"2025-02-28T18:42:36\",\n    \"numeroTarjeta\": \"1234567890123456\",\n    \"ccv\": \"194\",\n    \"cuotas\": 8,\n    \"propietario\": \"Juan Carlos\",\n    \"caminanteDTO\": {\"id\": 2},\n    \"caminataDTO\":{\"id\": 2}\n}"
 				}
 			]
 		},
