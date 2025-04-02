@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "454c187e-09fc-48fa-bba6-34c59db69cb3",
+		"_postman_id": "61eba4af-3ffe-4b78-87bc-f2215a6802ac",
 		"name": "Empresa Tests",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "41343426"
@@ -428,7 +428,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"documento\": \"111222333-5\",\r\n    \"id\": 12671489,\r\n    \"correo\": \"hola@gmail.com\",\r\n    \"nombre\": \"Camilo\",\r\n    \"pagos\": [],\r\n    \"caminatas\": []\r\n}",
+					"raw": "{\r\n    \"documento\": \"111222333-5\",\r\n    \"id\": 12671489,\r\n    \"correo\": \"hola@gmail.com\",\r\n    \"nombre\": \"Camila\",\r\n    \"pagos\": [],\r\n    \"caminatas\": []\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
