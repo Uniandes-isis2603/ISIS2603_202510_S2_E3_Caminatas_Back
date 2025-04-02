@@ -199,7 +199,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"numeroTransaccion\": \"1231232133\",\r\n    \"valorCaminata\": 120000.0,\r\n    \"valorTotal\": 180000.0,\r\n    \"fechaVencimiento\": \"2025-02-28T18:42:36\",\r\n    \"numeroTarjeta\": \"1234567890123456\",\r\n    \"ccv\": \"194\",\r\n    \"cuotas\": 8,\r\n    \"propietario\": \"Juan Carlos\",\r\n    \"caminanteDTO\": {\"id\": 1}\r\n}",
+					"raw": "{\r\n    \"numeroTransaccion\": \"12312321393\",\r\n    \"valorCaminata\": 120000.0,\r\n    \"valorTotal\": 180000.0,\r\n    \"fechaVencimiento\": \"2025-02-28T18:42:36\",\r\n    \"numeroTarjeta\": \"1234567890123456\",\r\n    \"ccv\": \"194\",\r\n    \"cuotas\": 8,\r\n    \"propietario\": \"Juan Carlos\",\r\n    \"caminanteDTO\": {\"id\": 1}\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -369,7 +369,7 @@
 					"script": {
 						"exec": [
 							"var data = pm.response.json()\r",
-							"pm.globals.set(\"pago_id_2\", data.id);\r",
+							"pm.globals.set(\"pago_id_5\", data.id);\r",
 							"\r",
 							"pm.test(\"Status code is 201\", function () {\r",
 							"   pm.response.to.have.status(201);\r",
@@ -1010,13 +1010,13 @@
 					}
 				},
 				"url": {
-					"raw": "{{baseUrl}}/pagos/{{pago_id_2}}",
+					"raw": "{{baseUrl}}/pagos/{{pago_id_5}}",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
 						"pagos",
-						"{{pago_id_2}}"
+						"{{pago_id_5}}"
 					]
 				}
 			},
