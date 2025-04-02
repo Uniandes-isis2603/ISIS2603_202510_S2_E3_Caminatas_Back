@@ -428,7 +428,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"documento\": \"111222333-5\",\r\n    \"id\": 12671489,\r\n    \"correo\": \"hola@gmail.com\",\r\n    \"nombre\": \"Camila\",\r\n    \"pagos\": [],\r\n    \"caminatas\": []\r\n}",
+					"raw": "{\r\n    \"documento\": \"111222333-4\",\r\n    \"correo\": \"hola@gmail.com\",\r\n    \"nombre\": \"Camila\",\r\n    \"pagos\": [],\r\n    \"caminatas\": []\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
