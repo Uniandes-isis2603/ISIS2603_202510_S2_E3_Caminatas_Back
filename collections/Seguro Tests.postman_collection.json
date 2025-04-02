@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "c3d3c8b3-8a67-4b38-b668-cdf2dbe3051c",
+		"_postman_id": "7dca1203-64cc-4de6-ade5-4bc30f262556",
 		"name": "Seguro Tests",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "42820706"
+		"_exporter_id": "41343426"
 	},
 	"item": [
 		{
@@ -130,32 +130,6 @@
 				"body": {
 					"mode": "raw",
 					"raw": "{\n  \"numero\": 1,\n  \"nombre\": \"Proteccion Total\",\n  \"tipo\": \"Accidentes Personales\",\n  \"cobertura\": \"Cobertura medica en caso de accidentes durante la caminata\",\n  \"condiciones\": \"Aplica solo para caminatas dentro del territorio nacional\",\n  \"costo\": 203000,\n  \"caminata\": {\n    \"id\": {{caminata_id_1}},\n    \"numero\": 101,\n    \"titulo\": \"Exploración del Parque Nacional Natural Tayrona\",\n    \"tipo\": \"Ecológica\",\n    \"fecha\": \"2025-04-15T00:00:00.000+00:00\",\n    \"hora\": \"10:00:00\",\n    \"departamento\": \"Magdalena\",\n    \"ciudad\": \"Santa Marta\",\n    \"duracionEstimadaMinutos\": 240\n  }\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{baseUrl}}/seguros",
-					"host": [
-						"{{baseUrl}}"
-					],
-					"path": [
-						"seguros"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Crear un seguro con una caminata con un ID que no existe",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n  \"numero\": 1,\n  \"nombre\": \"Proteccion Total\",\n  \"tipo\": \"Accidentes Personales\",\n  \"cobertura\": \"Cobertura medica en caso de accidentes durante la caminata\",\n  \"condiciones\": \"Aplica solo para caminatas dentro del territorio nacional\",\n  \"costo\": 203000,\n  \"caminata\": {\n    \"id\": 1,\n    \"numero\": 101,\n    \"titulo\": \"Exploración del Parque Nacional Natural Tayrona\",\n    \"tipo\": \"Ecológica\",\n    \"fecha\": \"2025-04-15T00:00:00.000+00:00\",\n    \"hora\": \"10:00:00\",\n    \"departamento\": \"Magdalena\",\n    \"ciudad\": \"Santa Marta\",\n    \"duracionEstimadaMinutos\": 240\n  }\n}",
 					"options": {
 						"raw": {
 							"language": "json"
