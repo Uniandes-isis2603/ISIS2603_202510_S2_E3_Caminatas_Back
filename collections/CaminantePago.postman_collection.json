@@ -205,7 +205,16 @@
 			"name": "Obtener todos los caminantes",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/caminantes",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"caminantes"
+					]
+				}
 			},
 			"response": []
 		},
@@ -320,6 +329,15 @@
 			"request": {
 				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
 					"raw": "{{baseUrl}}/caminantes/{{caminante_id_2}}/pagos/{{pago_id_1}}",
 					"host": [
