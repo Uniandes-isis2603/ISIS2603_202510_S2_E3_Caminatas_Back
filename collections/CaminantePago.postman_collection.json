@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "16bb1f3d-cae2-4359-a9ba-c80cdfa1aca2",
+		"_postman_id": "77ce6574-8a43-469a-9e95-a8ed3fd5802f",
 		"name": "CaminantePago",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "37534152"
+		"_exporter_id": "41343426"
 	},
 	"item": [
 		{
@@ -202,6 +202,14 @@
 			"response": []
 		},
 		{
+			"name": "Obtener todos los caminantes",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
 			"name": "Crear un pago 1",
 			"event": [
 				{
@@ -235,7 +243,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"numeroTransaccion\": \"123123213311\",\r\n    \"valorCaminata\": 120000.0,\r\n    \"valorTotal\": 180000.0,\r\n    \"fechaVencimiento\": \"2025-02-28T18:42:36\",\r\n    \"numeroTarjeta\": \"1234567890123456\",\r\n    \"ccv\": \"194\",\r\n    \"cuotas\": 8,\r\n    \"propietario\": \"Juan Carlos\",\r\n    \"caminanteDTO\": {\"id\": {{caminante_id_2}}},\r\n    \"caminataDTO\":{\"id\":{{caminata_id_2}}}\r\n}",
+					"raw": "{\r\n    \"numeroTransaccion\": \"TXN0011223344\",\r\n    \"valorCaminata\": 150000.0,\r\n    \"valorTotal\": 200000.0,\r\n    \"numeroTarjeta\": \"4111111111111112\",\r\n    \"fechaVencimiento\": \"2025-12-31T23:59:59\",\r\n    \"ccv\": \"123\",\r\n    \"cuotas\": 6,\r\n    \"propietario\": \"Carlos Pérez\",\r\n    \"caminanteDTO\": {\r\n        \"id\": 1\r\n    },\r\n    \"caminataDTO\": {\r\n        \"id\": 1\r\n    }\r\n}\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
