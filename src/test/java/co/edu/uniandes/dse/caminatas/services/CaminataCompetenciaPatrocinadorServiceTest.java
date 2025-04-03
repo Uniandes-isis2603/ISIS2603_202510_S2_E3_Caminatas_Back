@@ -1,5 +1,6 @@
 package co.edu.uniandes.dse.caminatas.services;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -59,23 +60,37 @@ public class CaminataCompetenciaPatrocinadorServiceTest {
     }
 
     /*
-     * Prueba para borrar el patrocinador de una caminata de competencia
-     */
+    * Prueba para borrar un patrocinador de una caminata de competencia
+    */
     @Test
     void testRemovePatrocinador() throws EntityNotFoundException {
-        caminataCompetenciaPatrocinadorService.removePatrocinador(caminataCompetencia.getId());
+        caminataCompetenciaPatrocinadorService.removePatrocinador(caminataCompetencia.getId(), patrocinador.getId());
 
         CaminataCompetenciaEntity updatedCaminata = entityManager.find(CaminataCompetenciaEntity.class, caminataCompetencia.getId());
+        PatrocinadorEntity updatedPatrocinador = entityManager.find(PatrocinadorEntity.class, patrocinador.getId());
+
         assertNull(updatedCaminata.getPatrocinador());
+        assertFalse(updatedPatrocinador.getCaminatasCompetencia().contains(updatedCaminata));
     }
 
     /*
-     * Prueba para borrar el patrocinador de una caminata de competencia que no existe
-     */
+    * Prueba para borrar un patrocinador de una caminata de competencia que no existe
+    */
     @Test
     void testRemovePatrocinadorInvalidCaminata() {
         assertThrows(EntityNotFoundException.class, () -> {
-            caminataCompetenciaPatrocinadorService.removePatrocinador(0L);
+            caminataCompetenciaPatrocinadorService.removePatrocinador(0L, patrocinador.getId());
         });
     }
+
+    /*
+    * Prueba para borrar un patrocinador que no existe de una caminata de competencia
+    */
+    @Test
+    void testRemovePatrocinadorInvalidPatrocinador() {
+        assertThrows(EntityNotFoundException.class, () -> {
+            caminataCompetenciaPatrocinadorService.removePatrocinador(caminataCompetencia.getId(), 0L);
+        });
+    }
+
 }

@@ -13,7 +13,7 @@ import co.edu.uniandes.dse.caminatas.exceptions.EntityNotFoundException;
 import co.edu.uniandes.dse.caminatas.services.CaminataCompetenciaPatrocinadorService;
 
 @RestController
-@RequestMapping("/caminatasCompetencia")
+@RequestMapping("/caminataCompetencias")
 public class CaminataCompetenciaPatrocinadorController {
 
     @Autowired
@@ -61,9 +61,9 @@ public class CaminataCompetenciaPatrocinadorController {
      * @param caminataCompetenciaId ID de la caminata de competencia
      * @throws EntityNotFoundException Si la caminata no existe
      */
-    @DeleteMapping("/{caminataCompetenciaId}/patrocinador")
-    public ResponseEntity<Void> removePatrocinador(@PathVariable Long caminataCompetenciaId) throws EntityNotFoundException {
-        caminataCompetenciaPatrocinadorService.removePatrocinador(caminataCompetenciaId);
+    @DeleteMapping("/{caminataCompetenciaId}/patrocinadores/{patrocinadorId}")
+    public ResponseEntity<Void> removePatrocinador(@PathVariable Long caminataCompetenciaId, @PathVariable Long patrocinadorId) throws EntityNotFoundException {
+        caminataCompetenciaPatrocinadorService.removePatrocinador(caminataCompetenciaId, patrocinadorId);
         return ResponseEntity.noContent().build();
     }
 }

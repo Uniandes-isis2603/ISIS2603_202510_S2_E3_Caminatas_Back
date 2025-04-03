@@ -64,18 +64,24 @@ public class CaminataCompetenciaPatrocinadorService
      * Borra el patrocinador de una caminata de competencia
      */
     @Transactional
-    public void removePatrocinador(Long caminataCompetenciaId) throws EntityNotFoundException
-    {
-        log.info("Inicia proceso de borrar el patrocinador de la caminata con id = {}", caminataCompetenciaId);
+    public void removePatrocinador(Long caminataCompetenciaId, Long patrocinadorId) throws EntityNotFoundException {
+        log.info("Inicia proceso de borrar el patrocinador con id = {} de la caminata con id = {}", patrocinadorId, caminataCompetenciaId);
+        
         Optional<CaminataCompetenciaEntity> caminataCompetencia = caminataCompetenciaRepository.findById(caminataCompetenciaId);
-        if(caminataCompetencia.isEmpty())
-        {
-            throw new EntityNotFoundException("No se encontró la caminata de competencia con id = " + caminataCompetenciaId);
+        Optional<PatrocinadorEntity> patrocinador = patrocinadorRepository.findById(patrocinadorId);
+
+        if (caminataCompetencia.isEmpty()) {
+            throw new EntityNotFoundException("La caminata de competencia con id = " + caminataCompetenciaId + " no existe.");
         }
-        Optional<PatrocinadorEntity> patrocinadorEntity = patrocinadorRepository.findById(caminataCompetencia.get().getPatrocinador().getId());
-        patrocinadorEntity.ifPresent(patrocinador -> patrocinador.getCaminatasCompetencia().remove(caminataCompetencia.get()));
+
+        if (patrocinador.isEmpty()) {
+            throw new EntityNotFoundException("El patrocinador con id = " + patrocinadorId + " no existe.");
+        }
+
         caminataCompetencia.get().setPatrocinador(null);
-        log.info("Termina proceso de borrar el patrocinador de la caminata con id = {}", caminataCompetenciaId);
-    } 
+        patrocinador.get().getCaminatasCompetencia().remove(caminataCompetencia.get());
+
+        log.info("Finaliza proceso de borrar el patrocinador con id = {} de la caminata con id = {}", patrocinadorId, caminataCompetenciaId);
+    }
     
 }

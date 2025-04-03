@@ -7,6 +7,163 @@
 	},
 	"item": [
 		{
+			"name": "Crear caminante",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()",
+							"pm.globals.set(\"caminante_id_1\", data.id);",
+							"",
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n    \"nombre\": \"Pepe\",\n    \"documento\": \"12345678\",\n    \"correo\": \"pepe@gmail.com\",\n    \"telefono\": \"3103456789\",\n    \"direccion\": \"Calle 123\",\n    \"experienciaPrevia\": \"False\",\n    \"tratamientosMed\": \"False\",\n    \"lesion\": \"False\",\n    \"problemasRes\" : \"False\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/caminantes",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"caminantes"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear caminante",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\n    \"id\":1,\n    \"nombre\": \"Pepe\",\n    \"documento\": \"12345678\",\n    \"correo\": \"pepe@gmail.com\",\n    \"telefono\": \"3103456789\",\n    \"direccion\": \"Calle 123\",\n    \"experienciaPrevia\": \"False\",\n    \"tratamientosMed\": \"False\",\n    \"lesion\": \"False\",\n    \"problemasRes\" : \"False\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/caminantes",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"caminantes"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Crear blog",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()",
+							"pm.globals.set(\"blog_id_1\", data.id);",
+							"",
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"titulo\": \"Monserrate\",\n    \"foto\": \"image\",\n    \"video\": \"video\",\n    \"text\": \"Excelente\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/blogs",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"blogs"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear blog",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"titulo\": \"Monserrate\",\n    \"foto\": \"image\",\n    \"video\": \"video\",\n    \"text\": \"Excelente\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/blogs",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"blogs"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
 			"name": "Agregar un blog a un caminante",
 			"event": [
 				{
@@ -26,13 +183,13 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/caminantes/{{caminante_id}}/blogs/{{blog_id_1}}",
+					"raw": "{{baseUrl}}/caminantes/{{caminante_id_1}}/blogs/{{blog_id_1}}",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
 						"caminantes",
-						"{{caminante_id}}",
+						"{{caminante_id_1}}",
 						"blogs",
 						"{{blog_id_1}}"
 					]
@@ -94,13 +251,13 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/caminantes/{{caminante_id}}/blogs/0",
+					"raw": "{{baseUrl}}/caminantes/{{caminante_id_1}}/blogs/0",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
 						"caminantes",
-						"{{caminante_id}}",
+						"{{caminante_id_1}}",
 						"blogs",
 						"0"
 					]
@@ -157,13 +314,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/caminantes/{{caminante_id}}/blogs/{{blog_id_1}}",
+					"raw": "{{baseUrl}}/caminantes/{{caminante_id_1}}/blogs/{{blog_id_1}}",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
 						"caminantes",
-						"{{caminante_id}}",
+						"{{caminante_id_1}}",
 						"blogs",
 						"{{blog_id_1}}"
 					]
@@ -225,13 +382,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/caminantes/{{caminante_id}}/blogs/0",
+					"raw": "{{baseUrl}}/caminantes/{{caminante_id_1}}/blogs/0",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
 						"caminantes",
-						"{{caminante_id}}",
+						"{{caminante_id_1}}",
 						"blogs",
 						"0"
 					]
@@ -269,74 +426,6 @@
 			]
 		},
 		{
-			"name": "Obtener un blog que no está asociado a un caminante",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 412\", function () {",
-							"   pm.response.to.have.status(412);",
-							"});",
-							"",
-							"pm.test(\"Get expected error message\", function () {",
-							"   var data = pm.response.json();",
-							"   pm.expect(data.apierror.message).to.eql(\"El blog no está asociado con el caminante\");",
-							"});"
-						],
-						"type": "text/javascript",
-						"packages": {}
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{baseUrl}}/caminantes/{{caminante_id}}/blogs/{{blog_id_2}}",
-					"host": [
-						"{{baseUrl}}"
-					],
-					"path": [
-						"caminantes",
-						"{{caminante_id}}",
-						"blogs",
-						"{{blog_id_2}}"
-					]
-				}
-			},
-			"response": [
-				{
-					"name": "Obtener un blog que no está asociado a un caminante",
-					"originalRequest": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"apierror\": {\n        \"status\": \"PRECONDITION_FAILED\",\n        \"timestamp\": \"21-02-2023 10:19:03\",\n        \"message\": \"El blog no está asociacdo con el caminante\"\n    }\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						}
-					},
-					"status": "Precondition Failed",
-					"code": 412,
-					"_postman_previewlanguage": null,
-					"header": null,
-					"cookie": [],
-					"body": null
-				}
-			]
-		},
-		{
 			"name": "Obtener los blogs de un caminante",
 			"event": [
 				{
@@ -361,14 +450,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/caminantes/{{caminante_id}}/caminantes",
+					"raw": "{{baseUrl}}/caminantes/{{caminante_id_1}}/blogs",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
 						"caminantes",
-						"{{caminante_id}}",
-						"caminantes"
+						"{{caminante_id_1}}",
+						"blogs"
 					]
 				}
 			},
@@ -404,82 +493,6 @@
 			]
 		},
 		{
-			"name": "Asociar blogs a un caminante",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {",
-							"   pm.response.to.have.status(200);",
-							"});"
-						],
-						"type": "text/javascript",
-						"packages": {}
-					}
-				}
-			],
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "[\n    {\n        \"id\":{{new_id_b}},\n        \"titulo\": \"Chingaza\",\n        \"foto\": \"image\",\n        \"video\": \"video\",\n        \"text\": \"Muy bueno\"\n    },\n    {\n        \"id\":{{new_id_b2}},\n        \"titulo\": \"Pionono\",\n        \"foto\": \"image\",\n        \"video\": \"video\",\n        \"text\": \"Excelente\"\n    }\n]",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{baseUrl}}/caminantes/{{caminante_id}}/blogs",
-					"host": [
-						"{{baseUrl}}"
-					],
-					"path": [
-						"caminantes",
-						"{{caminante_id}}",
-						"blogs"
-					]
-				}
-			},
-			"response": [
-				{
-					"name": "Asociar blogs a un caminante",
-					"originalRequest": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "[\n    {\n        \"id\":1,\n        \"titulo\": \"Chingaza\",\n        \"foto\": \"image\",\n        \"video\": \"video\",\n        \"text\": \"Muy bueno\",\n        \"caminantesInteracciones\": []\n    },\n    {\n        \"id\":2,\n        \"titulo\": \"Pionono\",\n        \"foto\": \"image\",\n        \"video\": \"video\",\n        \"text\": \"Excelente\",\n        \"caminantesInteracciones\": []\n    }\n]",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{baseUrl}}/caminantes/{{caminante_id}}/blogs",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"caminantes",
-								"{{caminante_id}}",
-								"blogs"
-							]
-						}
-					},
-					"status": "OK",
-					"code": 200,
-					"_postman_previewlanguage": null,
-					"header": null,
-					"cookie": [],
-					"body": null
-				}
-			]
-		},
-		{
 			"name": "Asociar blogs que no existen a un caminante",
 			"event": [
 				{
@@ -492,7 +505,7 @@
 							"",
 							"pm.test(\"Get expected error message\", function () {",
 							"   var data = pm.response.json();",
-							"   pm.expect(data.apierror.message).to.eql(\"Blog no encontrado\");",
+							"   pm.expect(data.apierror.message).to.eql(\"El blog con id = 0 no existe.\");",
 							"});"
 						],
 						"type": "text/javascript",
@@ -513,13 +526,13 @@
 					}
 				},
 				"url": {
-					"raw": "{{baseUrl}}/caminantes/{{caminante_id}}/blogs",
+					"raw": "{{baseUrl}}/caminantes/{{caminante_id_1}}/blogs",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
 						"caminantes",
-						"{{caminante_id}}",
+						"{{caminante_id_1}}",
 						"blogs"
 					]
 				}
@@ -586,15 +599,15 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/caminantes/{{caminante_id}}/blogs/{{blog_id_2}}",
+					"raw": "{{baseUrl}}/caminantes/{{caminante_id_1}}/blogs/{{blog_id_1}}",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
 						"caminantes",
-						"{{caminante_id}}",
+						"{{caminante_id_1}}",
 						"blogs",
-						"{{blog_id_2}}"
+						"{{blog_id_1}}"
 					]
 				}
 			},
@@ -627,7 +640,7 @@
 							"",
 							"pm.test(\"Get expected error message\", function () {",
 							"   var data = pm.response.json();",
-							"   pm.expect(data.apierror.message).to.eql(\"Caminante no encontrado\");",
+							"   pm.expect(data.apierror.message).to.eql(\"El caminante con id = 0 no existe.\");",
 							"});"
 						],
 						"type": "text/javascript",
@@ -639,15 +652,15 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/caminantes/0/artworks/{{artwork_id_2}}",
+					"raw": "{{baseUrl}}/caminantes/0/blogs/{{blog_id_1}}",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
 						"caminantes",
 						"0",
-						"artworks",
-						"{{artwork_id_2}}"
+						"blogs",
+						"{{blog_id_1}}"
 					]
 				}
 			},
@@ -695,7 +708,7 @@
 							"",
 							"pm.test(\"Get expected error message\", function () {",
 							"   var data = pm.response.json();",
-							"   pm.expect(data.apierror.message).to.eql(\"Blog no encontrado\");",
+							"   pm.expect(data.apierror.message).to.eql(\"El blog con id = 0 no existe.\");",
 							"});"
 						],
 						"type": "text/javascript",
@@ -707,13 +720,13 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/caminantes/{{caminante_id}}/blogs/0",
+					"raw": "{{baseUrl}}/caminantes/{{caminante_id_1}}/blogs/0",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
 						"caminantes",
-						"{{caminante_id}}",
+						"{{caminante_id_1}}",
 						"blogs",
 						"0"
 					]
