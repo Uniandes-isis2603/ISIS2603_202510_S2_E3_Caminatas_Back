@@ -1,37 +1,45 @@
 {
 	"info": {
-		"_postman_id": "77ce6574-8a43-469a-9e95-a8ed3fd5802f",
+		"_postman_id": "354fd0ab-c2ae-4683-973c-34b8ecd2c226",
 		"name": "CaminantePago",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "41343426"
 	},
 	"item": [
 		{
-			"name": "Crear una caminata",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"var data = pm.response.json()",
-							"pm.globals.set(\"caminata_id_2\", data.id);",
-							"",
-							"pm.test(\"Status code is 201\", function()",
-							"{",
-							"    pm.response.to.have.status(201);",
-							"});"
-						],
-						"type": "text/javascript",
-						"packages": {}
-					}
-				}
-			],
+			"name": "Crear un caminante",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"numero\": 101,\n    \"titulo\": \"Exploración del Parque Nacional Natural Tayrona\",\n    \"tipo\": \"Ecológica\",\n    \"fecha\": \"2025-04-15T00:00:00.000+00:00\",\n    \"hora\": \"21:33:57.193626700\",\n    \"departamento\": \"Magdalena\",\n    \"ciudad\": \"Santa Marta\",\n    \"duracionEstimadaMinutos\": 240\n}\n",
+					"raw": "{\n  \"nombre\": \"Juan Carlos\",\n  \"documento\": \"1231232133\",\n  \"correo\": \"juancarlos@ejemplo.com\",\n  \"telefono\": \"3107654321\",\n  \"direccion\": \"Carrera 15 #45-67, Manizales\",\n  \"experienciaPrevia\": true,\n  \"tratamientosMed\": false,\n  \"lesion\": false,\n  \"problemasRes\": false\n}\n\n\n\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/caminantes",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"caminantes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear caminata",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"id\":{{caminata_id_1}},\n        \"numero\": 1,\n        \"titulo\": \"Explorando el Nevado del Ruiz\",\n        \"tipo\": \"Alta montaña\",\n        \"fecha\": \"2025-07-14\",\n        \"hora\": \"06:30:00\",\n        \"departamento\": \"Caldas\",\n        \"ciudad\": \"Manizales\",\n        \"duracionEstimadaMinutos\": 360.0\n    }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -48,211 +56,16 @@
 					]
 				}
 			},
-			"response": [
-				{
-					"name": "Crear una caminata",
-					"originalRequest": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"numero\": 101,\n    \"titulo\": \"Exploración del Parque Nacional Natural Tayrona\",\n    \"tipo\": \"Ecológica\",\n    \"fecha\": \"2025-04-15T00:00:00.000+00:00\",\n    \"hora\": \"08:03:33.394792500\",\n    \"departamento\": \"Magdalena\",\n    \"ciudad\": \"Santa Marta\",\n    \"duracionEstimadaMinutos\": 240\n}\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{baseUrl}}/caminatas",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"caminatas"
-							]
-						}
-					},
-					"status": "Created",
-					"code": 201,
-					"_postman_previewlanguage": "json",
-					"header": [
-						{
-							"key": "Content-Type",
-							"value": "application/json",
-							"description": "",
-							"type": "text"
-						}
-					],
-					"cookie": [],
-					"body": "{\n    \"numero\": 101,\n    \"titulo\": \"Exploración del Parque Nacional Natural Tayrona\",\n    \"tipo\": \"Ecológica\",\n    \"fecha\": \"2025-04-15T00:00:00.000+00:00\",\n    \"hora\": \"08:03:33.394792500\",\n    \"departamento\": \"Magdalena\",\n    \"ciudad\": \"Santa Marta\",\n    \"duracionEstimadaMinutos\": 240\n}"
-				}
-			]
+			"response": []
 		},
 		{
-			"name": "Crear caminante",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"var data = pm.response.json()",
-							"pm.globals.set(\"caminante_id_2\", data.id);",
-							"",
-							"pm.test(\"Status code is 201\", function () {",
-							"   pm.response.to.have.status(201);",
-							"});"
-						],
-						"type": "text/javascript",
-						"packages": {}
-					}
-				}
-			],
+			"name": "Crear pago",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": " {\n    \"nombre\": \"Pepe\",\n    \"documento\": \"12345678\",\n    \"correo\": \"pepe@gmail.com\",\n    \"telefono\": \"3103456789\",\n    \"direccion\": \"Calle 123\",\n    \"experienciaPrevia\": \"False\",\n    \"tratamientosMed\": \"False\",\n    \"lesion\": \"False\",\n    \"problemasRes\" : \"False\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{baseUrl}}/caminantes",
-					"host": [
-						"{{baseUrl}}"
-					],
-					"path": [
-						"caminantes"
-					]
-				}
-			},
-			"response": [
-				{
-					"name": "Crear caminante",
-					"originalRequest": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{baseUrl}}/caminantes",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"caminantes"
-							]
-						}
-					},
-					"status": "Created",
-					"code": 201,
-					"_postman_previewlanguage": "json",
-					"header": [
-						{
-							"key": "Content-Type",
-							"value": "application/json",
-							"name": "Content-Type",
-							"description": "",
-							"type": "text"
-						}
-					],
-					"cookie": [],
-					"body": ""
-				}
-			]
-		},
-		{
-			"name": "ObtenerPagosNoValidosCaminante",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 412\", function () {\r",
-							"   pm.response.to.have.status(412);\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Get expected error message\", function () {\r",
-							"   var data = pm.response.json();\r",
-							"   pm.expect(data.apierror.message).to.eql(\"No hay pagos registrados del caminante.\");\r",
-							"});"
-						],
-						"type": "text/javascript",
-						"packages": {}
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{baseUrl}}/caminantes/{{caminante_id_2}}/pagos",
-					"host": [
-						"{{baseUrl}}"
-					],
-					"path": [
-						"caminantes",
-						"{{caminante_id_2}}",
-						"pagos"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Obtener todos los caminantes",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{baseUrl}}/caminantes",
-					"host": [
-						"{{baseUrl}}"
-					],
-					"path": [
-						"caminantes"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Crear un pago 1",
-			"event": [
-				{
-					"listen": "prerequest",
-					"script": {
-						"exec": [
-							""
-						],
-						"type": "text/javascript",
-						"packages": {}
-					}
-				},
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"var data = pm.response.json()\r",
-							"pm.globals.set(\"pago_id_1\", data.id);\r",
-							"\r",
-							"pm.test(\"Status code is 201\", function () {\r",
-							"   pm.response.to.have.status(201);\r",
-							"});"
-						],
-						"type": "text/javascript",
-						"packages": {}
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"numeroTransaccion\": \"TXN0011223344\",\r\n    \"valorCaminata\": 150000.0,\r\n    \"valorTotal\": 200000.0,\r\n    \"numeroTarjeta\": \"4111111111111112\",\r\n    \"fechaVencimiento\": \"2025-12-31T23:59:59\",\r\n    \"ccv\": \"123\",\r\n    \"cuotas\": 6,\r\n    \"propietario\": \"Carlos Pérez\",\r\n    \"caminanteDTO\": {\r\n        \"id\": 1\r\n    },\r\n    \"caminataDTO\": {\r\n        \"id\": 1\r\n    }\r\n}\r\n",
+					"raw": "{\n    \"numeroTransaccion\": \"1231232133\",\n    \"valorCaminata\": 120000.0,\n    \"valorTotal\": 180000.0,\n    \"fechaVencimiento\": \"2025-02-28T18:42:36\",\n    \"numeroTarjeta\": \"1234567890123456\",\n    \"ccv\": \"194\",\n    \"cuotas\": 8,\n    \"propietario\": \"Juan Carlos\",\n    \"caminataDTO\":\n    {\n        \"id\":{{caminata_id_1}},\n        \"numero\": 1,\n        \"titulo\": \"Explorando el Nevado del Ruiz\",\n        \"tipo\": \"Alta montaña\",\n        \"fecha\": \"2025-07-14\",\n        \"hora\": \"06:30:00\",\n        \"departamento\": \"Caldas\",\n        \"ciudad\": \"Manizales\",\n        \"duracionEstimadaMinutos\": 360.0\n    },\n    \"caminanteDTO\":\n    {\n        \"id\": {{caminante_id_1}},\n        \"nombre\": \"Juan Carlos\",\n        \"documento\": \"1231232133\",\n        \"correo\": \"juancarlos@ejemplo.com\",\n        \"telefono\": \"3107654321\",\n        \"direccion\": \"Carrera 15 #45-67, Manizales\",\n        \"experienciaPrevia\": true,\n        \"tratamientosMed\": false,\n        \"lesion\": false,\n        \"problemasRes\": false\n    }\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -269,83 +82,21 @@
 					]
 				}
 			},
-			"response": [
-				{
-					"name": "Crear un pago",
-					"originalRequest": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"numeroTransaccion\": \"123123213311\",\r\n    \"valorCaminata\": 120000.0,\r\n    \"valorTotal\": 180000.0,\r\n    \"fechaVencimiento\": \"2025-02-28T18:42:36\",\r\n    \"numeroTarjeta\": \"1234567890123456\",\r\n    \"ccv\": \"194\",\r\n    \"cuotas\": 8,\r\n    \"propietario\": \"Juan Carlos\",\r\n    \"caminanteDTO\": {\"id\": {{caminante_id_2}}},\r\n    \"caminataDTO\":{\"id\": {{caminata_id_2}}}\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{baseURL}}/pagos",
-							"host": [
-								"{{baseURL}}"
-							],
-							"path": [
-								"pagos"
-							]
-						}
-					},
-					"status": "Created",
-					"code": 201,
-					"_postman_previewlanguage": "json",
-					"header": [
-						{
-							"key": "Content-Type",
-							"value": "application/json",
-							"description": "",
-							"type": "text"
-						}
-					],
-					"cookie": [],
-					"body": "{\n    \"id\": 1,   \n    \"numeroTransaccion\": \"123123213311\",\n    \"valorCaminata\": 120000.0,\n    \"valorTotal\": 180000.0,\n    \"fechaVencimiento\": \"2025-02-28T18:42:36\",\n    \"numeroTarjeta\": \"1234567890123456\",\n    \"ccv\": \"194\",\n    \"cuotas\": 8,\n    \"propietario\": \"Juan Carlos\",\n    \"caminanteDTO\": {\"id\": 2},\n    \"caminataDTO\":{\"id\": 2}\n}"
-				}
-			]
+			"response": []
 		},
 		{
-			"name": "añadirPago",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"   pm.response.to.have.status(200);\r",
-							"});"
-						],
-						"type": "text/javascript",
-						"packages": {}
-					}
-				}
-			],
+			"name": "Agregar un pago a un caminante",
 			"request": {
 				"method": "POST",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
-					"raw": "{{baseUrl}}/caminantes/{{caminante_id_2}}/pagos/{{pago_id_1}}",
+					"raw": "{{baseUrl}}/caminantes/{{caminante_id_1}}/pagos/{{pago_id_1}}",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
 						"caminantes",
-						"{{caminante_id_2}}",
+						"{{caminante_id_1}}",
 						"pagos",
 						"{{pago_id_1}}"
 					]
@@ -354,37 +105,18 @@
 			"response": []
 		},
 		{
-			"name": "añadirPagoCaminanteNoValido",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 404\", function () {\r",
-							"   pm.response.to.have.status(404);\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Get expected error message\", function () {\r",
-							"   var data = pm.response.json();\r",
-							"   pm.expect(data.apierror.message).to.eql(\"El caminante no existe.\");\r",
-							"});"
-						],
-						"type": "text/javascript",
-						"packages": {}
-					}
-				}
-			],
+			"name": "Agregar un pago que no existe a una caminata",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/caminantes/0/pagos/0",
+					"raw": "{{baseUrl}}/caminantes/{{caminante_id_1}}/pagos/0",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
 						"caminantes",
-						"0",
+						"{{caminante_id_1}}",
 						"pagos",
 						"0"
 					]
@@ -393,147 +125,18 @@
 			"response": []
 		},
 		{
-			"name": "añadirPagoNoValidoCaminante",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 404\", function () {\r",
-							"   pm.response.to.have.status(404);\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Get expected error message\", function () {\r",
-							"   var data = pm.response.json();\r",
-							"   pm.expect(data.apierror.message).to.eql(\"Pago invalido.\");\r",
-							"});"
-						],
-						"type": "text/javascript",
-						"packages": {}
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [],
-				"url": {
-					"raw": "{{baseUrl}}/caminantes/{{caminante_id_2}}/pagos/0",
-					"host": [
-						"{{baseUrl}}"
-					],
-					"path": [
-						"caminantes",
-						"{{caminante_id_2}}",
-						"pagos",
-						"0"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "ObtenerPagos",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test('Number of books > ' + 0, function () {\r",
-							"   var data = pm.response.json()\r",
-							"   pm.expect(data.length).to.greaterThan(0)\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Status code is 200\", function () {\r",
-							"   pm.response.to.have.status(200);\r",
-							"});"
-						],
-						"type": "text/javascript",
-						"packages": {}
-					}
-				}
-			],
+			"name": "Obtener el pago de un caminante",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/caminantes/{{caminante_id_2}}/pagos",
+					"raw": "{{baseUrl}}/caminantes/{{caminante_id_1}}/pagos/{{pago_id_1}}",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
 						"caminantes",
-						"{{caminante_id_2}}",
-						"pagos"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "ObtenerPagosCaminanteNoValido",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 404\", function () {\r",
-							"   pm.response.to.have.status(404);\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Get expected error message\", function () {\r",
-							"   var data = pm.response.json();\r",
-							"   pm.expect(data.apierror.message).to.eql(\"El caminante no existe.\");\r",
-							"});"
-						],
-						"type": "text/javascript",
-						"packages": {}
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{baseUrl}}/caminantes/0/pagos",
-					"host": [
-						"{{baseUrl}}"
-					],
-					"path": [
-						"caminantes",
-						"0",
-						"pagos"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "ObtenerPago",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"   pm.response.to.have.status(200);\r",
-							"});"
-						],
-						"type": "text/javascript",
-						"packages": {}
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{baseUrl}}/caminantes/{{caminante_id_2}}/pagos/{{pago_id_1}}",
-					"host": [
-						"{{baseUrl}}"
-					],
-					"path": [
-						"caminantes",
-						"{{caminante_id_2}}",
+						"{{caminante_id_1}}",
 						"pagos",
 						"{{pago_id_1}}"
 					]
@@ -542,36 +145,17 @@
 			"response": []
 		},
 		{
-			"name": "ObtenerPagoCaminanteNoValido",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 404\", function () {\r",
-							"   pm.response.to.have.status(404);\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Get expected error message\", function () {\r",
-							"   var data = pm.response.json();\r",
-							"   pm.expect(data.apierror.message).to.eql(\"No se encontró el caminante con el id = 0\");\r",
-							"});"
-						],
-						"type": "text/javascript",
-						"packages": {}
-					}
-				}
-			],
+			"name": "Obtener un pago que no existe de un caminante",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/caminantes/0",
+					"raw": "{{baseUrl}}/pagos/0",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
-						"caminantes",
+						"pagos",
 						"0"
 					]
 				}
@@ -579,39 +163,19 @@
 			"response": []
 		},
 		{
-			"name": "ObtenerPagoNoValidoCaminante",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 404\", function () {\r",
-							"   pm.response.to.have.status(404);\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Get expected error message\", function () {\r",
-							"   var data = pm.response.json();\r",
-							"   pm.expect(data.apierror.message).to.eql(\"No hay pago registrado.\");\r",
-							"});"
-						],
-						"type": "text/javascript",
-						"packages": {}
-					}
-				}
-			],
+			"name": "Obtener todos los pagos de un caminante",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/caminantes/{{caminante_id_2}}/pagos/0",
+					"raw": "{{baseUrl}}/caminantes/{{caminante_id_1}}/pagos",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
 						"caminantes",
-						"{{caminante_id_2}}",
-						"pagos",
-						"0"
+						"{{caminante_id_1}}",
+						"pagos"
 					]
 				}
 			},
