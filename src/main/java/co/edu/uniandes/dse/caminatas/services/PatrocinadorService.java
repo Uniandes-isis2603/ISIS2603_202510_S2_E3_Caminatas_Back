@@ -13,6 +13,7 @@ import co.edu.uniandes.dse.caminatas.exceptions.IllegalOperationException;
 import co.edu.uniandes.dse.caminatas.repositories.PatrocinadorRepository;
 import lombok.extern.slf4j.Slf4j;
 
+
 @Slf4j
 @Service
 public class PatrocinadorService {
