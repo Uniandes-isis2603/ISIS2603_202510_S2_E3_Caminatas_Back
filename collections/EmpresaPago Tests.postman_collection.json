@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "6c2ddf47-93f4-4b3d-90d6-7b975cfdd7b5",
+		"_postman_id": "28ae85ec-feef-44f6-9e9a-cd5cc15ec9e9",
 		"name": "EmpresaPago Tests",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "41343426"
+		"_exporter_id": "37534152"
 	},
 	"item": [
 		{
@@ -206,7 +206,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"numeroTransaccion\": \"1231232133\",\r\n    \"valorCaminata\": 120000.0,\r\n    \"valorTotal\": 180000.0,\r\n    \"fechaVencimiento\": \"2025-02-28T18:42:36\",\r\n    \"numeroTarjeta\": \"6543210987654321\",\r\n    \"ccv\": \"194\",\r\n    \"cuotas\": 8,\r\n    \"propietario\": \"Juan Carlos\",\r\n    \"empresaDTO\": {\r\n        \"id\": 1\r\n    },\r\n    \"caminataDTO\": {\r\n        \"id\": 1\r\n    }\r\n}\r\n",
+					"raw": "{\r\n    \"numeroTransaccion\": \"1231252173\",\r\n    \"valorCaminata\": 120000.0,\r\n    \"valorTotal\": 180000.0,\r\n    \"fechaVencimiento\": \"2025-02-28T18:42:36\",\r\n    \"numeroTarjeta\": \"1234567890123456\",\r\n    \"ccv\": \"194\",\r\n    \"cuotas\": 8,\r\n    \"propietario\": \"Juan Carlos\",\r\n    \"empresaDTO\":\r\n    {\r\n    \"id\":{{empresa_id_1}},\r\n    \"documento\": \"111222333-4\",\r\n    \"correo\": \"hola@gmail.com\",\r\n    \"nombre\": \"Camilo\"\r\n    },\r\n    \"caminataDTO\":\r\n    {\r\n        \"id\":{{caminata_id_1}},\r\n        \"nombre\": \"Pepe\",\r\n        \"documento\": \"123456789\",\r\n        \"correo\": \"pepe@gmail.com\",\r\n        \"telefono\": \"3103456789\",\r\n        \"direccion\": \"Calle 123\",\r\n        \"experienciaPrevia\": \"False\",\r\n        \"tratamientosMed\": \"False\",\r\n        \"lesion\": \"False\",\r\n        \"problemasRes\" : \"False\"\r\n    }\r\n}\r\n",
 					"options": {
 						"raw": {
 							"language": "json"

@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "5c44a83d-d208-4759-8488-1891444b4f1b",
+		"_postman_id": "6580105f-2d31-47e5-b15b-3cef4420bd80",
 		"name": "CaminanteBlog",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "42820446"
+		"_exporter_id": "37534152"
 	},
 	"item": [
 		{
@@ -53,15 +53,6 @@
 					"originalRequest": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": " {\n    \"id\":1,\n    \"nombre\": \"Pepe\",\n    \"documento\": \"12345678\",\n    \"correo\": \"pepe@gmail.com\",\n    \"telefono\": \"3103456789\",\n    \"direccion\": \"Calle 123\",\n    \"experienciaPrevia\": \"False\",\n    \"tratamientosMed\": \"False\",\n    \"lesion\": \"False\",\n    \"problemasRes\" : \"False\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
 						"url": {
 							"raw": "{{baseUrl}}/caminantes",
 							"host": [
@@ -135,15 +126,6 @@
 					"originalRequest": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"id\": 1,\n    \"titulo\": \"Monserrate\",\n    \"foto\": \"image\",\n    \"video\": \"video\",\n    \"text\": \"Excelente\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
 						"url": {
 							"raw": "{{baseUrl}}/blogs",
 							"host": [
@@ -156,10 +138,10 @@
 					},
 					"status": "Created",
 					"code": 201,
-					"_postman_previewlanguage": null,
-					"header": null,
+					"_postman_previewlanguage": "Text",
+					"header": [],
 					"cookie": [],
-					"body": null
+					"body": ""
 				}
 			]
 		},
@@ -207,22 +189,16 @@
 								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"id\": 1,\n    \"titulo\": \"Monserrate\",\n    \"foto\": \"image\",\n    \"video\": \"video\",\n    \"text\": \"Excelente\",\n    \"caminantesInteracciones\": [\n        {\n            \"id\":1,\n            \"nombre\": \"Pedro\",\n            \"documento\": \"12345677\",\n            \"correo\": \"pedro@gmail.com\",\n            \"telefono\": \"3103456788\",\n            \"direccion\": \"Calle 122\",\n            \"experienciaPrevia\": \"False\",\n            \"tratamientosMed\": \"False\",\n            \"lesion\": \"False\",\n            \"problemasRes\" : \"False\"\n        }\n    ]\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
+						"url": {
+							"raw": ""
 						}
 					},
 					"status": "Created",
 					"code": 201,
-					"_postman_previewlanguage": null,
-					"header": null,
+					"_postman_previewlanguage": "Text",
+					"header": [],
 					"cookie": [],
-					"body": null
+					"body": ""
 				}
 			]
 		},
@@ -283,14 +259,17 @@
 									"language": "json"
 								}
 							}
+						},
+						"url": {
+							"raw": ""
 						}
 					},
 					"status": "Not Found",
 					"code": 404,
-					"_postman_previewlanguage": null,
-					"header": null,
+					"_postman_previewlanguage": "Text",
+					"header": [],
 					"cookie": [],
-					"body": null
+					"body": ""
 				}
 			]
 		},
@@ -338,22 +317,16 @@
 								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"id\": 1,\n    \"titulo\": \"Monserrate\",\n    \"foto\": \"image\",\n    \"video\": \"video\",\n    \"text\": \"Excelente\",\n    \"caminantesInteracciones\": [\n        {\n            \"id\":2,\n            \"nombre\": \"Pedro\",\n            \"documento\": \"12345677\",\n            \"correo\": \"pedro@gmail.com\",\n            \"telefono\": \"3103456788\",\n            \"direccion\": \"Calle 122\",\n            \"experienciaPrevia\": \"False\",\n            \"tratamientosMed\": \"False\",\n            \"lesion\": \"False\",\n            \"problemasRes\" : \"False\"\n        }\n    ]\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
+						"url": {
+							"raw": ""
 						}
 					},
 					"status": "OK",
 					"code": 200,
-					"_postman_previewlanguage": null,
-					"header": null,
+					"_postman_previewlanguage": "Text",
+					"header": [],
 					"cookie": [],
-					"body": null
+					"body": ""
 				}
 			]
 		},
@@ -406,22 +379,16 @@
 								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"apierror\": {\n        \"status\": \"NOT_FOUND\",\n        \"timestamp\": \"21-02-2023 10:01:09\",\n        \"message\": \"El blog con el id dado no fue encontrado\"\n    }\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
+						"url": {
+							"raw": ""
 						}
 					},
 					"status": "Not Found",
 					"code": 404,
-					"_postman_previewlanguage": null,
-					"header": null,
+					"_postman_previewlanguage": "Text",
+					"header": [],
 					"cookie": [],
-					"body": null
+					"body": ""
 				}
 			]
 		},
@@ -473,22 +440,16 @@
 								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": "[\n    {\n        \"id\": 1,\n        \"titulo\": \"Monserrate\",\n        \"foto\": \"image\",\n        \"video\": \"video\",\n        \"text\": \"Excelente\",\n        \"caminantesInteracciones\": [\n            {\n                \"id\":2,\n                \"nombre\": \"Pedro\",\n                \"documento\": \"12345677\",\n                \"correo\": \"pedro@gmail.com\",\n                \"telefono\": \"3103456788\",\n                \"direccion\": \"Calle 122\",\n                \"experienciaPrevia\": \"False\",\n                \"tratamientosMed\": \"False\",\n                \"lesion\": \"False\",\n                \"problemasRes\" : \"False\"\n            }\n        ]\n    }\n]",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
+						"url": {
+							"raw": ""
 						}
 					},
 					"status": "OK",
 					"code": 200,
-					"_postman_previewlanguage": null,
-					"header": null,
+					"_postman_previewlanguage": "Text",
+					"header": [],
 					"cookie": [],
-					"body": null
+					"body": ""
 				}
 			]
 		},
@@ -572,10 +533,10 @@
 					},
 					"status": "Not Found",
 					"code": 404,
-					"_postman_previewlanguage": null,
-					"header": null,
+					"_postman_previewlanguage": "Text",
+					"header": [],
 					"cookie": [],
-					"body": null
+					"body": ""
 				}
 			]
 		},
@@ -616,14 +577,17 @@
 					"name": "Borrar un blog de un caminante",
 					"originalRequest": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"status": "No Content",
 					"code": 204,
-					"_postman_previewlanguage": null,
-					"header": null,
+					"_postman_previewlanguage": "Text",
+					"header": [],
 					"cookie": [],
-					"body": null
+					"body": ""
 				}
 			]
 		},
@@ -676,22 +640,16 @@
 								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"apierror\": {\n        \"status\": \"NOT_FOUND\",\n        \"timestamp\": \"21-02-2023 10:01:09\",\n        \"message\": \"El caminante con el id dado no fue encontrado\"\n    }\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
+						"url": {
+							"raw": ""
 						}
 					},
 					"status": "Not Found",
 					"code": 404,
-					"_postman_previewlanguage": null,
-					"header": null,
+					"_postman_previewlanguage": "Text",
+					"header": [],
 					"cookie": [],
-					"body": null
+					"body": ""
 				}
 			]
 		},
@@ -744,22 +702,65 @@
 								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"apierror\": {\n        \"status\": \"NOT_FOUND\",\n        \"timestamp\": \"21-02-2023 10:01:09\",\n        \"message\": \"El blog con el id dado no fue encontrado\"\n    }\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
+						"url": {
+							"raw": ""
 						}
 					},
 					"status": "Not Found",
 					"code": 404,
-					"_postman_previewlanguage": null,
-					"header": null,
+					"_postman_previewlanguage": "Text",
+					"header": [],
 					"cookie": [],
-					"body": null
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Borrar un caminante",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {",
+							"   pm.response.to.have.status(204);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/caminantes/{{caminante_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"caminantes",
+						"{{caminante_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Borrar un caminante",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
 				}
 			]
 		}
