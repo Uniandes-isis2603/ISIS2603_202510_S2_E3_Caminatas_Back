@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "61eba4af-3ffe-4b78-87bc-f2215a6802ac",
+		"_postman_id": "5976860b-acc5-4655-9274-6fd6749d90a4",
 		"name": "Empresa Tests",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "41343426"
+		"_exporter_id": "37534152"
 	},
 	"item": [
 		{
@@ -240,6 +240,88 @@
 			]
 		},
 		{
+			"name": "Editar una empresa",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"})"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"documento\": \"111222333-4\",\r\n    \"correo\": \"hola@gmail.com\",\r\n    \"nombre\": \"Camila\",\r\n    \"pagos\": [],\r\n    \"caminatas\": []\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/empresas/{{empresa_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"empresas",
+						"{{empresa_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Editar una empresa",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"documento\": 122345,\r\n    \"id\": 12671489,\r\n    \"correo\": \"hola@gmail.com\",\r\n    \"nombre\": \"Camilo\",\r\n    \"pagos\": [],\r\n    \"caminatas\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/empresas/{{empresa_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"empresas",
+								"{{empresa_id_1}}"
+							]
+						}
+					},
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
 			"name": "Borrar una empresa",
 			"event": [
 				{
@@ -398,88 +480,6 @@
 			]
 		},
 		{
-			"name": "Editar una empresa",
-			"event": [
-				{
-					"listen": "prerequest",
-					"script": {
-						"exec": [
-							""
-						],
-						"type": "text/javascript",
-						"packages": {}
-					}
-				},
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 200\", function() {\r",
-							"    pm.response.to.have.status(200);\r",
-							"})"
-						],
-						"type": "text/javascript",
-						"packages": {}
-					}
-				}
-			],
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"documento\": \"111222333-4\",\r\n    \"correo\": \"hola@gmail.com\",\r\n    \"nombre\": \"Camila\",\r\n    \"pagos\": [],\r\n    \"caminatas\": []\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{baseUrl}}/empresas/{{empresa_id_1}}",
-					"host": [
-						"{{baseUrl}}"
-					],
-					"path": [
-						"empresas",
-						"{{empresa_id_1}}"
-					]
-				}
-			},
-			"response": [
-				{
-					"name": "Editar una empresa",
-					"originalRequest": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"documento\": 122345,\r\n    \"id\": 12671489,\r\n    \"correo\": \"hola@gmail.com\",\r\n    \"nombre\": \"Camilo\",\r\n    \"pagos\": [],\r\n    \"caminatas\": []\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{baseUrl}}/empresas/{{empresa_id_1}}",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"empresas",
-								"{{empresa_id_1}}"
-							]
-						}
-					},
-					"_postman_previewlanguage": "Text",
-					"header": [],
-					"cookie": [],
-					"body": ""
-				}
-			]
-		},
-		{
 			"name": "Editar una empresa que no existe",
 			"event": [
 				{
@@ -567,6 +567,13 @@
 					"body": ""
 				}
 			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "",
+			"type": "default"
 		}
 	]
 }
