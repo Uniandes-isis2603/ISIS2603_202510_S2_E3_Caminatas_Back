@@ -30,9 +30,10 @@ public class PatrocinadorService {
             patrocinadorEntity = Optional.empty();
         } else {
             patrocinadorEntity = Optional.of(patrocinadorEntityList.get(0));
-        }        if (patrocinadorEntity.isPresent()) {
+        }        
+        /**if (patrocinadorEntity.isPresent()) {
             throw new IllegalOperationException("El documento ya existe.");
-        }   
+        }   */
         PatrocinadorEntity nuevoPatrocinador = patrocinadorRepository.save(patrocinador);
         log.info("Termina proceso de creación del patrocinador con id = {}", nuevoPatrocinador.getId());
         return nuevoPatrocinador;

@@ -1,19 +1,119 @@
 {
 	"info": {
-		"_postman_id": "74220be2-8ce5-49cd-9d33-0542fe33ff94",
+		"_postman_id": "3e0f5ba4-845f-41a5-a71a-c141cad8201d",
 		"name": "CaminataCaminante",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "41343426"
+		"_exporter_id": "37534152"
 	},
 	"item": [
 		{
-			"name": "Crear un caminante",
+			"name": "Crear una caminata",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()",
+							"pm.globals.set(\"caminata_id\", data.id);",
+							"",
+							"pm.test(\"Status code is 201\", function()",
+							"{",
+							"    pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"nombre\": \"Ebony\",\n    \"documento\": \"413330113\",\n    \"correo\": \"emacgahey0@adobe.com\",\n    \"telefono\": \"6237813431\",\n    \"direccion\": \"3rd Floor\",\n    \"experienciaPrevia\": false,\n    \"tratamientosMed\": false,\n    \"lesion\": true,\n    \"problemasRes\": false,\n    \"caminatas\": [{\"id\": 1}]\n}\n\n\n",
+					"raw": "{\n    \"numero\": 101,\n    \"titulo\": \"Exploración del Parque Nacional Natural Tayrona\",\n    \"tipo\": \"Ecológica\",\n    \"fecha\": \"2025-04-15T00:00:00.000+00:00\",\n    \"hora\": \"21:33:57.193626700\",\n    \"departamento\": \"Magdalena\",\n    \"ciudad\": \"Santa Marta\",\n    \"duracionEstimadaMinutos\": 240\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/caminatas",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"caminatas"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear una caminata",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"numero\": 101,\n    \"titulo\": \"Exploración del Parque Nacional Natural Tayrona\",\n    \"tipo\": \"Ecológica\",\n    \"fecha\": \"2025-04-15T00:00:00.000+00:00\",\n    \"hora\": \"08:03:33.394792500\",\n    \"departamento\": \"Magdalena\",\n    \"ciudad\": \"Santa Marta\",\n    \"duracionEstimadaMinutos\": 240\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/caminatas",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"caminatas"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"numero\": 101,\n    \"titulo\": \"Exploración del Parque Nacional Natural Tayrona\",\n    \"tipo\": \"Ecológica\",\n    \"fecha\": \"2025-04-15T00:00:00.000+00:00\",\n    \"hora\": \"08:03:33.394792500\",\n    \"departamento\": \"Magdalena\",\n    \"ciudad\": \"Santa Marta\",\n    \"duracionEstimadaMinutos\": 240\n}"
+				}
+			]
+		},
+		{
+			"name": "Crear un caminante",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"caminante_id_1\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Ebony\",\n    \"documento\": \"413330113\",\n    \"correo\": \"emacgahey0@adobe.com\",\n    \"telefono\": \"6237813431\",\n    \"direccion\": \"3rd Floor\",\n    \"experienciaPrevia\": false,\n    \"tratamientosMed\": false,\n    \"lesion\": true,\n    \"problemasRes\": false\n}\n\n\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -34,6 +134,20 @@
 		},
 		{
 			"name": "Obtener caminante",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -51,6 +165,20 @@
 		},
 		{
 			"name": "Agregar un caminante a una caminata",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -71,6 +199,27 @@
 		},
 		{
 			"name": "Agregar un caminante que no existe a una caminata",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"El caminante con id = 0 no existe.\");\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -91,6 +240,20 @@
 		},
 		{
 			"name": "Obtener un caminante de una caminata",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -111,6 +274,20 @@
 		},
 		{
 			"name": "Obtener los caminantes de una caminata",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -130,6 +307,20 @@
 		},
 		{
 			"name": "Asociar caminantes que no existen a una caminata",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"request": {
 				"method": "PUT",
 				"header": [],
@@ -158,11 +349,25 @@
 		},
 		{
 			"name": "Borrar un caminante de una caminata",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"   pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"request": {
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/caminatas/{{caminata_id}}/caminantes/{{caminante_id_2}}",
+					"raw": "{{baseUrl}}/caminatas/{{caminata_id}}/caminantes/{{caminante_id_1}}",
 					"host": [
 						"{{baseUrl}}"
 					],
@@ -170,7 +375,7 @@
 						"caminatas",
 						"{{caminata_id}}",
 						"caminantes",
-						"{{caminante_id_2}}"
+						"{{caminante_id_1}}"
 					]
 				}
 			},
@@ -178,6 +383,20 @@
 		},
 		{
 			"name": "Borrar un caminante de una caminata que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"request": {
 				"method": "DELETE",
 				"header": [],
@@ -198,6 +417,20 @@
 		},
 		{
 			"name": "Borrar un caminante que no existe de una caminata",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"request": {
 				"method": "DELETE",
 				"header": [],
