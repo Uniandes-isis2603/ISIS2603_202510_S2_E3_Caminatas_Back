@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "6b211a70-46b7-4855-ab61-a73189fc8852",
+		"_postman_id": "dccd4abe-b432-4b8a-92e0-fbed520a6c0f",
 		"name": "Patrocinador",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "42820446"
+		"_exporter_id": "41343426"
 	},
 	"item": [
 		{
@@ -23,16 +23,6 @@
 						"type": "text/javascript",
 						"packages": {}
 					}
-				},
-				{
-					"listen": "prerequest",
-					"script": {
-						"exec": [
-							""
-						],
-						"type": "text/javascript",
-						"packages": {}
-					}
 				}
 			],
 			"request": {
@@ -40,7 +30,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": " {\n    \"nombre\": \"Joaquin\",\n    \"documento\": \"12345678\",\n    \"correo\": \"joaquin@gmail.com\",\n    \"telefono\": \"3103456789\"\n}",
+					"raw": "{\n    \"nombre\": \"Joaquin\",\n    \"documento\": \"12345678\",\n    \"correo\": \"joaquin@gmail.com\",\n    \"telefono\": \"3103456789\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -57,33 +47,7 @@
 					]
 				}
 			},
-			"response": [
-				{
-					"name": "Crear patrocinador",
-					"originalRequest": {
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": " {\n    \"id\":1,\n    \"nombre\": \"Joaquin\",\n    \"documento\": \"12345678\",\n    \"correo\": \"joaquin@gmail.com\",\n    \"telefono\": \"3103456789\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": ""
-						}
-					},
-					"status": "Created",
-					"code": 201,
-					"_postman_previewlanguage": null,
-					"header": null,
-					"cookie": [],
-					"body": null
-				}
-			]
+			"response": []
 		},
 		{
 			"name": "Obtener todos los patrocinadores",
@@ -119,36 +83,7 @@
 					]
 				}
 			},
-			"response": [
-				{
-					"name": "Obtener todos los patrocinadores",
-					"originalRequest": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": " [\n    {\n        \"id\":1,\n        \"nombre\": \"Joaquin\",\n        \"documento\": \"12345678\",\n        \"correo\": \"joaquin@gmail.com\",\n        \"telefono\": \"3103456789\",\n        \"caminatasCompetencia\": []\n    }\n]",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						}
-					},
-					"status": "OK",
-					"code": 200,
-					"_postman_previewlanguage": null,
-					"header": null,
-					"cookie": [],
-					"body": null
-				}
-			]
+			"response": []
 		},
 		{
 			"name": "Obtener un patrocinador",
@@ -180,35 +115,7 @@
 					]
 				}
 			},
-			"response": [
-				{
-					"name": "Obtener un patrocinador",
-					"originalRequest": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": " {\n    \"id\":1,\n    \"nombre\": \"Joaquin\",\n    \"documento\": \"12345678\",\n    \"correo\": \"joaquin@gmail.com\",\n    \"telefono\": \"3103456789\",\n    \"caminatasCompetencia\": []\n}\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						}
-					},
-					"code": 200,
-					"_postman_previewlanguage": null,
-					"header": null,
-					"cookie": [],
-					"body": null
-				}
-			]
+			"response": []
 		},
 		{
 			"name": "Obtener un patrocinador que no existe",
@@ -218,13 +125,14 @@
 					"script": {
 						"exec": [
 							"pm.test(\"Status code is 404\", function () {",
-							"   pm.response.to.have.status(404);",
+							"    pm.response.to.have.status(404);",
 							"});",
 							"",
 							"pm.test(\"Get expected error message\", function () {",
-							"   var data = pm.response.json();",
-							"   pm.expect(data.apierror.message).to.eql(\"No se encontró el patrocinador con el id = 0\");",
-							"});"
+							"    var data = pm.response.json();",
+							"    pm.expect(data.apierror.message).to.eql(\"No se encontró el patrocinador con el id = 0\");",
+							"});",
+							""
 						],
 						"type": "text/javascript",
 						"packages": {}
@@ -257,36 +165,7 @@
 					]
 				}
 			},
-			"response": [
-				{
-					"name": "Obtener un patrocinador que no existe",
-					"originalRequest": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"apierror\": {\n        \"status\": \"NOT_FOUND\",\n        \"timestamp\": \"21-02-2023 10:01:09\",\n        \"message\": \"El patrocinador con el id dado no fue encontrado\"\n    }\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						}
-					},
-					"status": "Not Found",
-					"code": 404,
-					"_postman_previewlanguage": null,
-					"header": null,
-					"cookie": [],
-					"body": null
-				}
-			]
+			"response": []
 		},
 		{
 			"name": "Editar un patrocinador",
@@ -309,7 +188,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": " {\n    \"nombre\": \"Santiago\",\n    \"documento\": \"12345678\",\n    \"correo\": \"santiago@gmail.com\",\n    \"telefono\": \"3103456789\"\n}",
+					"raw": "{\n    \"nombre\": \"Joaquin\",\n    \"documento\": \"12345678\",\n    \"correo\": \"joa@gmail.com\",\n    \"telefono\": \"3103456789\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -327,36 +206,7 @@
 					]
 				}
 			},
-			"response": [
-				{
-					"name": "Editar un patrocinador",
-					"originalRequest": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": " {\n    \"id\":1,\n    \"nombre\": \"Santiago\",\n    \"documento\": \"12345678\",\n    \"correo\": \"santiago@gmail.com\",\n    \"telefono\": \"3103456789\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						}
-					},
-					"status": "OK",
-					"code": 200,
-					"_postman_previewlanguage": null,
-					"header": null,
-					"cookie": [],
-					"body": null
-				}
-			]
+			"response": []
 		},
 		{
 			"name": "Editar un patrocinador que no existe",
@@ -384,7 +234,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": " {\n    \"nombre\": \"Santiago\",\n    \"documento\": \"12345678\",\n    \"correo\": \"santiago@gmail.com\",\n    \"telefono\": \"3103456789\"\n}",
+					"raw": "{\n    \"nombre\": \"Joaquin\",\n    \"documento\": \"12345678\",\n    \"correo\": \"joa@gmail.com\",\n    \"telefono\": \"3103456789\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -402,36 +252,7 @@
 					]
 				}
 			},
-			"response": [
-				{
-					"name": "Editar un patrocinador que no existe",
-					"originalRequest": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"apierror\": {\n        \"status\": \"NOT_FOUND\",\n        \"timestamp\": \"21-02-2023 10:04:10\",\n        \"message\": \"El patrocinador con el id dado no fue encontrado\"\n    }\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						}
-					},
-					"status": "Not Found",
-					"code": 404,
-					"_postman_previewlanguage": null,
-					"header": null,
-					"cookie": [],
-					"body": null
-				}
-			]
+			"response": []
 		},
 		{
 			"name": "Borrar un patrocinador",
@@ -463,21 +284,7 @@
 					]
 				}
 			},
-			"response": [
-				{
-					"name": "Borrar un patrocinador",
-					"originalRequest": {
-						"method": "GET",
-						"header": []
-					},
-					"status": "No Content",
-					"code": 204,
-					"_postman_previewlanguage": null,
-					"header": null,
-					"cookie": [],
-					"body": null
-				}
-			]
+			"response": []
 		},
 		{
 			"name": "Borrar un patrocinador que no existe",
@@ -489,6 +296,7 @@
 							"pm.test(\"Status code is 404\", function () {",
 							"   pm.response.to.have.status(404);",
 							"});",
+							"",
 							"",
 							"pm.test(\"Get expected error message\", function () {",
 							"   var data = pm.response.json();",
@@ -514,39 +322,7 @@
 					]
 				}
 			},
-			"response": [
-				{
-					"name": "Borrar un patrocinador que no existe",
-					"originalRequest": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"apierror\": {\n        \"status\": \"NOT_FOUND\",\n        \"timestamp\": \"21-02-2023 10:01:09\",\n        \"message\": \"El patrocinador con el id dado no fue encontrado\"\n    }\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": ""
-						}
-					},
-					"status": "Not Found",
-					"code": 404,
-					"_postman_previewlanguage": null,
-					"header": null,
-					"cookie": [],
-					"body": null
-				}
-			]
+			"response": []
 		}
 	]
 }
