@@ -143,11 +143,11 @@ public class CaminataService {
             throw new EntityNotFoundException("No se encontró la caminata con el id = " + caminataId);
         }
 
-        List<PagoEntity> pagos = caminata.get().getPagos();
+        /**List<PagoEntity> pagos = caminata.get().getPagos();
         if(pagos != null && !pagos.isEmpty())
         {
             throw new IllegalOperationException("No se puede borrar la caminata con id = " + caminataId + " porque tiene pagos asociados.");
-        }
+        }*/
 
         caminataRepository.deleteById(caminataId);
         log.info("Termina proceso de borrar la caminata con id = {0}", caminataId);

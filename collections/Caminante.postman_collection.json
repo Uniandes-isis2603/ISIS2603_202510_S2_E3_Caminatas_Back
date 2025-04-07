@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "55492a3e-761d-4392-b754-ae90870cef87",
+		"_postman_id": "dfc75299-5df5-4c7b-9faf-065c243f88be",
 		"name": "Caminante",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "42820446"
+		"_exporter_id": "37534152"
 	},
 	"item": [
 		{
@@ -53,15 +53,6 @@
 					"originalRequest": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": " {\n    \"id\":1,\n    \"nombre\": \"Pepe\",\n    \"documento\": \"12345678\",\n    \"correo\": \"pepe@gmail.com\",\n    \"telefono\": \"3103456789\",\n    \"direccion\": \"Calle 123\",\n    \"experienciaPrevia\": \"False\",\n    \"tratamientosMed\": \"False\",\n    \"lesion\": \"False\",\n    \"problemasRes\" : \"False\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
 						"url": {
 							"raw": "{{baseUrl}}/caminantes",
 							"host": [
@@ -147,22 +138,16 @@
 								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": " [\n    {\n        \"id\": 1,\n        \"nombre\": \"Pepe\",\n        \"documento\": \"12345678\",\n        \"correo\": \"pepe@gmail.com\",\n        \"telefono\": \"3103456789\",\n        \"direccion\": \"Calle 123\",\n        \"experienciaPrevia\": \"False\",\n        \"tratamientosMed\": \"False\",\n        \"lesion\": \"False\",\n        \"problemasRes\" : \"False\",\n        \"pagos\": [],\n        \"blogsInteractuados\": [],\n        \"blogsCreados\":[],\n        \"caminatas\":[]\n    }\n]",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
+						"url": {
+							"raw": ""
 						}
 					},
 					"status": "OK",
 					"code": 200,
-					"_postman_previewlanguage": null,
-					"header": null,
+					"_postman_previewlanguage": "Text",
+					"header": [],
 					"cookie": [],
-					"body": null
+					"body": ""
 				}
 			]
 		},
@@ -208,21 +193,15 @@
 								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": " {\n    \"id\": 1,\n    \"nombre\": \"Pepe\",\n    \"documento\": \"12345678\",\n    \"correo\": \"pepe@gmail.com\",\n    \"telefono\": \"3103456789\",\n    \"direccion\": \"Calle 123\",\n    \"experienciaPrevia\": \"False\",\n    \"tratamientosMed\": \"False\",\n    \"lesion\": \"False\",\n    \"problemasRes\" : \"False\",\n    \"pagos\": [],\n    \"blogsInteractuados\": [],\n    \"blogsCreados\":[],\n    \"caminatas\":[]\n}\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
+						"url": {
+							"raw": ""
 						}
 					},
 					"code": 200,
-					"_postman_previewlanguage": null,
-					"header": null,
+					"_postman_previewlanguage": "Text",
+					"header": [],
 					"cookie": [],
-					"body": null
+					"body": ""
 				}
 			]
 		},
@@ -285,22 +264,16 @@
 								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"apierror\": {\n        \"status\": \"NOT_FOUND\",\n        \"timestamp\": \"21-02-2023 10:01:09\",\n        \"message\": \"El caminante con el id dado no fue encontrado\"\n    }\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
+						"url": {
+							"raw": ""
 						}
 					},
 					"status": "Not Found",
 					"code": 404,
-					"_postman_previewlanguage": null,
-					"header": null,
+					"_postman_previewlanguage": "Text",
+					"header": [],
 					"cookie": [],
-					"body": null
+					"body": ""
 				}
 			]
 		},
@@ -355,22 +328,16 @@
 								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": " {\n    \"id\":1,\n    \"nombre\": \"Juan\",\n    \"documento\": \"12345678\",\n    \"correo\": \"pepe@gmail.com\",\n    \"telefono\": \"3103456789\",\n    \"direccion\": \"Calle 123\",\n    \"experienciaPrevia\": \"False\",\n    \"tratamientosMed\": \"False\",\n    \"lesion\": \"False\",\n    \"problemasRes\" : \"False\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
+						"url": {
+							"raw": ""
 						}
 					},
 					"status": "OK",
 					"code": 200,
-					"_postman_previewlanguage": null,
-					"header": null,
+					"_postman_previewlanguage": "Text",
+					"header": [],
 					"cookie": [],
-					"body": null
+					"body": ""
 				}
 			]
 		},
@@ -430,22 +397,16 @@
 								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"apierror\": {\n        \"status\": \"NOT_FOUND\",\n        \"timestamp\": \"21-02-2023 10:04:10\",\n        \"message\": \"El caminante con el id dado no fue encontrado\"\n    }\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
+						"url": {
+							"raw": ""
 						}
 					},
 					"status": "Not Found",
 					"code": 404,
-					"_postman_previewlanguage": null,
-					"header": null,
+					"_postman_previewlanguage": "Text",
+					"header": [],
 					"cookie": [],
-					"body": null
+					"body": ""
 				}
 			]
 		},
@@ -484,14 +445,17 @@
 					"name": "Borrar un caminante",
 					"originalRequest": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"status": "No Content",
 					"code": 204,
-					"_postman_previewlanguage": null,
-					"header": null,
+					"_postman_previewlanguage": "Text",
+					"header": [],
 					"cookie": [],
-					"body": null
+					"body": ""
 				}
 			]
 		},
@@ -564,10 +528,10 @@
 					},
 					"status": "Not Found",
 					"code": 404,
-					"_postman_previewlanguage": null,
-					"header": null,
+					"_postman_previewlanguage": "Text",
+					"header": [],
 					"cookie": [],
-					"body": null
+					"body": ""
 				}
 			]
 		}

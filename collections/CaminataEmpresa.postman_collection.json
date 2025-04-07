@@ -1,13 +1,114 @@
 {
 	"info": {
-		"_postman_id": "c512892b-6f70-4a65-8c38-23c340269f16",
+		"_postman_id": "7bd6cb75-bb5f-4c80-a16b-967e4bf1d8ba",
 		"name": "CaminataEmpresa",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "41343426"
+		"_exporter_id": "37534152"
 	},
 	"item": [
 		{
+			"name": "Crear una caminata",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()",
+							"pm.globals.set(\"caminata_id_9\", data.id);",
+							"",
+							"pm.test(\"Status code is 201\", function()",
+							"{",
+							"    pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"numero\": 101,\n    \"titulo\": \"Exploración del Parque Nacional Natural Tayrona\",\n    \"tipo\": \"Ecológica\",\n    \"fecha\": \"2025-04-15T00:00:00.000+00:00\",\n    \"hora\": \"21:33:57.193626700\",\n    \"departamento\": \"Magdalena\",\n    \"ciudad\": \"Santa Marta\",\n    \"duracionEstimadaMinutos\": 240\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/caminatas",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"caminatas"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear una caminata",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"numero\": 101,\n    \"titulo\": \"Exploración del Parque Nacional Natural Tayrona\",\n    \"tipo\": \"Ecológica\",\n    \"fecha\": \"2025-04-15T00:00:00.000+00:00\",\n    \"hora\": \"08:03:33.394792500\",\n    \"departamento\": \"Magdalena\",\n    \"ciudad\": \"Santa Marta\",\n    \"duracionEstimadaMinutos\": 240\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/caminatas",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"caminatas"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"numero\": 101,\n    \"titulo\": \"Exploración del Parque Nacional Natural Tayrona\",\n    \"tipo\": \"Ecológica\",\n    \"fecha\": \"2025-04-15T00:00:00.000+00:00\",\n    \"hora\": \"08:03:33.394792500\",\n    \"departamento\": \"Magdalena\",\n    \"ciudad\": \"Santa Marta\",\n    \"duracionEstimadaMinutos\": 240\n}"
+				}
+			]
+		},
+		{
 			"name": "Crear empresa",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"empresa_id_2\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function()\r",
+							"{\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -34,19 +135,34 @@
 		},
 		{
 			"name": "Agregar una empresa a una caminata",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function()\r",
+							"{\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/caminatas/{{caminata_id}}/empresas/{{empresa_id_1}}",
+					"raw": "{{baseUrl}}/caminatas/{{caminata_id_9}}/empresas/{{empresa_id_2}}",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
 						"caminatas",
-						"{{caminata_id}}",
+						"{{caminata_id_9}}",
 						"empresas",
-						"{{empresa_id_1}}"
+						"{{empresa_id_2}}"
 					]
 				}
 			},
@@ -54,17 +170,31 @@
 		},
 		{
 			"name": "Agregar una empresa que no existe a una caminata",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/caminatas/{{caminata_id}}/empresas/0",
+					"raw": "{{baseUrl}}/caminatas/{{caminata_id_9}}/empresas/0",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
 						"caminatas",
-						"{{caminata_id}}",
+						"{{caminata_id_9}}",
 						"empresas",
 						"0"
 					]
@@ -74,19 +204,34 @@
 		},
 		{
 			"name": "Obtener una empresa de una caminata",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function()\r",
+							"{\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/caminatas/{{caminata_id}}/empresas/{{empresa_id_1}}",
+					"raw": "{{baseUrl}}/caminatas/{{caminata_id_9}}/empresas/{{empresa_id_2}}",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
 						"caminatas",
-						"{{caminata_id}}",
+						"{{caminata_id_9}}",
 						"empresas",
-						"{{empresa_id_1}}"
+						"{{empresa_id_2}}"
 					]
 				}
 			},
@@ -94,6 +239,20 @@
 		},
 		{
 			"name": "Obtener una empresa que no existe de una caminata",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],

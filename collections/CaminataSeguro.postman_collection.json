@@ -1,19 +1,119 @@
 {
 	"info": {
-		"_postman_id": "52ae890c-30a9-4146-8da4-03bb9bcc069a",
+		"_postman_id": "cae82232-d7f9-4e3d-99dc-d892dddeca11",
 		"name": "CaminataSeguro",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "41343426"
+		"_exporter_id": "37534152"
 	},
 	"item": [
 		{
-			"name": "Crear seguro",
+			"name": "Crear una caminata",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()",
+							"pm.globals.set(\"caminata_id\", data.id);",
+							"",
+							"pm.test(\"Status code is 201\", function()",
+							"{",
+							"    pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"numero\": 1,\n    \"nombre\": \"Proteccion Total\",\n    \"tipo\": \"Accidentes Personales\",\n    \"cobertura\": \"Cobertura medica en caso de accidentes durante la caminata\",\n    \"condiciones\": \"Aplica solo para caminatas dentro del territorio nacional\",\n    \"costo\": 203000,\n    \"caminata\": \n    {\n        \"id\": {{caminante_id_1}},\n        \"numero\": 1,\n        \"titulo\": \"Explorando el Nevado del Ruiz\",\n        \"tipo\": \"Alta montaña\",\n        \"fecha\": \"2025-07-14T00:00:00.000+00:00\",\n        \"hora\": \"06:30:00\",\n        \"departamento\": \"Caldas\",\n        \"ciudad\": \"Manizales\",\n        \"duracionEstimadaMinutos\": 360.0\n    }\n}\n\n",
+					"raw": "{\n    \"numero\": 101,\n    \"titulo\": \"Exploración del Parque Nacional Natural Tayrona\",\n    \"tipo\": \"Ecológica\",\n    \"fecha\": \"2025-04-15T00:00:00.000+00:00\",\n    \"hora\": \"21:33:57.193626700\",\n    \"departamento\": \"Magdalena\",\n    \"ciudad\": \"Santa Marta\",\n    \"duracionEstimadaMinutos\": 240\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/caminatas",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"caminatas"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear una caminata",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"numero\": 101,\n    \"titulo\": \"Exploración del Parque Nacional Natural Tayrona\",\n    \"tipo\": \"Ecológica\",\n    \"fecha\": \"2025-04-15T00:00:00.000+00:00\",\n    \"hora\": \"08:03:33.394792500\",\n    \"departamento\": \"Magdalena\",\n    \"ciudad\": \"Santa Marta\",\n    \"duracionEstimadaMinutos\": 240\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/caminatas",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"caminatas"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"numero\": 101,\n    \"titulo\": \"Exploración del Parque Nacional Natural Tayrona\",\n    \"tipo\": \"Ecológica\",\n    \"fecha\": \"2025-04-15T00:00:00.000+00:00\",\n    \"hora\": \"08:03:33.394792500\",\n    \"departamento\": \"Magdalena\",\n    \"ciudad\": \"Santa Marta\",\n    \"duracionEstimadaMinutos\": 240\n}"
+				}
+			]
+		},
+		{
+			"name": "Crear seguro",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"seguro_id_1\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"numero\": 1,\n    \"nombre\": \"Proteccion Total\",\n    \"tipo\": \"Accidentes Personales\",\n    \"cobertura\": \"Cobertura medica en caso de accidentes durante la caminata\",\n    \"condiciones\": \"Aplica solo para caminatas dentro del territorio nacional\",\n    \"costo\": 203000,\n    \"caminata\": \n    {\n        \"id\": {{caminata_id}},\n        \"numero\": 101,\n        \"titulo\": \"Exploración del Parque Nacional Natural Tayrona\",\n        \"tipo\": \"Ecológica\",\n        \"fecha\": \"2025-04-15T00:00:00.000+00:00\",\n        \"hora\": \"21:33:57.193626700\",\n        \"departamento\": \"Magdalena\",\n        \"ciudad\": \"Santa Marta\",\n        \"duracionEstimadaMinutos\": 240\n    }\n}\n\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -34,6 +134,20 @@
 		},
 		{
 			"name": "Agregar un seguro a una caminata",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -54,6 +168,20 @@
 		},
 		{
 			"name": "Agregar un seguro que no existe a una caminata",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -74,6 +202,20 @@
 		},
 		{
 			"name": "Obtener un seguro de una caminata",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -94,6 +236,20 @@
 		},
 		{
 			"name": "Obtener un seguro que no existe de una caminata",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -112,6 +268,20 @@
 		},
 		{
 			"name": "Borrar un seguro de una caminata",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"   pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"request": {
 				"method": "DELETE",
 				"header": [],
@@ -132,6 +302,20 @@
 		},
 		{
 			"name": "Borrar un seguro de una caminata que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"request": {
 				"method": "DELETE",
 				"header": [],
@@ -152,6 +336,20 @@
 		},
 		{
 			"name": "Borrar un seguro que no existe de una caminata",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"request": {
 				"method": "DELETE",
 				"header": [],
@@ -169,6 +367,87 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Borrar una caminata",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {",
+							"   pm.response.to.have.status(204);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/caminatas/{{caminata_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"caminatas",
+						"{{caminata_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Borrar una caminata",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/caminatas/{{caminata_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"caminatas",
+								"{{caminata_id_1}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 16 Mar 2025 20:14:04 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
 		}
 	]
 }

@@ -81,7 +81,9 @@ public class CaminataSeguroService
         {
             throw new EntityNotFoundException("El seguro con id = " + seguroId + " no existe.");
         }
-        log.info("Termina proceso de eliminar un seguro de la caminata con id = {}", caminataId);   
+        seguroRepository.deleteById(seguroId);
+        log.info("Termina proceso de eliminar un seguro de la caminata con id = {}", caminataId);  
+
     }
     
 }
