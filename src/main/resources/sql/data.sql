@@ -112,3 +112,14 @@ insert into BLOG_ENTITY (CAMINANTE_ID, ID, FOTO, TEXT, TITULO, VIDEO) values (7,
 insert into BLOG_ENTITY (CAMINANTE_ID, ID, FOTO, TEXT, TITULO, VIDEO) values (8, 8, 'streamline strategic functionalities', 'Flowdesk', 'Hackers', 'Exige');
 insert into BLOG_ENTITY (CAMINANTE_ID, ID, FOTO, TEXT, TITULO, VIDEO) values (9, 9, 'leverage plug-and-play initiatives', 'Fintone', 'Art of Getting By, The', 'Montana');
 insert into BLOG_ENTITY (CAMINANTE_ID, ID, FOTO, TEXT, TITULO, VIDEO) values (10, 10, 'generate best-of-breed infrastructures', 'Konklab', 'Werner - Beinhart!', 'Truck');
+
+INSERT INTO PATROCINADOR_ENTITY (id, nombre, documento, correo, telefono) VALUES (1,  'Juan Pérez',        '1001234567', 'juan.perez@gmail.com',       '310-123-4567');
+INSERT INTO PATROCINADOR_ENTITY (id, nombre, documento, correo, telefono) VALUES (2,  'María Rodríguez',   '1002345678', 'maria.rodriguez@yahoo.com',  '311-234-5678');
+INSERT INTO PATROCINADOR_ENTITY (id, nombre, documento, correo, telefono) VALUES (3,  'Carlos Gómez',      '1003456789', 'carlos.gomez@hotmail.com',  '312-345-6789');
+INSERT INTO PATROCINADOR_ENTITY (id, nombre, documento, correo, telefono) VALUES (4,  'Ana Martínez',      '1004567890', 'ana.martinez@gmail.com',     '313-456-7890');
+INSERT INTO PATROCINADOR_ENTITY (id, nombre, documento, correo, telefono) VALUES (5,  'Luis Hernández',    '1005678901', 'luis.hernandez@yahoo.com',   '314-567-8901');
+INSERT INTO PATROCINADOR_ENTITY (id, nombre, documento, correo, telefono) VALUES (6,  'Catalina López',    '1006789012', 'catalina.lopez@outlook.com', '315-678-9012');
+INSERT INTO PATROCINADOR_ENTITY (id, nombre, documento, correo, telefono) VALUES (7,  'Andrés Sánchez',    '1007890123', 'andres.sanchez@gmail.com',   '316-789-0123');
+INSERT INTO PATROCINADOR_ENTITY (id, nombre, documento, correo, telefono) VALUES (8,  'Valentina Castro',  '1008901234', 'valentina.castro@yahoo.com', '317-890-1234');
+INSERT INTO PATROCINADOR_ENTITY (id, nombre, documento, correo, telefono) VALUES (9,  'Diego Torres',      '1009012345', 'diego.torres@hotmail.com',   '318-901-2345');
+INSERT INTO PATROCINADOR_ENTITY (id, nombre, documento, correo, telefono) VALUES (10, 'Andrea Ramírez',    '1000123456', 'andrea.ramirez@gmail.com',   '319-012-3456');
