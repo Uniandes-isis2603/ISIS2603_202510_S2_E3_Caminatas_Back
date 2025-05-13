@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "5624217c-ed66-459b-92a2-a4f01708edeb",
+		"_postman_id": "46c6266a-c757-49dd-b0ed-4d536550198f",
 		"name": "Blog",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "42820446"
+		"_exporter_id": "37534152"
 	},
 	"item": [
 		{
@@ -53,15 +53,6 @@
 					"originalRequest": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"id\": 1,\n    \"titulo\": \"Monserrate\",\n    \"foto\": \"image\",\n    \"video\": \"video\",\n    \"text\": \"Excelente\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
 						"url": {
 							"raw": "http://localhost:8080/api/blogs",
 							"protocol": "http",
@@ -77,10 +68,10 @@
 					},
 					"status": "Created",
 					"code": 201,
-					"_postman_previewlanguage": null,
-					"header": null,
+					"_postman_previewlanguage": "Text",
+					"header": [],
 					"cookie": [],
-					"body": null
+					"body": ""
 				}
 			]
 		},
@@ -142,22 +133,16 @@
 								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": "[\n    {\n    \"titulo\": \"Monserrate\",\n    \"foto\": \"image\",\n    \"video\": \"video\",\n    \"text\": \"Excelente\",\n    \"caminantesInteracciones\": []\n    }\n]",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
+						"url": {
+							"raw": ""
 						}
 					},
 					"status": "OK",
 					"code": 200,
-					"_postman_previewlanguage": null,
-					"header": null,
+					"_postman_previewlanguage": "Text",
+					"header": [],
 					"cookie": [],
-					"body": null
+					"body": ""
 				}
 			]
 		},
@@ -203,21 +188,15 @@
 								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"titulo\": \"Monserrate\",\n    \"foto\": \"image\",\n    \"video\": \"video\",\n    \"text\": \"Excelente\",\n    \"caminantesInteracciones\": []\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
+						"url": {
+							"raw": ""
 						}
 					},
 					"code": 200,
-					"_postman_previewlanguage": null,
-					"header": null,
+					"_postman_previewlanguage": "Text",
+					"header": [],
 					"cookie": [],
-					"body": null
+					"body": ""
 				}
 			]
 		},
@@ -268,22 +247,16 @@
 								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"apierror\": {\n        \"status\": \"NOT_FOUND\",\n        \"timestamp\": \"21-02-2023 10:01:09\",\n        \"message\": \"El blog con el id dado no fue encontrado\"\n    }\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
+						"url": {
+							"raw": ""
 						}
 					},
 					"status": "Not Found",
 					"code": 404,
-					"_postman_previewlanguage": null,
-					"header": null,
+					"_postman_previewlanguage": "Text",
+					"header": [],
 					"cookie": [],
-					"body": null
+					"body": ""
 				}
 			]
 		},
@@ -357,10 +330,10 @@
 					},
 					"status": "OK",
 					"code": 200,
-					"_postman_previewlanguage": null,
-					"header": null,
+					"_postman_previewlanguage": "Text",
+					"header": [],
 					"cookie": [],
-					"body": null
+					"body": ""
 				}
 			]
 		},
@@ -420,22 +393,16 @@
 								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"apierror\": {\n        \"status\": \"NOT_FOUND\",\n        \"timestamp\": \"21-02-2023 10:01:09\",\n        \"message\": \"El blog con el id dado no fue encontrado\"\n    }\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
+						"url": {
+							"raw": ""
 						}
 					},
 					"status": "Not Found",
 					"code": 404,
-					"_postman_previewlanguage": null,
-					"header": null,
+					"_postman_previewlanguage": "Text",
+					"header": [],
 					"cookie": [],
-					"body": null
+					"body": ""
 				}
 			]
 		},
@@ -474,14 +441,17 @@
 					"name": "Borrar un blog",
 					"originalRequest": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"status": "No Content",
 					"code": 204,
-					"_postman_previewlanguage": null,
-					"header": null,
+					"_postman_previewlanguage": "Text",
+					"header": [],
 					"cookie": [],
-					"body": null
+					"body": ""
 				}
 			]
 		},
@@ -533,22 +503,16 @@
 								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"apierror\": {\n        \"status\": \"NOT_FOUND\",\n        \"timestamp\": \"21-02-2023 10:01:09\",\n        \"message\": \"El blog con el id dado no fue encontrado\"\n    }\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
+						"url": {
+							"raw": ""
 						}
 					},
 					"status": "Not Found",
 					"code": 404,
-					"_postman_previewlanguage": null,
-					"header": null,
+					"_postman_previewlanguage": "Text",
+					"header": [],
 					"cookie": [],
-					"body": null
+					"body": ""
 				}
 			]
 		}

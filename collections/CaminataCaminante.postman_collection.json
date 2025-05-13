@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "3e0f5ba4-845f-41a5-a71a-c141cad8201d",
+		"_postman_id": "e805687d-f213-4351-a4fa-d5b1014543f9",
 		"name": "CaminataCaminante",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "37534152"
@@ -31,7 +31,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"numero\": 101,\n    \"titulo\": \"Exploración del Parque Nacional Natural Tayrona\",\n    \"tipo\": \"Ecológica\",\n    \"fecha\": \"2025-04-15T00:00:00.000+00:00\",\n    \"hora\": \"21:33:57.193626700\",\n    \"departamento\": \"Magdalena\",\n    \"ciudad\": \"Santa Marta\",\n    \"duracionEstimadaMinutos\": 240\n}\n",
+					"raw": "{\n    \"numero\": 101,\n    \"titulo\": \"Exploración del Parque Nacional Natural Tayrona\",\n    \"tipo\": \"Ecológica\",\n    \"fecha\": \"2026-04-15T00:00:00.000+00:00\",\n    \"hora\": \"21:33:57.193626700\",\n    \"departamento\": \"Magdalena\",\n    \"ciudad\": \"Santa Marta\",\n    \"duracionEstimadaMinutos\": 240\n}\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -56,7 +56,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"numero\": 101,\n    \"titulo\": \"Exploración del Parque Nacional Natural Tayrona\",\n    \"tipo\": \"Ecológica\",\n    \"fecha\": \"2025-04-15T00:00:00.000+00:00\",\n    \"hora\": \"08:03:33.394792500\",\n    \"departamento\": \"Magdalena\",\n    \"ciudad\": \"Santa Marta\",\n    \"duracionEstimadaMinutos\": 240\n}\n",
+							"raw": "{\n    \"numero\": 101,\n    \"titulo\": \"Exploración del Parque Nacional Natural Tayrona\",\n    \"tipo\": \"Ecológica\",\n    \"fecha\": \"2026-04-15T00:00:00.000+00:00\",\n    \"hora\": \"08:03:33.394792500\",\n    \"departamento\": \"Magdalena\",\n    \"ciudad\": \"Santa Marta\",\n    \"duracionEstimadaMinutos\": 240\n}\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -85,7 +85,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"numero\": 101,\n    \"titulo\": \"Exploración del Parque Nacional Natural Tayrona\",\n    \"tipo\": \"Ecológica\",\n    \"fecha\": \"2025-04-15T00:00:00.000+00:00\",\n    \"hora\": \"08:03:33.394792500\",\n    \"departamento\": \"Magdalena\",\n    \"ciudad\": \"Santa Marta\",\n    \"duracionEstimadaMinutos\": 240\n}"
+					"body": "{\n    \"numero\": 101,\n    \"titulo\": \"Exploración del Parque Nacional Natural Tayrona\",\n    \"tipo\": \"Ecológica\",\n    \"fecha\": \"2026-04-15T00:00:00.000+00:00\",\n    \"hora\": \"08:03:33.394792500\",\n    \"departamento\": \"Magdalena\",\n    \"ciudad\": \"Santa Marta\",\n    \"duracionEstimadaMinutos\": 240\n}"
 				}
 			]
 		},
