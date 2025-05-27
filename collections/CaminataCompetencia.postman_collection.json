@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "0449cd0b-99cf-4aa5-879b-1a59058c31f4",
+		"_postman_id": "777ee8c7-f715-42a5-82c2-4d3375b3e60e",
 		"name": "CaminataCompetencia",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "37534152"
@@ -30,7 +30,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"numero\": 1,\n    \"condicionesParticipacion\": \"Llevar equipo de seguridad\",\n    \"premios\": \"Trofeo y medallas\",\n    \"requisitos\": \"Mayor de 18 años\",\n    \"titulo\": \"Caminata de Alta Montaña\",\n    \"tipo\": \"Competencia\",\n    \"fecha\": \"2025-04-10\",\n    \"hora\": \"09:00:00\",\n    \"departamento\": \"Antioquia\",\n    \"ciudad\": \"Medellín\",\n    \"duracionEstimadaMinutos\": 180.0\n}\n\n",
+					"raw": "{\n    \"numero\": 1,\n    \"condicionesParticipacion\": \"Llevar equipo de seguridad\",\n    \"premios\": \"Trofeo y medallas\",\n    \"requisitos\": \"Mayor de 18 años\",\n    \"titulo\": \"Caminata de Alta Montaña\",\n    \"tipo\": \"Competencia\",\n    \"fecha\": \"2026-04-10\",\n    \"hora\": \"09:00:00\",\n    \"departamento\": \"Antioquia\",\n    \"ciudad\": \"Medellín\",\n    \"duracionEstimadaMinutos\": 180.0\n}\n\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -55,7 +55,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"numero\": 1,\n    \"condicionesParticipacion\": \"Llevar equipo de seguridad\",\n    \"premios\": \"Trofeo y medallas\",\n    \"requisitos\": \"Mayor de 18 años\",\n    \"titulo\": \"Caminata de Alta Montaña\",\n    \"tipo\": \"Competencia\",\n    \"fecha\": \"2025-04-10\",\n    \"hora\": \"09:00:00\",\n    \"departamento\": \"Antioquia\",\n    \"ciudad\": \"Medellín\",\n    \"duracionEstimadaMinutos\": 180.0\n}\n\n",
+							"raw": "{\n    \"numero\": 1,\n    \"condicionesParticipacion\": \"Llevar equipo de seguridad\",\n    \"premios\": \"Trofeo y medallas\",\n    \"requisitos\": \"Mayor de 18 años\",\n    \"titulo\": \"Caminata de Alta Montaña\",\n    \"tipo\": \"Competencia\",\n    \"fecha\": \"2026-04-10\",\n    \"hora\": \"09:00:00\",\n    \"departamento\": \"Antioquia\",\n    \"ciudad\": \"Medellín\",\n    \"duracionEstimadaMinutos\": 180.0\n}\n\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -230,7 +230,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"numero\": 1,\n    \"condicionesParticipacion\": \"Llevar equipo de seguridad\",\n    \"premios\": \"Trofeo y medallas\",\n    \"requisitos\": \"Mayor de 18 años\",\n    \"titulo\": \"Caminata de Alta Montaña\",\n    \"tipo\": \"Competencia\",\n    \"fecha\": \"2025-04-10\",\n    \"hora\": \"09:00:00\",\n    \"departamento\": \"Antioquia\",\n    \"ciudad\": \"Medellín\",\n    \"duracionEstimadaMinutos\": 280.0\n}",
+					"raw": "{\n    \"numero\": 1,\n    \"condicionesParticipacion\": \"Llevar equipo de seguridad\",\n    \"premios\": \"Trofeo y medallas\",\n    \"requisitos\": \"Mayor de 18 años\",\n    \"titulo\": \"Caminata de Alta Montaña\",\n    \"tipo\": \"Competencia\",\n    \"fecha\": \"2026-04-10\",\n    \"hora\": \"09:00:00\",\n    \"departamento\": \"Antioquia\",\n    \"ciudad\": \"Medellín\",\n    \"duracionEstimadaMinutos\": 280.0\n}",
 					"options": {
 						"raw": {
 							"language": "json"

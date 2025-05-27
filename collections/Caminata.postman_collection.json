@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "25c30193-1a8c-4f2e-9cf3-2871fb1d7eda",
+		"_postman_id": "865bc7b9-1941-4f07-ad92-b355f63044f6",
 		"name": "Caminata",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "41343426"
+		"_exporter_id": "37534152"
 	},
 	"item": [
 		{
@@ -101,15 +101,6 @@
 					"originalRequest": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "[\n    {\n        \"numero\": 1,\n        \"titulo\": \"Explorando el Nevado del Ruiz\",\n        \"tipo\": \"Alta montaña\",\n        \"fecha\": \"2025-07-14\",\n        \"hora\": \"06:30:00\",\n        \"departamento\": \"Caldas\",\n        \"ciudad\": \"Manizales\",\n        \"duracionEstimadaMinutos\": 360.0\n    }\n]",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
 						"url": {
 							"raw": "{{baseUrl}}/caminatas",
 							"host": [
@@ -210,15 +201,6 @@
 					"originalRequest": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"numero\": 1,\n    \"titulo\": \"Explorando el Nevado del Ruiz\",\n    \"tipo\": \"Alta montaña\",\n    \"fecha\": \"2025-07-14\",\n    \"hora\": \"06:30:00\",\n    \"departamento\": \"Caldas\",\n    \"ciudad\": \"Manizales\",\n    \"duracionEstimadaMinutos\": 360.0\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
 						"url": {
 							"raw": "{{baseUrl}}/caminatas/{{caminata_id_1}}",
 							"host": [
@@ -326,15 +308,6 @@
 					"originalRequest": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"apierror\": {\n        \"status\": \"NOT_FOUND\",\n        \"timestamp\": \"21-02-2023 10:01:09\",\n        \"message\": \"La caminata con ese id no fue encontrada\"\n    }\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
 						"url": {
 							"raw": "{{baseUrl}}/caminatas/0",
 							"host": [
@@ -684,7 +657,7 @@
 						}
 					],
 					"cookie": [],
-					"body": null
+					"body": ""
 				}
 			]
 		},

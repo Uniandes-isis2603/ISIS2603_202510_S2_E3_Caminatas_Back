@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "a033d264-c42f-44a4-b90f-3acc3ea99fee",
+		"_postman_id": "a6469a7d-7561-4f9c-af7c-6687877f83d3",
 		"name": "CaminataCompetenciaPatrocinador",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "42820446"
+		"_exporter_id": "37534152"
 	},
 	"item": [
 		{
@@ -30,7 +30,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": " {\n    \"numero\": 4,\n    \"condicionesParticipacion\": \"condiciones\",\n    \"premios\": \"premios\",\n    \"requisitos\": \"requisitos\",\n    \"titulo\": \"Exploración del Parque Nacional Natural Tayrona\",\n    \"tipo\": \"Ecológica\",\n    \"fecha\": \"2025-04-15T00:00:00.000+00:00\",\n    \"hora\": \"10:00:00\",\n    \"departamento\": \"Magdalena\",\n    \"ciudad\": \"Santa Marta\",\n    \"duracionEstimadaMinutos\": 240\n}",
+					"raw": " {\n    \"numero\": 4,\n    \"condicionesParticipacion\": \"condiciones\",\n    \"premios\": \"premios\",\n    \"requisitos\": \"requisitos\",\n    \"titulo\": \"Exploración del Parque Nacional Natural Tayrona\",\n    \"tipo\": \"Ecológica\",\n    \"fecha\": \"2026-04-15T00:00:00.000+00:00\",\n    \"hora\": \"10:00:00\",\n    \"departamento\": \"Magdalena\",\n    \"ciudad\": \"Santa Marta\",\n    \"duracionEstimadaMinutos\": 240\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -61,20 +61,23 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": " {\n    \"idCaminata\": 1,\n    \"numeroCaminata\": 101,\n    \"titulo\": \"Exploración del Parque Nacional Natural Tayrona\",\n    \"tipo\": \"Ecológica\",\n    \"fecha\": \"2025-04-15T00:00:00.000+00:00\",\n    \"hora\": \"10:00:00\",\n    \"departamento\": \"Magdalena\",\n    \"ciudad\": \"Santa Marta\",\n    \"duracionEstimadaMinutos\": 240,\n    \"id\":1,\n    \"numero\": 4,\n    \"condicionesParticipacion\": \"condiciones\",\n    \"premios\": \"premios\",\n    \"requisitos\": \"requisitos\"\n}",
+							"raw": " {\n    \"idCaminata\": 1,\n    \"numeroCaminata\": 101,\n    \"titulo\": \"Exploración del Parque Nacional Natural Tayrona\",\n    \"tipo\": \"Ecológica\",\n    \"fecha\": \"2026-04-15T00:00:00.000+00:00\",\n    \"hora\": \"10:00:00\",\n    \"departamento\": \"Magdalena\",\n    \"ciudad\": \"Santa Marta\",\n    \"duracionEstimadaMinutos\": 240,\n    \"id\":1,\n    \"numero\": 4,\n    \"condicionesParticipacion\": \"condiciones\",\n    \"premios\": \"premios\",\n    \"requisitos\": \"requisitos\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
+						},
+						"url": {
+							"raw": ""
 						}
 					},
 					"status": "Created",
 					"code": 201,
-					"_postman_previewlanguage": null,
-					"header": null,
+					"_postman_previewlanguage": "Text",
+					"header": [],
 					"cookie": [],
-					"body": null
+					"body": ""
 				}
 			]
 		},
@@ -154,8 +157,8 @@
 							]
 						}
 					},
-					"_postman_previewlanguage": "",
-					"header": "",
+					"_postman_previewlanguage": "Text",
+					"header": [],
 					"cookie": [],
 					"body": ""
 				}
@@ -229,10 +232,10 @@
 					},
 					"status": "Created",
 					"code": 201,
-					"_postman_previewlanguage": null,
-					"header": null,
+					"_postman_previewlanguage": "Text",
+					"header": [],
 					"cookie": [],
-					"body": null
+					"body": ""
 				}
 			]
 		},
@@ -293,14 +296,17 @@
 									"language": "json"
 								}
 							}
+						},
+						"url": {
+							"raw": ""
 						}
 					},
 					"status": "Not Found",
 					"code": 404,
-					"_postman_previewlanguage": null,
-					"header": null,
+					"_postman_previewlanguage": "Text",
+					"header": [],
 					"cookie": [],
-					"body": null
+					"body": ""
 				}
 			]
 		},
@@ -348,15 +354,6 @@
 								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": " {\n    \"id\":1,\n    \"nombre\": \"Joaquin\",\n    \"documento\": \"12345678\",\n    \"correo\": \"joaquin@gmail.com\",\n    \"telefono\": \"3103456789\",\n    \"caminatasCompetencia\":[\n        {\n            \"id\":2,\n            \"numero\": 5,\n            \"condicionesParticipacion\": \"condiciones\",\n            \"premios\": \"premios\",\n            \"requisitos\": \"requisitos\"\n        }\n    ]\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
 						"url": {
 							"raw": "{{baseUrl}}/caminataCompetencias/{{caminataCompetencia_id}}/protrocinadores/{{patrocinador_id_1}}",
 							"host": [
@@ -370,10 +367,10 @@
 							]
 						}
 					},
-					"_postman_previewlanguage": null,
-					"header": null,
+					"_postman_previewlanguage": "Text",
+					"header": [],
 					"cookie": [],
-					"body": null
+					"body": ""
 				}
 			]
 		},
@@ -447,14 +444,13 @@
 					},
 					"status": "Not Found",
 					"code": 404,
-					"_postman_previewlanguage": null,
-					"header": null,
+					"_postman_previewlanguage": "Text",
+					"header": [],
 					"cookie": [],
-					"body": null
+					"body": ""
 				}
 			]
 		},
-
 		{
 			"name": "Borrar un patrocinador que no existe de una caminataCompetencia",
 			"event": [
@@ -528,14 +524,13 @@
 					},
 					"status": "Not Found",
 					"code": 404,
-					"_postman_previewlanguage": null,
-					"header": null,
+					"_postman_previewlanguage": "Text",
+					"header": [],
 					"cookie": [],
-					"body": null
+					"body": ""
 				}
 			]
 		},
-
 		{
 			"name": "Borrar un patrocinador de una caminataCompetencia",
 			"event": [
@@ -573,14 +568,17 @@
 					"name": "Borrar un patrocinador de una caminataCompetencia",
 					"originalRequest": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"status": "No Content",
 					"code": 204,
-					"_postman_previewlanguage": null,
-					"header": null,
+					"_postman_previewlanguage": "Text",
+					"header": [],
 					"cookie": [],
-					"body": null
+					"body": ""
 				}
 			]
 		},
@@ -657,13 +655,12 @@
 					},
 					"status": "Not Found",
 					"code": 404,
-					"_postman_previewlanguage": null,
-					"header": null,
+					"_postman_previewlanguage": "Text",
+					"header": [],
 					"cookie": [],
-					"body": null
+					"body": ""
 				}
 			]
 		}
-		
 	]
 }
