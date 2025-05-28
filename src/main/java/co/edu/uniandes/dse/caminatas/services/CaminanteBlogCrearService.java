@@ -1,5 +1,6 @@
 package co.edu.uniandes.dse.caminatas.services;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -53,8 +54,12 @@ public class CaminanteBlogCrearService {
         if (caminanteEntity.isEmpty())
             throw new EntityNotFoundException(MENSAJE_1 + caminanteId + MENSAJE_2);
 
+        List<BlogEntity> blogs = caminanteEntity.get().getBlogsCreados();
+        if (blogs == null) {
+            return new ArrayList<>();
+        }
         log.info("Termina proceso de consultar todos los blogs del caminante con id = {}", caminanteId);
-        return caminanteEntity.get().getBlogsCreados();
+        return blogs;
     }
 
     @Transactional
