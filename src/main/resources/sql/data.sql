@@ -44,37 +44,53 @@ INSERT INTO CAMINATA_ENTITY (DTYPE, id, numero, titulo, tipo, fecha, hora, depar
 VALUES ('CaminataEntity', 15, 115, 'Caminata de la Noche Estrellada', 'Nocturna', '2026-03-01', '19:30', 'Cundinamarca', 'Fómeque', 110);
 
 
-insert into EMPRESA_ENTITY (DOCUMENTO, ID, CORREO, NOMBRE) values (1, 1, 'pnunns0@tmall.com', 'Pru');
-insert into EMPRESA_ENTITY (DOCUMENTO, ID, CORREO, NOMBRE) values (2, 2, 'jhaly1@businesswire.com', 'Josepha');
-insert into EMPRESA_ENTITY (DOCUMENTO, ID, CORREO, NOMBRE) values (3, 3, 'bsavine2@ted.com', 'Burlie');
-insert into EMPRESA_ENTITY (DOCUMENTO, ID, CORREO, NOMBRE) values (4, 4, 'agarvan3@jalbum.net', 'Arabella');
-insert into EMPRESA_ENTITY (DOCUMENTO, ID, CORREO, NOMBRE) values (5, 5, 'omistry4@sitemeter.com', 'Oren');
-insert into EMPRESA_ENTITY (DOCUMENTO, ID, CORREO, NOMBRE) values (6, 6, 'awheildon5@weather.com', 'Alameda');
-insert into EMPRESA_ENTITY (DOCUMENTO, ID, CORREO, NOMBRE) values (7, 7, 'jsebastian6@sun.com', 'Julienne');
-insert into EMPRESA_ENTITY (DOCUMENTO, ID, CORREO, NOMBRE) values (8, 8, 'pbeattie7@privacy.gov.au', 'Pansy');
-insert into EMPRESA_ENTITY (DOCUMENTO, ID, CORREO, NOMBRE) values (9, 9, 'atreven8@arstechnica.com', 'Anya');
-insert into EMPRESA_ENTITY (DOCUMENTO, ID, CORREO, NOMBRE) values (10, 10, 'caiston9@diigo.com', 'Cedric');
-insert into EMPRESA_ENTITY (DOCUMENTO, ID, CORREO, NOMBRE) values (11, 11, 'tkeata@harvard.edu', 'Tate');
-insert into EMPRESA_ENTITY (DOCUMENTO, ID, CORREO, NOMBRE) values (12, 12, 'rgromleyb@mac.com', 'Rogerio');
-insert into EMPRESA_ENTITY (DOCUMENTO, ID, CORREO, NOMBRE) values (13, 13, 'obreec@edublogs.org', 'Obidiah');
-insert into EMPRESA_ENTITY (DOCUMENTO, ID, CORREO, NOMBRE) values (14, 14, 'wsinclaird@howstuffworks.com', 'Warner');
-insert into EMPRESA_ENTITY (DOCUMENTO, ID, CORREO, NOMBRE) values (15, 15, 'wbelloe@exblog.jp', 'Walt');
+insert into EMPRESA_ENTITY (DOCUMENTO, ID, CORREO, NOMBRE) values (1, 1, 'contacto@senderotech.com', 'SenderoTech');
+insert into EMPRESA_ENTITY (DOCUMENTO, ID, CORREO, NOMBRE) values (2, 2, 'info@altavida.org', 'AltaVida Outdoors');
+insert into EMPRESA_ENTITY (DOCUMENTO, ID, CORREO, NOMBRE) values (3, 3, 'patrocinio@terranorte.co', 'TerraNorte');
+insert into EMPRESA_ENTITY (DOCUMENTO, ID, CORREO, NOMBRE) values (4, 4, 'eventos@footpathgear.com', 'FootPath Gear');
+insert into EMPRESA_ENTITY (DOCUMENTO, ID, CORREO, NOMBRE) values (5, 5, 'alianzas@vivaandina.com', 'Viva Andina');
+insert into EMPRESA_ENTITY (DOCUMENTO, ID, CORREO, NOMBRE) values (6, 6, 'contacto@ecotrailgroup.net', 'EcoTrail Group');
+insert into EMPRESA_ENTITY (DOCUMENTO, ID, CORREO, NOMBRE) values (7, 7, 'info@zenpathfitness.org', 'ZenPath Fitness');
+insert into EMPRESA_ENTITY (DOCUMENTO, ID, CORREO, NOMBRE) values (8, 8, 'contacto@montemax.com', 'MonteMax Outdoors');
+insert into EMPRESA_ENTITY (DOCUMENTO, ID, CORREO, NOMBRE) values (9, 9, 'patrocinio@respiralibre.com', 'RespiraLibre');
+insert into EMPRESA_ENTITY (DOCUMENTO, ID, CORREO, NOMBRE) values (10, 10, 'eventos@solvitality.co', 'SolVitality');
+insert into EMPRESA_ENTITY (DOCUMENTO, ID, CORREO, NOMBRE) values (11, 11, 'info@trailfusion.dev', 'TrailFusion');
+insert into EMPRESA_ENTITY (DOCUMENTO, ID, CORREO, NOMBRE) values (12, 12, 'contacto@horizonnatural.org', 'Horizón Natural');
+insert into EMPRESA_ENTITY (DOCUMENTO, ID, CORREO, NOMBRE) values (13, 13, 'alianzas@campototal.com', 'CampoTotal');
+insert into EMPRESA_ENTITY (DOCUMENTO, ID, CORREO, NOMBRE) values (14, 14, 'info@biodynatrack.net', 'BioDynaTrack');
+insert into EMPRESA_ENTITY (DOCUMENTO, ID, CORREO, NOMBRE) values (15, 15, 'contact@andarseguro.org', 'AndarSeguro');
 
-insert into CAMINANTE_ENTITY (EXPERIENCIA_PREVIA, LESION, PROBLEMAS_RES, TRATAMIENTOS_MED, ID, CORREO, DIRECCION, DOCUMENTO, NOMBRE, TELEFONO) values (false, true, false, false, 1, 'emacgahey0@adobe.com', '3rd Floor', '413-33-0118', 'Ebony', '623-781-3431');
-insert into CAMINANTE_ENTITY (EXPERIENCIA_PREVIA, LESION, PROBLEMAS_RES, TRATAMIENTOS_MED, ID, CORREO, DIRECCION, DOCUMENTO, NOMBRE, TELEFONO) values (false, true, true, true, 2, 'alampett1@imageshack.us', 'Room 1475', '346-26-3822', 'Anestassia', '701-664-7566');
-insert into CAMINANTE_ENTITY (EXPERIENCIA_PREVIA, LESION, PROBLEMAS_RES, TRATAMIENTOS_MED, ID, CORREO, DIRECCION, DOCUMENTO, NOMBRE, TELEFONO) values (false, false, true, true, 3, 'etichner2@histats.com', 'Suite 23', '113-92-0851', 'Eddy', '821-118-6758');
-insert into CAMINANTE_ENTITY (EXPERIENCIA_PREVIA, LESION, PROBLEMAS_RES, TRATAMIENTOS_MED, ID, CORREO, DIRECCION, DOCUMENTO, NOMBRE, TELEFONO) values (true, false, true, false, 4, 'cloveard3@utexas.edu', 'Room 1017', '713-43-7737', 'Cherey', '750-168-5720');
-insert into CAMINANTE_ENTITY (EXPERIENCIA_PREVIA, LESION, PROBLEMAS_RES, TRATAMIENTOS_MED, ID, CORREO, DIRECCION, DOCUMENTO, NOMBRE, TELEFONO) values (false, false, false, false, 5, 'jshelbourne4@icio.us', 'PO Box 6097', '578-81-2898', 'Jenine', '993-559-3376');
-insert into CAMINANTE_ENTITY (EXPERIENCIA_PREVIA, LESION, PROBLEMAS_RES, TRATAMIENTOS_MED, ID, CORREO, DIRECCION, DOCUMENTO, NOMBRE, TELEFONO) values (false, false, false, true, 6, 'amallett5@t-online.de', 'Room 719', '228-55-9058', 'Ayn', '112-937-1218');
-insert into CAMINANTE_ENTITY (EXPERIENCIA_PREVIA, LESION, PROBLEMAS_RES, TRATAMIENTOS_MED, ID, CORREO, DIRECCION, DOCUMENTO, NOMBRE, TELEFONO) values (false, false, true, false, 7, 'educhant6@google.pl', 'Suite 66', '707-10-4387', 'Ellynn', '517-269-3240');
-insert into CAMINANTE_ENTITY (EXPERIENCIA_PREVIA, LESION, PROBLEMAS_RES, TRATAMIENTOS_MED, ID, CORREO, DIRECCION, DOCUMENTO, NOMBRE, TELEFONO) values (true, true, false, true, 8, 'rfratczak7@sciencedaily.com', '3rd Floor', '111-58-6377', 'Reamonn', '191-727-6479');
-insert into CAMINANTE_ENTITY (EXPERIENCIA_PREVIA, LESION, PROBLEMAS_RES, TRATAMIENTOS_MED, ID, CORREO, DIRECCION, DOCUMENTO, NOMBRE, TELEFONO) values (false, true, false, false, 9, 'rronchi8@unicef.org', 'PO Box 18238', '516-91-1377', 'Rozella', '195-248-4296');
-insert into CAMINANTE_ENTITY (EXPERIENCIA_PREVIA, LESION, PROBLEMAS_RES, TRATAMIENTOS_MED, ID, CORREO, DIRECCION, DOCUMENTO, NOMBRE, TELEFONO) values (true, false, true, false, 10, 'rrittmeyer9@imageshack.us', 'Apt 339', '276-26-4579', 'Ramsey', '132-380-0864');
-insert into CAMINANTE_ENTITY (EXPERIENCIA_PREVIA, LESION, PROBLEMAS_RES, TRATAMIENTOS_MED, ID, CORREO, DIRECCION, DOCUMENTO, NOMBRE, TELEFONO) values (true, false, false, false, 11, 'gbrailsforda@earthlink.net', '15th Floor', '275-16-2991', 'Ginelle', '623-187-7805');
-insert into CAMINANTE_ENTITY (EXPERIENCIA_PREVIA, LESION, PROBLEMAS_RES, TRATAMIENTOS_MED, ID, CORREO, DIRECCION, DOCUMENTO, NOMBRE, TELEFONO) values (true, true, true, true, 12, 'ghoflerb@about.com', 'Suite 16', '452-42-9665', 'Gwendolyn', '931-397-9954');
-insert into CAMINANTE_ENTITY (EXPERIENCIA_PREVIA, LESION, PROBLEMAS_RES, TRATAMIENTOS_MED, ID, CORREO, DIRECCION, DOCUMENTO, NOMBRE, TELEFONO) values (false, false, false, true, 13, 'ksennerc@vinaora.com', 'PO Box 47045', '333-06-4929', 'Keelby', '817-965-3385');
-insert into CAMINANTE_ENTITY (EXPERIENCIA_PREVIA, LESION, PROBLEMAS_RES, TRATAMIENTOS_MED, ID, CORREO, DIRECCION, DOCUMENTO, NOMBRE, TELEFONO) values (true, false, true, false, 14, 'bipsgraved@freewebs.com', 'Apt 1307', '824-83-0328', 'Becka', '666-844-6464');
-insert into CAMINANTE_ENTITY (EXPERIENCIA_PREVIA, LESION, PROBLEMAS_RES, TRATAMIENTOS_MED, ID, CORREO, DIRECCION, DOCUMENTO, NOMBRE, TELEFONO) values (false, false, false, true, 15, 'vreddingtone@usnews.com', 'Suite 17', '664-16-6423', 'Vivienne', '178-185-3455');
+insert into CAMINANTE_ENTITY (EXPERIENCIA_PREVIA, LESION, PROBLEMAS_RES, TRATAMIENTOS_MED, ID, CORREO, DIRECCION, DOCUMENTO, NOMBRE, TELEFONO) 
+values (false, true, false, false, 1, 'laura.gomez1@mail.com', 'Cra 12 #45-23, Bogotá', '102938475', 'Laura Gómez', '3104567890');
+insert into CAMINANTE_ENTITY (EXPERIENCIA_PREVIA, LESION, PROBLEMAS_RES, TRATAMIENTOS_MED, ID, CORREO, DIRECCION, DOCUMENTO, NOMBRE, TELEFONO) 
+values (false, true, true, true, 2, 'daniela.ramirez@mail.com', 'Calle 9A #21-10, Medellín', '9876543210', 'Daniela Ramírez', '3115678901');
+insert into CAMINANTE_ENTITY (EXPERIENCIA_PREVIA, LESION, PROBLEMAS_RES, TRATAMIENTOS_MED, ID, CORREO, DIRECCION, DOCUMENTO, NOMBRE, TELEFONO) 
+values (false, false, true, true, 3, 'carlos.perez@mail.com', 'Av. El Dorado #50-22, Bogotá', '123456789', 'Carlos Pérez', '3001234567');
+insert into CAMINANTE_ENTITY (EXPERIENCIA_PREVIA, LESION, PROBLEMAS_RES, TRATAMIENTOS_MED, ID, CORREO, DIRECCION, DOCUMENTO, NOMBRE, TELEFONO) 
+values (true, false, true, false, 4, 'mariana.rios@mail.com', 'Transv. 5 #66-12, Cali', '2345678901', 'Mariana Ríos', '3204567891');
+insert into CAMINANTE_ENTITY (EXPERIENCIA_PREVIA, LESION, PROBLEMAS_RES, TRATAMIENTOS_MED, ID, CORREO, DIRECCION, DOCUMENTO, NOMBRE, TELEFONO) 
+values (false, false, false, false, 5, 'juliana.morales@mail.com', 'Calle 100 #8A-25, Bogotá', '5678901234', 'Juliana Morales', '3012345678');
+insert into CAMINANTE_ENTITY (EXPERIENCIA_PREVIA, LESION, PROBLEMAS_RES, TRATAMIENTOS_MED, ID, CORREO, DIRECCION, DOCUMENTO, NOMBRE, TELEFONO) 
+values (false, false, false, true, 6, 'sara.ortiz@mail.com', 'Cra 19 #118-35, Barranquilla', '876543210', 'Sara Ortiz', '3157890123');
+insert into CAMINANTE_ENTITY (EXPERIENCIA_PREVIA, LESION, PROBLEMAS_RES, TRATAMIENTOS_MED, ID, CORREO, DIRECCION, DOCUMENTO, NOMBRE, TELEFONO) 
+values (false, false, true, false, 7, 'camila.sanchez@mail.com', 'Av. 1ra #15-30, Cartagena', '1122334455', 'Camila Sánchez', '3123456789');
+insert into CAMINANTE_ENTITY (EXPERIENCIA_PREVIA, LESION, PROBLEMAS_RES, TRATAMIENTOS_MED, ID, CORREO, DIRECCION, DOCUMENTO, NOMBRE, TELEFONO) 
+values (true, true, false, true, 8, 'juan.castillo@mail.com', 'Calle 44 #32-15, Medellín', '9988776655', 'Juan Castillo', '3009876543');
+insert into CAMINANTE_ENTITY (EXPERIENCIA_PREVIA, LESION, PROBLEMAS_RES, TRATAMIENTOS_MED, ID, CORREO, DIRECCION, DOCUMENTO, NOMBRE, TELEFONO) 
+values (false, true, false, false, 9, 'isabela.mendoza@mail.com', 'Cra 7 #85-90, Bogotá', '5566778899', 'Isabela Mendoza', '3134567890');
+insert into CAMINANTE_ENTITY (EXPERIENCIA_PREVIA, LESION, PROBLEMAS_RES, TRATAMIENTOS_MED, ID, CORREO, DIRECCION, DOCUMENTO, NOMBRE, TELEFONO) 
+values (true, false, true, false, 10, 'andres.martinez@mail.com', 'Cra 70 #34-22, Cali', '6677889900', 'Andrés Martínez', '3045678901');
+insert into CAMINANTE_ENTITY (EXPERIENCIA_PREVIA, LESION, PROBLEMAS_RES, TRATAMIENTOS_MED, ID, CORREO, DIRECCION, DOCUMENTO, NOMBRE, TELEFONO) 
+values (true, false, false, false, 11, 'natalia.vega@mail.com', 'Calle 60 #13-75, Bucaramanga', '7788990011', 'Natalia Vega', '3112345678');
+insert into CAMINANTE_ENTITY (EXPERIENCIA_PREVIA, LESION, PROBLEMAS_RES, TRATAMIENTOS_MED, ID, CORREO, DIRECCION, DOCUMENTO, NOMBRE, TELEFONO) 
+values (true, true, true, true, 12, 'diego.murillo@mail.com', 'Cra 14 #40-55, Pereira', '8899001122', 'Diego Murillo', '3056789012');
+insert into CAMINANTE_ENTITY (EXPERIENCIA_PREVIA, LESION, PROBLEMAS_RES, TRATAMIENTOS_MED, ID, CORREO, DIRECCION, DOCUMENTO, NOMBRE, TELEFONO) 
+values (false, false, false, true, 13, 'manuel.torres@mail.com', 'Calle 45 #8-30, Neiva', '9900112233', 'Manuel Torres', '3167890123');
+insert into CAMINANTE_ENTITY (EXPERIENCIA_PREVIA, LESION, PROBLEMAS_RES, TRATAMIENTOS_MED, ID, CORREO, DIRECCION, DOCUMENTO, NOMBRE, TELEFONO) 
+values (true, false, true, false, 14, 'sofia.acosta@mail.com', 'Av. Caracas #18-45, Bogotá', '123123123', 'Sofía Acosta', '3101122334');
+insert into CAMINANTE_ENTITY (EXPERIENCIA_PREVIA, LESION, PROBLEMAS_RES, TRATAMIENTOS_MED, ID, CORREO, DIRECCION, DOCUMENTO, NOMBRE, TELEFONO) 
+values (false, false, false, true, 15, 'angela.reyes@mail.com', 'Cra 33 #55-10, Cúcuta', '321321321', 'Ángela Reyes', '3178901234');
+
 
 insert into PAGO_ENTITY (CUOTAS, VALOR_CAMINATA, VALOR_TOTAL, CAMINATA_ID, CAMINANTE_ID, EMPRESA_ID, FECHA_VENCIMIENTO, ID, CCV, NUMERO_TARJETA, NUMERO_TRANSACCION, PROPIETARIO) values (5, 81, 58, 1, 1, 1, '2024-03-23 14:49:32', 1, 'Rafaelia', 'Winna', 'Falkner', 'Georgianne');
 insert into PAGO_ENTITY (CUOTAS, VALOR_CAMINATA, VALOR_TOTAL, CAMINATA_ID, CAMINANTE_ID, EMPRESA_ID, FECHA_VENCIMIENTO, ID, CCV, NUMERO_TARJETA, NUMERO_TRANSACCION, PROPIETARIO) values (2, 68, 39, 2, 2, 2, '2024-04-05 07:36:47', 2, 'Blisse', 'Patrice', 'Lawton', 'Layton');
@@ -102,16 +118,36 @@ insert into SEGURO_ENTITY (id, numero, nombre, tipo, cobertura, condiciones, cos
 insert into SEGURO_ENTITY (id, numero, nombre, tipo, cobertura, condiciones, costo) values (8, 8, 'Seguro de Equipaje', 'Perdida de equipo', 'Reembolso por perdida o daño del equipo deportivo', 'Debe presentarse una denuncia en un maximo de 48 horas', 122000);
 insert into SEGURO_ENTITY (id, numero, nombre, tipo, cobertura, condiciones, costo) values (9, 9, 'Cobertura Legal', 'Responsabilidad Civil', 'Cubre daños a terceros durante la caminata', 'Solo aplica en caminatas organizadas por Caminatas Colombia', 304000);
 
-insert into BLOG_ENTITY (CAMINANTE_ID, ID, FOTO, TEXT, TITULO, VIDEO) values (1, 1, 'engage 24/7 systems', 'Flowdesk', 'Osmosis Jones', 'Montego');
-insert into BLOG_ENTITY (CAMINANTE_ID, ID, FOTO, TEXT, TITULO, VIDEO) values (2, 2, 'morph strategic users', 'Domainer', 'Gypsy', 'G');
-insert into BLOG_ENTITY (CAMINANTE_ID, ID, FOTO, TEXT, TITULO, VIDEO) values (3, 3, 'strategize intuitive paradigms', 'Trippledex', 'Candles on Bay Street ', 'M-Class');
-insert into BLOG_ENTITY (CAMINANTE_ID, ID, FOTO, TEXT, TITULO, VIDEO) values (4, 4, 'transform sticky systems', 'Bytecard', 'Casa de mi Padre', 'LX');
-insert into BLOG_ENTITY (CAMINANTE_ID, ID, FOTO, TEXT, TITULO, VIDEO) values (5, 5, 'cultivate sticky deliverables', 'Biodex', 'Return of the Pink Panther, The', 'Coachbuilder');
-insert into BLOG_ENTITY (CAMINANTE_ID, ID, FOTO, TEXT, TITULO, VIDEO) values (6, 6, 'unleash innovative e-services', 'Asoka', 'Cose da pazzi', 'M3');
-insert into BLOG_ENTITY (CAMINANTE_ID, ID, FOTO, TEXT, TITULO, VIDEO) values (7, 7, 'harness turn-key systems', 'Zathin', 'Short Film About Killing, A (Krótki film o zabijaniu)', 'H1');
-insert into BLOG_ENTITY (CAMINANTE_ID, ID, FOTO, TEXT, TITULO, VIDEO) values (8, 8, 'streamline strategic functionalities', 'Flowdesk', 'Hackers', 'Exige');
-insert into BLOG_ENTITY (CAMINANTE_ID, ID, FOTO, TEXT, TITULO, VIDEO) values (9, 9, 'leverage plug-and-play initiatives', 'Fintone', 'Art of Getting By, The', 'Montana');
-insert into BLOG_ENTITY (CAMINANTE_ID, ID, FOTO, TEXT, TITULO, VIDEO) values (10, 10, 'generate best-of-breed infrastructures', 'Konklab', 'Werner - Beinhart!', 'Truck');
+insert into BLOG_ENTITY (CAMINANTE_ID, ID, FOTO, TEXT, TITULO, VIDEO)
+values (1, 1, 'sendero_sol.jpg', 'Una caminata llena de luz y naturaleza entre las montañas de La Calera.', 'Sendero del Sol: Una experiencia iluminada', 'sendero_sol.mp4');
+insert into BLOG_ENTITY (CAMINANTE_ID, ID, FOTO, TEXT, TITULO, VIDEO)
+values (2, 2, 'aventura_rio.jpg', 'Remamos y nos dejamos llevar por la corriente de Guatapé en esta travesía acuática.', 'Aventura del Río: Fluyendo con el alma', 'aventura_rio.mp4');
+insert into BLOG_ENTITY (CAMINANTE_ID, ID, FOTO, TEXT, TITULO, VIDEO)
+values (3, 3, 'bosque_exploracion.jpg', 'Cada paso en el bosque fue un suspiro de vida silvestre y aire puro.', 'Exploración del Bosque: El corazón verde de Meta', 'exploracion_bosque.mp4');
+insert into BLOG_ENTITY (CAMINANTE_ID, ID, FOTO, TEXT, TITULO, VIDEO)
+values (4, 4, 'nevado_ruta.jpg', 'Superamos la nieve y el frío para alcanzar una de las vistas más impactantes.', 'Ruta del Nevado: Enfrentando el cielo', 'nevado_ruta.mp4');
+insert into BLOG_ENTITY (CAMINANTE_ID, ID, FOTO, TEXT, TITULO, VIDEO)
+values (5, 5, 'nocturna_noche.jpg', 'Una experiencia mágica bajo la luna en Villa de Leyva.', 'Caminata Nocturna: Bajo las estrellas', 'caminata_nocturna.mp4');
+insert into BLOG_ENTITY (CAMINANTE_ID, ID, FOTO, TEXT, TITULO, VIDEO)
+values (6, 6, 'sendero_viento.jpg', 'El viento soplaba fuerte, pero la emoción de la caminata nos empujaba adelante.', 'Sendero del Viento: Desafiando las alturas', 'sendero_viento.mp4');
+insert into BLOG_ENTITY (CAMINANTE_ID, ID, FOTO, TEXT, TITULO, VIDEO)
+values (7, 7, 'cima_andes.jpg', 'Una cima, mil emociones. El esfuerzo valió cada paso.', 'Cima de los Andes: Tocando el cielo', 'cima_andes.mp4');
+insert into BLOG_ENTITY (CAMINANTE_ID, ID, FOTO, TEXT, TITULO, VIDEO)
+values (8, 8, 'exploracion_cueva.jpg', 'Nos adentramos en las profundidades de la tierra, con linternas y curiosidad.', 'Exploración Subterránea: Misterios bajo tierra', 'cueva_exploracion.mp4');
+insert into BLOG_ENTITY (CAMINANTE_ID, ID, FOTO, TEXT, TITULO, VIDEO)
+values (9, 9, 'aventura_volcan.jpg', 'Subimos por senderos volcánicos para ver el cráter desde lo alto.', 'Aventura del Volcán: El rugido de la tierra', 'volcan_aventura.mp4');
+insert into BLOG_ENTITY (CAMINANTE_ID, ID, FOTO, TEXT, TITULO, VIDEO)
+values (10, 10, 'lago_caminata.jpg', 'La serenidad del lago y el canto de las aves acompañaron nuestra caminata.', 'Caminata del Lago: Reflejos del alma', 'lago_caminata.mp4');
+insert into BLOG_ENTITY (CAMINANTE_ID, ID, FOTO, TEXT, TITULO, VIDEO)
+values (11, 11, 'parques_aventura.jpg', 'Entre árboles y juegos, disfrutamos de un día lleno de alegría.', 'Aventura de los Parques: Naturaleza urbana', 'aventura_parques.mp4');
+insert into BLOG_ENTITY (CAMINANTE_ID, ID, FOTO, TEXT, TITULO, VIDEO)
+values (12, 12, 'rio_grande.jpg', 'Cruzamos puentes y saltamos rocas en esta caminata fluvial.', 'Sendero del Río Grande: Energía en movimiento', 'rio_grande.mp4');
+insert into BLOG_ENTITY (CAMINANTE_ID, ID, FOTO, TEXT, TITULO, VIDEO)
+values (13, 13, 'ruta_sol.jpg', 'Un camino dorado por la cordillera que nos llenó de fuerza.', 'Ruta del Sol: Caminando con la luz', 'ruta_sol.mp4');
+insert into BLOG_ENTITY (CAMINANTE_ID, ID, FOTO, TEXT, TITULO, VIDEO)
+values (14, 14, 'desierto_exploracion.jpg', 'Arena y calor fueron los compañeros en esta travesía única.', 'Exploración del Desierto: El eco del silencio', 'desierto_exploracion.mp4');
+insert into BLOG_ENTITY (CAMINANTE_ID, ID, FOTO, TEXT, TITULO, VIDEO)
+values (15, 15, 'noche_estrellada.jpg', 'Cada estrella fue una guía en nuestro recorrido nocturno en Fómeque.', 'Caminata de la Noche Estrellada: Cielo abierto', 'noche_estrellada.mp4');
 
 INSERT INTO PATROCINADOR_ENTITY (id, nombre, documento, correo, telefono) VALUES (1,  'Juan Pérez',        '1001234567', 'juan.perez@gmail.com',       '310-123-4567');
 INSERT INTO PATROCINADOR_ENTITY (id, nombre, documento, correo, telefono) VALUES (2,  'María Rodríguez',   '1002345678', 'maria.rodriguez@yahoo.com',  '311-234-5678');
