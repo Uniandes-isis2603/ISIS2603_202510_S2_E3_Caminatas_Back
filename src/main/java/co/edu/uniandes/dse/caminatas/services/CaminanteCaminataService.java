@@ -71,7 +71,7 @@ public class CaminanteCaminataService {
         }
         
         if (!caminante.get().getCaminatas().contains(caminata.get())) {
-            throw new IllegalOperationException("La caminata con id = " + caminataId + " no está asociada al caminante con id = " + caminanteId);
+            throw new IllegalOperationException(MENSAJE_3 + caminataId + " no está asociada al caminante con id = " + caminanteId);
         }
         
         log.info("Termina proceso de obtener una caminata del caminante con id = {}", caminanteId);
