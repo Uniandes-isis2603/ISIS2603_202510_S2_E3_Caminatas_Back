@@ -21,7 +21,7 @@ public class CaminanteBlogCrearService {
 
     private static final String MENSAJE_1 = "El caminante con id = ";
     private static final String MENSAJE_2 = " no existe.";
-    private static final String MENSAJE_3 = "El blog con id... = ";
+    private static final String MENSAJE_3 = "El blog con id = ";
 
     @Autowired
     private BlogRepository blogRepository;
