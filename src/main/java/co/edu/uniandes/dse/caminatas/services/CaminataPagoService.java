@@ -19,6 +19,10 @@ import lombok.extern.slf4j.Slf4j;
 @Service
 public class CaminataPagoService 
 {
+    private static final String MENSAJE_1 = "La caminata con id = ";
+    private static final String MENSAJE_2 = " no existe.";
+    private static final String MENSAJE_3 = "El pago con id = ";
+
     @Autowired
     private CaminataRepository caminataRepository;
 
@@ -37,10 +41,10 @@ public class CaminataPagoService
         Optional<PagoEntity> pago = pagoRepository.findById(pagoId);
         
         if (caminata.isEmpty()) {
-            throw new EntityNotFoundException("La caminata con id = " + caminataId + " no existe.");
+            throw new EntityNotFoundException(MENSAJE_1 + caminataId + MENSAJE_2);
         }
         if (pago.isEmpty()) {
-            throw new EntityNotFoundException("El pago con id = " + pagoId + " no existe.");
+            throw new EntityNotFoundException(MENSAJE_3 + pagoId + MENSAJE_2);
         }
         
         caminata.get().getPagos().add(pago.get());
@@ -59,7 +63,7 @@ public class CaminataPagoService
         Optional<CaminataEntity> caminata = caminataRepository.findById(caminataId);
         if (caminata.isEmpty())
         {
-            throw new EntityNotFoundException("La caminata con id = " + caminataId + " no existe.");
+            throw new EntityNotFoundException(MENSAJE_1 + caminataId + MENSAJE_2);
         }
         log.info("Termina proceso de obtener los pagos de la caminata con id = {0}", caminataId);
         return caminata.get().getPagos();
@@ -75,15 +79,15 @@ public class CaminataPagoService
         Optional<CaminataEntity> caminata = caminataRepository.findById(caminataId);
         if (caminata.isEmpty())
         {
-            throw new EntityNotFoundException("La caminata con id = " + caminataId + " no existe.");
+            throw new EntityNotFoundException(MENSAJE_1 + caminataId + MENSAJE_2);
         }
         Optional<PagoEntity> pago = pagoRepository.findById(pagoId);
         if (pago.isEmpty())
         {
-            throw new EntityNotFoundException("El pago con id = " + pagoId + " no existe.");
+            throw new EntityNotFoundException(MENSAJE_3 + pagoId + MENSAJE_2);
         }
         if (!caminata.get().getPagos().contains(pago.get())) {
-            throw new IllegalOperationException("El pago con id = " + pagoId + " no está asociado a la caminata con id = " + caminataId);
+            throw new IllegalOperationException(MENSAJE_3 + pagoId + " no está asociado a la caminata con id = " + caminataId);
         }
         log.info("Termina proceso de obtener un pago de la caminata con id = {0}", caminataId);
         return pago.get();

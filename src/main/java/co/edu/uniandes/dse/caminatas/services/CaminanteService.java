@@ -17,6 +17,8 @@ import lombok.extern.slf4j.Slf4j;
 @Service
 public class CaminanteService {
 
+    private static final String MENSAJE_1 = "No se encontró el caminante con el id = ";
+
     @Autowired
     private CaminanteRepository caminanteRepository;
 
@@ -44,7 +46,8 @@ public class CaminanteService {
             caminanteEntity = Optional.empty();
         } else {
             caminanteEntity = Optional.of(caminanteEntityList.get(0));
-        }        if (caminanteEntity.isPresent()) {
+        }        
+        if (caminanteEntity.isPresent()) {
             throw new IllegalOperationException("El documento ya existe.");
         }        
         CaminanteEntity nuevoCaminante = caminanteRepository.save(caminante);
@@ -77,7 +80,7 @@ public class CaminanteService {
         log.info("Inicia proceso de consultar el caminante con id = {}", caminanteId);
         Optional<CaminanteEntity> caminanteEntity = caminanteRepository.findById(caminanteId);
         if (caminanteEntity.isEmpty()) {
-            throw new EntityNotFoundException("No se encontró el caminante con el id = " + caminanteId);
+            throw new EntityNotFoundException(MENSAJE_1 + caminanteId);
         }
         log.info("Termina proceso de consultar el caminante con id = {}", caminanteId);
         return caminanteEntity.get();
@@ -97,7 +100,7 @@ public class CaminanteService {
         log.info("Inicia proceso de actualizar el caminante con id = {}", caminanteId);
         Optional<CaminanteEntity> caminanteEntity = caminanteRepository.findById(caminanteId);
         if (caminanteEntity.isEmpty()) {
-            throw new EntityNotFoundException("No se encontró el caminante con el id = " + caminanteId);
+            throw new EntityNotFoundException(MENSAJE_1 + caminanteId);
         }
         
         // Se verifica que no exista otro caminante con el mismo documento
@@ -109,7 +112,8 @@ public class CaminanteService {
                 otroCaminante = Optional.empty();
             } else {
                 otroCaminante = Optional.of(otroCaminanteList.get(0));
-            }            if (otroCaminante.isPresent()) {
+            }            
+            if (otroCaminante.isPresent()) {
                 throw new IllegalOperationException("El documento ya existe.");
             }
         }
@@ -139,7 +143,7 @@ public class CaminanteService {
         log.info("Inicia proceso de borrar el caminante con id = {}", caminanteId);
         Optional<CaminanteEntity> caminanteEntity = caminanteRepository.findById(caminanteId);
         if (caminanteEntity.isEmpty()) {
-            throw new EntityNotFoundException("No se encontró el caminante con el id = " + caminanteId);
+            throw new EntityNotFoundException(MENSAJE_1 + caminanteId);
         }
         caminanteRepository.deleteById(caminanteId);
         log.info("Termina proceso de borrar el caminante con id = {}", caminanteId);

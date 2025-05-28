@@ -20,6 +20,8 @@ import lombok.extern.slf4j.Slf4j;
 @Service
 public class CaminantePagoService 
 {
+    private static final String MENSAJE_1 = "El caminante no existe.";
+
     @Autowired
     private CaminanteRepository caminanteRepository;
 
@@ -38,16 +40,13 @@ public class CaminantePagoService
 
         if(caminante.isEmpty())
         {
-            
-            throw new EntityNotFoundException("El caminante no existe.");
+            throw new EntityNotFoundException(MENSAJE_1);
         }
 
         if(pago.isEmpty())
         {
-            
             throw new EntityNotFoundException("Pago invalido.");
         }
-
 
         caminante.get().getPagos().add(pago.get());
         log.info("Agregando pago al usuario.");
@@ -65,7 +64,7 @@ public class CaminantePagoService
 
         if(caminante.isEmpty())
         {
-            throw new EntityNotFoundException("El caminante no existe.");
+            throw new EntityNotFoundException(MENSAJE_1);
         }
         if(caminante.get().getPagos().isEmpty())
         {
@@ -87,7 +86,7 @@ public class CaminantePagoService
 
         if(caminante.isEmpty())
         {
-            throw new EntityNotFoundException("El caminante no existe.");
+            throw new EntityNotFoundException(MENSAJE_1);
         }
 
         Optional<PagoEntity> pago = pagoRepository.findById(pagoId);

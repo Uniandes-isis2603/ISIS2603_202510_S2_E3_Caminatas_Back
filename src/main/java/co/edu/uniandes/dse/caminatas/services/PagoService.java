@@ -20,7 +20,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class PagoService 
 {
-    List<PagoEntity> pagos = new ArrayList<PagoEntity>();
+    List<PagoEntity> pagos1 = new ArrayList<PagoEntity>();
 
     @Autowired
 	PagoRepository pagoRepository;

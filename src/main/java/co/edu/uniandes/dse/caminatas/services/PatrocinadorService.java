@@ -13,11 +13,11 @@ import co.edu.uniandes.dse.caminatas.exceptions.IllegalOperationException;
 import co.edu.uniandes.dse.caminatas.repositories.PatrocinadorRepository;
 import lombok.extern.slf4j.Slf4j;
 
-
-
 @Slf4j
 @Service
 public class PatrocinadorService {
+
+    private static final String MENSAJE_1 = "No se encontró el patrocinador con el id = ";
 
     @Autowired
     private PatrocinadorRepository patrocinadorRepository;
@@ -25,17 +25,7 @@ public class PatrocinadorService {
     @Transactional
     public PatrocinadorEntity createPatrocinador(PatrocinadorEntity patrocinador) throws IllegalOperationException {
         log.info("Inicia proceso de creación del patrocinador");
-        validatePatrocinador(patrocinador);
-        List<PatrocinadorEntity> patrocinadorEntityList = patrocinadorRepository.findByDocumento(patrocinador.getDocumento());
-        Optional<PatrocinadorEntity> patrocinadorEntity;
-        if (patrocinadorEntityList.isEmpty()) {
-            patrocinadorEntity = Optional.empty();
-        } else {
-            patrocinadorEntity = Optional.of(patrocinadorEntityList.get(0));
-        }        
-        /**if (patrocinadorEntity.isPresent()) {
-            throw new IllegalOperationException("El documento ya existe.");
-        }   */
+        validatePatrocinador(patrocinador);              
         PatrocinadorEntity nuevoPatrocinador = patrocinadorRepository.save(patrocinador);
         log.info("Termina proceso de creación del patrocinador con id = {}", nuevoPatrocinador.getId());
         return nuevoPatrocinador;
@@ -54,7 +44,7 @@ public class PatrocinadorService {
         log.info("Inicia proceso de consultar el patrocinador con id = {}", id);
         Optional<PatrocinadorEntity> patrocinadorEntity = patrocinadorRepository.findById(id);
         if (patrocinadorEntity.isEmpty()) {
-            throw new EntityNotFoundException("No se encontró el patrocinador con el id = " + id);
+            throw new EntityNotFoundException(MENSAJE_1 + id);
         }
         log.info("Termina proceso de consultar el patrocinador con id = {}", id);
         return patrocinadorEntity.get();
@@ -65,7 +55,7 @@ public class PatrocinadorService {
         log.info("Inicia proceso de actualizar el patrocinador con id = {}", id);
         Optional<PatrocinadorEntity> patrocinadorEntity = patrocinadorRepository.findById(id);
         if (patrocinadorEntity.isEmpty()) {
-            throw new EntityNotFoundException("No se encontró el patrocinador con el id = " + id);
+            throw new EntityNotFoundException(MENSAJE_1 + id);
         }
         validatePatrocinador(patrocinador);
         PatrocinadorEntity patrocinadorActualizado = patrocinadorEntity.get();
@@ -83,7 +73,7 @@ public class PatrocinadorService {
         log.info("Inicia proceso de borrar el patrocinador con id = {}", id);
         Optional<PatrocinadorEntity> patrocinadorEntity = patrocinadorRepository.findById(id);
         if (patrocinadorEntity.isEmpty()) {
-            throw new EntityNotFoundException("No se encontró el patrocinador con el id = " + id);
+            throw new EntityNotFoundException(MENSAJE_1 + id);
         }
         patrocinadorRepository.deleteById(id);
         log.info("Termina proceso de borrar el patrocinador con id = {}", id);

@@ -19,6 +19,10 @@ import lombok.extern.slf4j.Slf4j;
 @Service
 public class CaminanteBlogCrearService {
 
+    private static final String MENSAJE_1 = "El caminante con id = ";
+    private static final String MENSAJE_2 = " no existe.";
+    private static final String MENSAJE_3 = "El blog con id... = ";
+
     @Autowired
     private BlogRepository blogRepository;
 
@@ -32,10 +36,10 @@ public class CaminanteBlogCrearService {
         Optional<BlogEntity> blogEntity = blogRepository.findById(blogId);
 
         if (caminanteEntity.isEmpty())
-            throw new EntityNotFoundException("El caminante con id = " + caminanteId + " no existe.");
+            throw new EntityNotFoundException(MENSAJE_1 + caminanteId + MENSAJE_2);
 
         if (blogEntity.isEmpty())
-            throw new EntityNotFoundException("El blog con id = " + blogId + " no existe.");
+            throw new EntityNotFoundException(MENSAJE_3 + blogId + MENSAJE_2);
 
         blogEntity.get().setCaminante(caminanteEntity.get());
         log.info("Termina proceso de asociar un blog al caminante con id = {}", caminanteId);
@@ -47,7 +51,7 @@ public class CaminanteBlogCrearService {
         log.info("Inicia proceso de consultar todos los blogs del caminante con id = {}", caminanteId);
         Optional<CaminanteEntity> caminanteEntity = caminanteRepository.findById(caminanteId);
         if (caminanteEntity.isEmpty())
-            throw new EntityNotFoundException("El caminante con id = " + caminanteId + " no existe.");
+            throw new EntityNotFoundException(MENSAJE_1 + caminanteId + MENSAJE_2);
 
         log.info("Termina proceso de consultar todos los blogs del caminante con id = {}", caminanteId);
         return caminanteEntity.get().getBlogsCreados();
@@ -60,10 +64,10 @@ public class CaminanteBlogCrearService {
         Optional<BlogEntity> blogEntity = blogRepository.findById(blogId);
 
         if (caminanteEntity.isEmpty())
-        throw new EntityNotFoundException("El caminante con id = " + caminanteId + " no existe.");
+            throw new EntityNotFoundException(MENSAJE_1 + caminanteId + MENSAJE_2);
 
         if (blogEntity.isEmpty())
-            throw new EntityNotFoundException("El blog con id = " + blogId + " no existe.");
+            throw new EntityNotFoundException(MENSAJE_3 + blogId + MENSAJE_2);
 
         if (!blogEntity.get().getCaminante().equals(caminanteEntity.get()))
             throw new IllegalOperationException("El blog no está asociado al caminante");
@@ -77,12 +81,12 @@ public class CaminanteBlogCrearService {
         log.info("Inicia proceso de reemplazar los blogs asociados al caminante con id = {}", caminanteId);
         Optional<CaminanteEntity> caminanteEntity = caminanteRepository.findById(caminanteId);
         if (caminanteEntity.isEmpty())
-            throw new EntityNotFoundException("El caminante con id = " + caminanteId + " no existe.");
+            throw new EntityNotFoundException(MENSAJE_1 + caminanteId + MENSAJE_2);
 
         for (BlogEntity blog : blogs) {
             Optional<BlogEntity> blogEntity = blogRepository.findById(blog.getId());
             if (blogEntity.isEmpty())
-                throw new EntityNotFoundException("El blog con id = " + blog.getId() + " no existe.");
+                throw new EntityNotFoundException(MENSAJE_3 + blog.getId() + MENSAJE_2);
         }
 
         caminanteEntity.get().setBlogsCreados(blogs);
@@ -95,12 +99,12 @@ public class CaminanteBlogCrearService {
         log.info("Inicia proceso de actualizar el caminante con id = {}", caminanteId);
         Optional<CaminanteEntity> caminanteEntity = caminanteRepository.findById(caminanteId);
         if (caminanteEntity.isEmpty())
-            throw new EntityNotFoundException("El caminante con id = " + caminanteId + " no existe.");
+            throw new EntityNotFoundException(MENSAJE_1 + caminanteId + MENSAJE_2);
 
         for (BlogEntity blog : blogs) {
             Optional<BlogEntity> b = blogRepository.findById(blog.getId());
             if (b.isEmpty())
-                throw new EntityNotFoundException("El blog con id = " + blog.getId() + " no existe.");
+                throw new EntityNotFoundException(MENSAJE_3 + blog.getId() + MENSAJE_2);
 
             b.get().setCaminante(caminanteEntity.get());
         }
@@ -114,10 +118,10 @@ public class CaminanteBlogCrearService {
         Optional<BlogEntity> blogEntity = blogRepository.findById(blogId);
 
         if (caminanteEntity.isEmpty())
-            throw new EntityNotFoundException("El caminante con id = " + caminanteId + " no existe.");
+            throw new EntityNotFoundException(MENSAJE_1 + caminanteId + MENSAJE_2);
 
         if (blogEntity.isEmpty())
-        throw new EntityNotFoundException("El blog con id = " + blogId + " no existe.");
+            throw new EntityNotFoundException(MENSAJE_3 + blogId + MENSAJE_2);
 
         blogEntity.get().setCaminante(null);
         caminanteEntity.get().getBlogsCreados().remove(blogEntity.get());

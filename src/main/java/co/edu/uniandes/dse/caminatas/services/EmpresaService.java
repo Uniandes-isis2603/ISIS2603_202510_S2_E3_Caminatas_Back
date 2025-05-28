@@ -17,6 +17,8 @@ import lombok.extern.slf4j.Slf4j;
 @Service
 public class EmpresaService {
 
+    private static final String MENSAJE_1 = "No se encontró la empresa con el id = ";
+
     @Autowired
     private EmpresaRepository empresaRepository;
 
@@ -29,7 +31,7 @@ public class EmpresaService {
      * - El correo es obligatorio y debe tener un formato válido.
      *
      * @param empresa la entidad con los datos nuevos.
-     * @return la entidad Empresa creada.
+     * @return la entidad Empresa creado.
      * @throws IllegalOperationException si se incumple alguna regla de negocio.
      */
     @Transactional
@@ -79,7 +81,7 @@ public class EmpresaService {
         log.info("Inicia proceso de consultar la empresa con id = {}", empresaId);
         Optional<EmpresaEntity> empresaEntity = empresaRepository.findById(empresaId);
         if (empresaEntity.isEmpty()) {
-            throw new EntityNotFoundException("No se encontró la empresa con el id = " + empresaId);
+            throw new EntityNotFoundException(MENSAJE_1 + empresaId);
         }
         log.info("Termina proceso de consultar la empresa con id = {}", empresaId);
         return empresaEntity.get();
@@ -99,7 +101,7 @@ public class EmpresaService {
         log.info("Inicia proceso de actualizar la empresa con id = {}", empresaId);
         Optional<EmpresaEntity> empresaEntity = empresaRepository.findById(empresaId);
         if (empresaEntity.isEmpty()) {
-            throw new EntityNotFoundException("No se encontró la empresa con el id = " + empresaId);
+            throw new EntityNotFoundException(MENSAJE_1 + empresaId);
         }
         
         // Se verifica que no exista otra empresa con el mismo documento
@@ -140,7 +142,7 @@ public class EmpresaService {
         log.info("Inicia proceso de borrar la empresa con id = {}", empresaId);
         Optional<EmpresaEntity> empresaEntity = empresaRepository.findById(empresaId);
         if (empresaEntity.isEmpty()) {
-            throw new EntityNotFoundException("No se encontró la empresa con el id = " + empresaId);
+            throw new EntityNotFoundException(MENSAJE_1 + empresaId);
         }
         empresaRepository.deleteById(empresaId);
         log.info("Termina proceso de borrar la empresa con id = {}", empresaId);

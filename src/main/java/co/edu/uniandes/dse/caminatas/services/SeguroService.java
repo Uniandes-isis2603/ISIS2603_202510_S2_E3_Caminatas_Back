@@ -19,6 +19,8 @@ import lombok.extern.slf4j.Slf4j;
 @Service
 public class SeguroService { 
 
+    private static final String MENSAJE_1 = "No se encontró el seguro con el id = ";
+
     @Autowired
     SeguroRepository seguroRepository;
 
@@ -71,7 +73,7 @@ public class SeguroService {
         log.info("Inicia el proceso de actualización de un seguro con id = {0}", seguroId);
         Optional<SeguroEntity> seguroEntity = seguroRepository.findById(seguroId);
         if (seguroEntity.isEmpty()) {
-            throw new EntityNotFoundException("No se encontró el seguro con el id = " + seguroId);
+            throw new EntityNotFoundException(MENSAJE_1 + seguroId);
         }
 
         if(entity.getNombre() == null || entity.getNombre().isEmpty()) {
@@ -81,7 +83,6 @@ public class SeguroService {
         if(entity.getTipo() == null || entity.getTipo().isEmpty()) {
             throw new IllegalOperationException("El tipo del seguro no puede ser nulo o vacío.");
         }
-
 
         entity.setId(seguroId);
         SeguroEntity updatedEntity = seguroRepository.save(entity);
@@ -94,7 +95,7 @@ public class SeguroService {
         log.info("Inicia el proceso de eliminación de un seguro con id = {0}", id);
         Optional<SeguroEntity> seguroEntity = seguroRepository.findById(id);
         if (seguroEntity.isEmpty()) {
-            throw new EntityNotFoundException("No se encontró el seguro con el id = " + id);
+            throw new EntityNotFoundException(MENSAJE_1 + id);
         }
         seguroRepository.deleteById(id);
         log.info("Finaliza el proceso de eliminación de un seguro con id = {0}", id);
@@ -105,7 +106,7 @@ public class SeguroService {
         log.info("Inicia proceso de consultar el seguro con id = {0}", seguroId);
         Optional<SeguroEntity> seguroEntity = seguroRepository.findById(seguroId);
         if (seguroEntity.isEmpty()) {
-            throw new EntityNotFoundException("No se encontró el seguro con el id = " + seguroId);
+            throw new EntityNotFoundException(MENSAJE_1 + seguroId);
         }
         log.info("Termina proceso de consultar el seguro con id = {0}", seguroId);
         return seguroEntity.get();

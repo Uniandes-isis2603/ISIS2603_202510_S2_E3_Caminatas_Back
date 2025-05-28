@@ -19,6 +19,10 @@ import lombok.extern.slf4j.Slf4j;
 @Service
 public class CaminanteCaminataService {
 
+    private static final String MENSAJE_1 = "El caminante con id = ";
+    private static final String MENSAJE_2 = " no existe.";
+    private static final String MENSAJE_3 = "La caminata con id = ";
+
     @Autowired
     private CaminanteRepository caminanteRepository;
 
@@ -32,10 +36,10 @@ public class CaminanteCaminataService {
         Optional<CaminataEntity> caminata = caminataRepository.findById(caminataId);
         
         if (caminante.isEmpty()) {
-            throw new EntityNotFoundException("El caminante con id = " + caminanteId + " no existe.");
+            throw new EntityNotFoundException(MENSAJE_1 + caminanteId + MENSAJE_2);
         }
         if (caminata.isEmpty()) {
-            throw new EntityNotFoundException("La caminata con id = " + caminataId + " no existe.");
+            throw new EntityNotFoundException(MENSAJE_3 + caminataId + MENSAJE_2);
         }
         
         caminante.get().getCaminatas().add(caminata.get());
@@ -48,7 +52,7 @@ public class CaminanteCaminataService {
         log.info("Inicia proceso de obtener las caminatas del caminante con id = {}", caminanteId);
         Optional<CaminanteEntity> caminante = caminanteRepository.findById(caminanteId);
         if (caminante.isEmpty()) {
-            throw new EntityNotFoundException("El caminante con id = " + caminanteId + " no existe.");
+            throw new EntityNotFoundException(MENSAJE_1 + caminanteId + MENSAJE_2);
         }
         log.info("Termina proceso de obtener las caminatas del caminante con id = {}", caminanteId);
         return caminante.get().getCaminatas();
@@ -59,11 +63,11 @@ public class CaminanteCaminataService {
         log.info("Inicia proceso de obtener una caminata del caminante con id = {}", caminanteId);
         Optional<CaminanteEntity> caminante = caminanteRepository.findById(caminanteId);
         if (caminante.isEmpty()) {
-            throw new EntityNotFoundException("El caminante con id = " + caminanteId + " no existe.");
+            throw new EntityNotFoundException(MENSAJE_1 + caminanteId + MENSAJE_2);
         }
         Optional<CaminataEntity> caminata = caminataRepository.findById(caminataId);
         if (caminata.isEmpty()) {
-            throw new EntityNotFoundException("La caminata con id = " + caminataId + " no existe.");
+            throw new EntityNotFoundException(MENSAJE_3 + caminataId + MENSAJE_2);
         }
         
         if (!caminante.get().getCaminatas().contains(caminata.get())) {
@@ -79,14 +83,14 @@ public class CaminanteCaminataService {
         log.info("Inicia proceso de reemplazar las caminatas del caminante con id = {}", caminanteId);
         Optional<CaminanteEntity> caminante = caminanteRepository.findById(caminanteId);
         if (caminante.isEmpty()) {
-            throw new EntityNotFoundException("El caminante con id = " + caminanteId + " no existe.");
+            throw new EntityNotFoundException(MENSAJE_1 + caminanteId + MENSAJE_2);
         }
         
         caminante.get().getCaminatas().clear();
         for (CaminataEntity caminata : caminatas) {
             Optional<CaminataEntity> caminataEntity = caminataRepository.findById(caminata.getId());
             if (caminataEntity.isEmpty()) {
-                throw new EntityNotFoundException("La caminata con id = " + caminata.getId() + " no existe.");
+                throw new EntityNotFoundException(MENSAJE_3 + caminata.getId() + MENSAJE_2);
             }
             caminante.get().getCaminatas().add(caminataEntity.get());
         }
@@ -100,11 +104,11 @@ public class CaminanteCaminataService {
         log.info("Inicia proceso de eliminar una caminata del caminante con id = {}", caminanteId);
         Optional<CaminanteEntity> caminante = caminanteRepository.findById(caminanteId);
         if (caminante.isEmpty()) {
-            throw new EntityNotFoundException("El caminante con id = " + caminanteId + " no existe.");
+            throw new EntityNotFoundException(MENSAJE_1 + caminanteId + MENSAJE_2);
         }
         Optional<CaminataEntity> caminata = caminataRepository.findById(caminataId);
         if (caminata.isEmpty()) {
-            throw new EntityNotFoundException("La caminata con id = " + caminataId + " no existe.");
+            throw new EntityNotFoundException(MENSAJE_3 + caminataId + MENSAJE_2);
         }
         
         caminante.get().getCaminatas().remove(caminata.get());

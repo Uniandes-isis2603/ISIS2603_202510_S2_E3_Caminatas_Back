@@ -18,6 +18,10 @@ import lombok.extern.slf4j.Slf4j;
 @Service
 public class CaminataSeguroService 
 {
+    private static final String MENSAJE_1 = "La caminata con id = ";
+    private static final String MENSAJE_2 = " no existe.";
+    private static final String MENSAJE_3 = "El seguro con id = ";
+
     @Autowired
     private CaminataRepository caminataRepository;
 
@@ -35,11 +39,11 @@ public class CaminataSeguroService
         Optional<SeguroEntity> seguro = seguroRepository.findById(seguroId);
         if (caminata.isEmpty())
         {
-            throw new EntityNotFoundException("La caminata con id = " + caminataId + " no existe.");
+            throw new EntityNotFoundException(MENSAJE_1 + caminataId + MENSAJE_2);
         }
         if(seguro.isEmpty())
         {
-            throw new EntityNotFoundException("El seguro con id = " + seguroId + " no existe.");
+            throw new EntityNotFoundException(MENSAJE_3 + seguroId + MENSAJE_2);
         }
         caminata.get().getSeguro();
         log.info("Termina proceso de agregar un seguro a la caminata con id = {}", caminataId);
@@ -53,12 +57,12 @@ public class CaminataSeguroService
         Optional<CaminataEntity> caminata = caminataRepository.findById(caminataId);
         if (caminata.isEmpty())
         {
-            throw new EntityNotFoundException("La caminata con id = " + caminataId + " no existe.");
+            throw new EntityNotFoundException(MENSAJE_1 + caminataId + MENSAJE_2);
         }
         Optional<SeguroEntity> seguro = seguroRepository.findById(seguroId);
         if(seguro.isEmpty())
         {
-            throw new EntityNotFoundException("El seguro con id = " + seguroId + " no existe.");
+            throw new EntityNotFoundException(MENSAJE_3 + seguroId + MENSAJE_2);
         }
         log.info("Termina proceso de obtener un seguro de la caminata con id = {}", caminataId);
         return seguro.get();
@@ -74,12 +78,12 @@ public class CaminataSeguroService
         Optional<CaminataEntity> caminata = caminataRepository.findById(caminataId);
         if (caminata.isEmpty())
         {
-            throw new EntityNotFoundException("La caminata con id = " + caminataId + " no existe.");
+            throw new EntityNotFoundException(MENSAJE_1 + caminataId + MENSAJE_2);
         }
         Optional<SeguroEntity> seguro = seguroRepository.findById(seguroId);
         if(seguro.isEmpty())
         {
-            throw new EntityNotFoundException("El seguro con id = " + seguroId + " no existe.");
+            throw new EntityNotFoundException(MENSAJE_3 + seguroId + MENSAJE_2);
         }
         seguroRepository.deleteById(seguroId);
         log.info("Termina proceso de eliminar un seguro de la caminata con id = {}", caminataId);  

@@ -43,9 +43,6 @@ public class PagoEntity extends BaseEntity
     @ManyToOne
     private CaminanteEntity caminante;
 
-    //@OneToMany(mappedBy = "pago", cascade = CascadeType.PERSIST, orphanRemoval = true)
-    //private List<SeguroEntity> seguros = new ArrayList<>();
-
     @PodamExclude
     @ManyToOne
     private CaminataEntity caminata;

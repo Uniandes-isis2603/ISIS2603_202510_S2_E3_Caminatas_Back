@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import co.edu.uniandes.dse.caminatas.entities.CaminataEntity;
-import co.edu.uniandes.dse.caminatas.entities.PagoEntity;
 import co.edu.uniandes.dse.caminatas.exceptions.EntityNotFoundException;
 import co.edu.uniandes.dse.caminatas.exceptions.IllegalOperationException;
 import co.edu.uniandes.dse.caminatas.repositories.CaminataRepository;
@@ -20,6 +19,8 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Service
 public class CaminataService {
+
+    private static final String MENSAJE_1 = "No se encontró la caminata con el id = ";
 
     @Autowired
     CaminataRepository caminataRepository;
@@ -76,7 +77,7 @@ public class CaminataService {
         log.info("Inicia proceso de consultar la caminata con id = {0}", caminataId);
         Optional<CaminataEntity> caminata = caminataRepository.findById(caminataId);
         if (caminata.isEmpty()) {
-            throw new EntityNotFoundException("No se encontró la caminata con el id = " + caminataId);
+            throw new EntityNotFoundException(MENSAJE_1 + caminataId);
         }
         log.info("Termina proceso de consultar la caminata con id = {0}", caminataId);
         return caminata.get();
@@ -90,7 +91,7 @@ public class CaminataService {
         log.info("Inicia proceso de actualizar la caminata con id = {0}", caminataId);
         Optional<CaminataEntity> caminataEntity = caminataRepository.findById(caminataId);
         if (caminataEntity.isEmpty()) {
-            throw new EntityNotFoundException("No se encontró la caminata con el id = " + caminataId);
+            throw new EntityNotFoundException(MENSAJE_1 + caminataId);
         }
 
         if(caminata.getTitulo() == null || caminata.getTitulo().isEmpty())
@@ -131,16 +132,16 @@ public class CaminataService {
         return caminataRepository.save(caminata);
     }
 
-        /**
-        * Elimina una caminata por ID
-          * @throws IllegalOperationException 
-          */
-         @Transactional
-         public void deleteCaminata(Long caminataId) throws EntityNotFoundException, IllegalOperationException {
+    /**
+     * Elimina una caminata por ID
+     * @throws IllegalOperationException 
+     */
+    @Transactional
+    public void deleteCaminata(Long caminataId) throws EntityNotFoundException, IllegalOperationException {
         log.info("Inicia proceso de borrar la caminata con id = {0}", caminataId);
         Optional<CaminataEntity> caminata = caminataRepository.findById(caminataId);
         if (caminata.isEmpty()) {
-            throw new EntityNotFoundException("No se encontró la caminata con el id = " + caminataId);
+            throw new EntityNotFoundException(MENSAJE_1 + caminataId);
         }
 
         /**List<PagoEntity> pagos = caminata.get().getPagos();

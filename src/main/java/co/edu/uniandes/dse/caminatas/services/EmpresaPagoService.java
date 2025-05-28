@@ -19,7 +19,10 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Service
 public class EmpresaPagoService {
-    
+
+    private static final String MENSAJE_1 = "No se encontró la empresa con el id = ";
+    private static final String MENSAJE_2 = "No se encontró el pago con el id = ";
+
     @Autowired
     private EmpresaRepository empresaRepository;
 
@@ -38,27 +41,27 @@ public class EmpresaPagoService {
     @Transactional
     public PagoEntity addPagoToEmpresa(Long empresaId, Long pagoId) throws EntityNotFoundException, IllegalOperationException {
         log.info("Inicia proceso de asociar el pago con id = {} a la empresa con id = {}", pagoId, empresaId);
-        
+
         Optional<EmpresaEntity> empresaEntity = empresaRepository.findById(empresaId);
         if (empresaEntity.isEmpty()) {
-            throw new EntityNotFoundException("No se encontró la empresa con el id = " + empresaId);
+            throw new EntityNotFoundException(MENSAJE_1 + empresaId);
         }
-        
+
         Optional<PagoEntity> pagoEntity = pagoRepository.findById(pagoId);
         if (pagoEntity.isEmpty()) {
-            throw new EntityNotFoundException("No se encontró el pago con el id = " + pagoId);
+            throw new EntityNotFoundException(MENSAJE_2 + pagoId);
         }
-        
+
         PagoEntity pago = pagoEntity.get();
-        
+
         // Verificar que el pago no esté asociado a un caminante
         if (pago.getCaminante() != null) {
             throw new IllegalOperationException("El pago ya está asociado a un caminante");
         }
-        
+
         pago.setEmpresa(empresaEntity.get());
         log.info("Termina proceso de asociar el pago con id = {} a la empresa con id = {}", pagoId, empresaId);
-        
+
         return pagoRepository.save(pago);
     }
 
@@ -73,27 +76,27 @@ public class EmpresaPagoService {
     @Transactional
     public PagoEntity getPagoFromEmpresa(Long empresaId, Long pagoId) throws EntityNotFoundException {
         log.info("Inicia proceso de consultar el pago con id = {} de la empresa con id = {}", pagoId, empresaId);
-        
+
         Optional<EmpresaEntity> empresaEntity = empresaRepository.findById(empresaId);
         if (empresaEntity.isEmpty()) {
-            throw new EntityNotFoundException("No se encontró la empresa con el id = " + empresaId);
+            throw new EntityNotFoundException(MENSAJE_1 + empresaId);
         }
-        
+
         Optional<PagoEntity> pagoEntity = pagoRepository.findById(pagoId);
         if (pagoEntity.isEmpty()) {
-            throw new EntityNotFoundException("No se encontró el pago con el id = " + pagoId);
+            throw new EntityNotFoundException(MENSAJE_2 + pagoId);
         }
-        
+
         PagoEntity pago = pagoEntity.get();
         EmpresaEntity empresa = empresaEntity.get();
-        
+
         // Verificar que el pago esté asociado a la empresa
         if (pago.getEmpresa() == null || !pago.getEmpresa().getId().equals(empresa.getId())) {
             throw new EntityNotFoundException("El pago con id = " + pagoId + " no está asociado a la empresa con id = " + empresaId);
         }
-        
+
         log.info("Termina proceso de consultar el pago con id = {} de la empresa con id = {}", pagoId, empresaId);
-        
+
         return pago;
     }
 
@@ -107,20 +110,20 @@ public class EmpresaPagoService {
     @Transactional
     public List<PagoEntity> getPagosFromEmpresa(Long empresaId) throws EntityNotFoundException {
         log.info("Inicia proceso de consultar todos los pagos de la empresa con id = {}", empresaId);
-        
+
         Optional<EmpresaEntity> empresaEntity = empresaRepository.findById(empresaId);
         if (empresaEntity.isEmpty()) {
-            throw new EntityNotFoundException("No se encontró la empresa con el id = " + empresaId);
+            throw new EntityNotFoundException(MENSAJE_1 + empresaId);
         }
-        
+
         // Obtener todos los pagos y filtrar por empresa
         List<PagoEntity> allPagos = pagoRepository.findAll();
         List<PagoEntity> empresaPagos = allPagos.stream()
             .filter(pago -> pago.getEmpresa() != null && pago.getEmpresa().getId().equals(empresaId))
             .collect(Collectors.toList());
-        
+
         log.info("Termina proceso de consultar todos los pagos de la empresa con id = {}", empresaId);
-        
+
         return empresaPagos;
     }
 
@@ -134,29 +137,29 @@ public class EmpresaPagoService {
     @Transactional
     public void removePagoFromEmpresa(Long empresaId, Long pagoId) throws EntityNotFoundException {
         log.info("Inicia proceso de desasociar el pago con id = {} de la empresa con id = {}", pagoId, empresaId);
-        
+
         Optional<EmpresaEntity> empresaEntity = empresaRepository.findById(empresaId);
         if (empresaEntity.isEmpty()) {
-            throw new EntityNotFoundException("No se encontró la empresa con el id = " + empresaId);
+            throw new EntityNotFoundException(MENSAJE_1 + empresaId);
         }
-        
+
         Optional<PagoEntity> pagoEntity = pagoRepository.findById(pagoId);
         if (pagoEntity.isEmpty()) {
-            throw new EntityNotFoundException("No se encontró el pago con el id = " + pagoId);
+            throw new EntityNotFoundException(MENSAJE_2 + pagoId);
         }
-        
+
         PagoEntity pago = pagoEntity.get();
         EmpresaEntity empresa = empresaEntity.get();
-        
+
         // Verificar que el pago esté asociado a la empresa
         if (pago.getEmpresa() == null || !pago.getEmpresa().getId().equals(empresa.getId())) {
             throw new EntityNotFoundException("El pago con id = " + pagoId + " no está asociado a la empresa con id = " + empresaId);
         }
-        
+
         // Desasociar el pago de la empresa
         pago.setEmpresa(null);
         pagoRepository.save(pago);
-        
+
         log.info("Termina proceso de desasociar el pago con id = {} de la empresa con id = {}", pagoId, empresaId);
     }
 }
