@@ -100,21 +100,19 @@ public class EmpresaPagoService {
      */
     @Transactional
     public List<PagoEntity> getPagosFromEmpresa(Long empresaId) throws EntityNotFoundException {
-    log.info("Inicia proceso de consultar todos los pagos de la empresa con id = {}", empresaId);
+        log.info("Inicia proceso de consultar todos los pagos de la empresa con id = {}", empresaId);
 
-    EmpresaEntity empresa = getEmpresaOrThrow(empresaId);
+        getEmpresaOrThrow(empresaId); // Solo valida existencia
 
-    // Obtener todos los pagos y filtrar por empresa
-    List<PagoEntity> allPagos = pagoRepository.findAll();
-    List<PagoEntity> empresaPagos = allPagos.stream()
-        .filter(pago -> pago.getEmpresa() != null && pago.getEmpresa().getId().equals(empresaId))
-        .collect(Collectors.toList());
+        // Obtener todos los pagos y filtrar por empresa
+        List<PagoEntity> empresaPagos = pagoRepository.findAll().stream()
+            .filter(pago -> pago.getEmpresa() != null && pago.getEmpresa().getId().equals(empresaId))
+            .toList(); 
 
-    log.info("Termina proceso de consultar todos los pagos de la empresa con id = {}", empresaId);
+        log.info("Termina proceso de consultar todos los pagos de la empresa con id = {}", empresaId);
 
-    return empresaPagos;
+        return empresaPagos;
     }
-
     /**
      * Desasocia un pago de una empresa
      *
@@ -141,3 +139,4 @@ public class EmpresaPagoService {
     log.info("Termina proceso de desasociar el pago con id = {} de la empresa con id = {}", pagoId, empresaId);
 }
 }
+
