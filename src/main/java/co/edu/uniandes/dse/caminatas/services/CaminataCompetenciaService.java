@@ -122,10 +122,7 @@ public class CaminataCompetenciaService
             throw new IllegalOperationException("Los requisitos de la caminata no pueden ser nulos o vacíos.");
         }
     }
-    private CaminataCompetenciaEntity getCaminataCompetenciaOrThrow(Long caminataCompetenciaId) throws EntityNotFoundException {
-    return caminataCompetenciaRepository.findById(caminataCompetenciaId)
-        .orElseThrow(() -> new EntityNotFoundException(MENSAJE_1 + caminataCompetenciaId));
-}
+    
     /*
      * Devuelve todas las caminatas de competencia en la base de datos
      */
@@ -140,21 +137,31 @@ public class CaminataCompetenciaService
      * Busca una caminata de competencia por ID
      */
     @Transactional
-    public CaminataCompetenciaEntity getCaminataCompetencia(Long caminataCompetenciaId) throws EntityNotFoundException {
+    public CaminataCompetenciaEntity getCaminataCompetencia(Long caminataCompetenciaId) throws EntityNotFoundException
+    {
         log.info("Inicia proceso de consultar la caminata de competencia con id = {0}", caminataCompetenciaId);
-        CaminataCompetenciaEntity caminataCompetencia = getCaminataCompetenciaOrThrow(caminataCompetenciaId);
+        Optional<CaminataCompetenciaEntity> caminataCompetencia = caminataCompetenciaRepository.findById(caminataCompetenciaId);
+        if (caminataCompetencia.isEmpty()) {
+            throw new EntityNotFoundException(MENSAJE_1 + caminataCompetenciaId);
+        }
         log.info("Termina proceso de consultar la caminata de competencia con id = {0}", caminataCompetenciaId);
-        return caminataCompetencia;
+        return caminataCompetencia.get();
     }
 
     /*
      * Actualiza la información de una caminata de competencia
      */
     @Transactional
-    public CaminataCompetenciaEntity updateCaminataCompetencia(Long caminataCompetenciaId, CaminataCompetenciaEntity caminataCompetencia) throws EntityNotFoundException, IllegalOperationException {
+    public CaminataCompetenciaEntity updateCaminataCompetencia(Long caminataCompetenciaId, CaminataCompetenciaEntity caminataCompetencia) throws EntityNotFoundException, IllegalOperationException
+    {
         log.info("Inicia proceso de actualizar la caminata de competencia con id = {0}", caminataCompetenciaId);
-        getCaminataCompetenciaOrThrow(caminataCompetenciaId);
+        Optional<CaminataCompetenciaEntity> caminataCompetenciaEntity = caminataCompetenciaRepository.findById(caminataCompetenciaId);
+        if (caminataCompetenciaEntity.isEmpty()) {
+            throw new EntityNotFoundException(MENSAJE_1 + caminataCompetenciaId);
+        }
+
         validarCaminataCompetencia(caminataCompetencia);
+
         caminataCompetencia.setId(caminataCompetenciaId);
         log.info("Termina proceso de actualizar la caminata de competencia con id = {0}", caminataCompetenciaId);
         return caminataCompetenciaRepository.save(caminataCompetencia);   
@@ -177,12 +184,17 @@ public class CaminataCompetenciaService
      * Elimina una caminata de competencia por ID
      */
     @Transactional
-    public void deleteCaminataCompetencia(Long caminataCompetenciaId) throws EntityNotFoundException, IllegalOperationException {
+    public void deleteCaminataCompetencia(Long caminataCompetenciaId) throws EntityNotFoundException, IllegalOperationException
+    {
         log.info("Inicia proceso de eliminación de la caminata de competencia con id = {0}", caminataCompetenciaId);
-        CaminataCompetenciaEntity caminataCompetencia = getCaminataCompetenciaOrThrow(caminataCompetenciaId);
+        Optional<CaminataCompetenciaEntity> caminataCompetencia = caminataCompetenciaRepository.findById(caminataCompetenciaId);
+        if (caminataCompetencia.isEmpty()) {
+            throw new EntityNotFoundException(MENSAJE_1 + caminataCompetenciaId);
+        }
 
-        PatrocinadorEntity patrocinador = caminataCompetencia.getPatrocinador();
-        if(patrocinador != null) {
+        PatrocinadorEntity patrocinador = caminataCompetencia.get().getPatrocinador();
+        if(patrocinador != null)
+        {
             throw new IllegalOperationException("No se puede eliminar esta caminata ya que se encuentra asociada a un patrocinador.");
         }
         caminataCompetenciaRepository.deleteById(caminataCompetenciaId);
